@@ -1,0 +1,48 @@
+footer {
+
+  .bg-grey {
+    background-color: $grey-light;
+    padding:15px;
+    h4  {
+      font-size: 20px;
+    }
+    p {
+      font-size: 0.9em;
+      margin-bottom:5px;
+    }
+    a {
+      color: $blue;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .bg-white {
+    padding:15px;
+    font-size: 0.9em;
+  }
+
+}
+
+.footer2 {
+  padding:3em 0;
+  img.logo {
+    margin-bottom:2em;
+    max-height: 35px;
+  }
+  .contact {
+    a {
+      font-size: 1.2em;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .fa {
+      margin-right:15px;
+    }
+  }
+  .footer2-links {
+    margin:2em 0;
+  }
+}

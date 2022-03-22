@@ -1,0 +1,22 @@
+@import "auth";
+@import "welcome";
+@import "create";
+@import "orders";
+@import "tickets";
+
+
+.bg-image-page {
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  min-height: 100vh;
+  &.default {
+    background-image: url('/storage/images/backgrounds/default.jpg');
+  }
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}

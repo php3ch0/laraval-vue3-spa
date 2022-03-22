@@ -1,0 +1,48 @@
+.btn {
+  border:1px solid #000 !important;
+  font-family:$font-title;
+  font-size:20px;
+  transition:background-color 0.2s ease-in-out;
+
+  &.btn-primary {
+    color:#FFF;
+    background-color:$blue;
+
+    &:hover,&:active,&:focus {
+      background-color:$blue-dark;
+      color:#FFF;
+    }
+  }
+
+  &.btn-secondary {
+    color:#FFF;
+    background-color:$grey;
+
+    &:hover,&:active,&:focus {
+      background-color:$grey-dark;
+      color:#FFF;
+    }
+  }
+
+  &.btn-red {
+    color:#FFF;
+    background-color:$red;
+
+    &:hover,&:active,&:focus {
+      background-color:$red-dark;
+      color:#FFF;
+    }
+  }
+
+  &.btn-green {
+    color:#FFF;
+    background-color:$green;
+
+    &:hover,&:active,&:focus {
+      background-color:$green-dark;
+      color:#FFF;
+    }
+  }
+
+
+}

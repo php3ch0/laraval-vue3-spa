@@ -1,0 +1,34 @@
+.card {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  .card-header {
+    background-color:$blue;
+    color:#FFF;
+    font-size:20px;
+    border:1px solid $blue;
+    text-align: center;
+    h5 {
+      font-family: $font-title;
+      margin:0;
+      font-size:20px;
+      color:#FFF;
+    }
+  }
+  &.red {
+    .card-header {
+      background-color: $red;
+      border:1px solid $red;
+    }
+  }
+  &.green {
+    .card-header {
+      background-color: $green;
+      border:1px solid $green;
+    }
+  }
+  &.admin {
+    .card-header {
+      background-color: $orange-light;
+      border:1px solid $orange-light;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import 'variables';
+
+@import '~bootstrap/scss/bootstrap';
+@import '~sweetalert2/dist/sweetalert2';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css';
+
+@import 'layout/index';
+@import 'elements/index';
+@import 'text/index';
+@import 'pages/index';
+
+@import 'components/server-error';
