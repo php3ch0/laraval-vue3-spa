@@ -8,14 +8,8 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="navbar-nav">
 
-          <li><router-link to="/create">New Order</router-link></li>
-          <li><router-link to="/orders?status=live">Pending</router-link></li>
-          <li><router-link to="/orders?status=printing">Processing</router-link></li>
-          <li><router-link to="/orders?status=problem">Issues</router-link></li>
-          <li><router-link to="/orders?status=dispatched">Dispatched</router-link></li>
-          <li><router-link to="/invoices">Invoices</router-link></li>
-          <li><router-link to="/prices">Prices</router-link></li>
-          <li><router-link to="/tickets">Resolution Centre</router-link></li>
+          <li><router-link to="/">Home</router-link></li>
+
 
         </ul>
 

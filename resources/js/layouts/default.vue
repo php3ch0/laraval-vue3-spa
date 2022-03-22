@@ -1,6 +1,5 @@
 <template>
   <div class="main-layout">
-    <NotificationHeader align="left" />
     <Header  />
     <Navbar />
 
@@ -17,11 +16,10 @@
 <script>
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import NotificationHeader from "./components/NotificationHeader";
 import Navbar from "./components/Navbar";
 
 export default {
-  name: 'MainLayout',
+  name: 'DefaultLayout',
 
   components: {
     NotificationHeader,

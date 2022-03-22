@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         parent::registerPolicies($gate);
 
         $gate->define('access-user', function ($user) {
-            $array = array('admin','trade','user');
+            $array = array('admin','user');
             if(in_array(strtolower($user->role),array_map('strtolower',$array))) {  return true; }
         });
 

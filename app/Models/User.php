@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Notifications\ResetPassword;
-use App\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -66,21 +65,9 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     ];
 
     protected $appends = [
-        'logo_url','address_html'
+       'address_html'
     ];
 
-
-    public function prices() {
-        return $this->hasMany(UserPrices::class,'user_id','id')->with(['product']);
-    }
-
-    public function invoices() {
-        return $this->hasMany(Invoices::class,'user_id','id')->orderBy('created_at','DESC');
-    }
-
-    public function orders() {
-        return $this->hasMany(Orders::class,'user_id','id');
-    }
 
     public function country() {
         return $this->hasOne(Countries::class,'id','country_id');
@@ -147,13 +134,6 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     public function getJWTCustomClaims()
     {
         return [];
-    }
-
-    public function getLogoUrlAttribute() {
-        if(empty($this->company_logo)) {
-            return "/storage/images/logos/blank.jpg";
-        }
-        return "/storage/images/logos/".$this->company_logo;
     }
 
     public function getAddressHtmlAttribute() {

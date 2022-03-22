@@ -60,7 +60,7 @@
         <tr>
             <td align="center">
                 <a href="http://trade.printjunction.co.uk">
-                    <img align="center" src="https://trade.printjunction.co.uk/storage/images/logo.jpg" style="width: 275px; height: auto; margin: 25px 0px 20px;" width="275">
+                    <img align="center" src="{{ url('/storage/images/logo.png') }}" style="width: 275px; height: auto; margin: 25px 0px 20px;" width="275">
                 </a>
             </td>
         </tr>
@@ -74,9 +74,9 @@
         </tr>
         <tr>
             <td align="center" style="background-color: #425463; padding:20px;">
-                <a href="http://print-junction.co.uk"><img alt="Powered by Print | Junction" src="https://xmas4schools.co.uk/storage/images/poweredby.png" width="225"></a>
-                <p><small>© Print Junction Ltd.<br />
-                Cobbs Wood House, Cobbs Wood Industrial Estate, Ashford, Kent, TN23 1EP</small></p>
+
+                <p><small>© .<br />
+                </small></p>
             </td>
         </tr>
     </table>
