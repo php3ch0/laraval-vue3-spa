@@ -9,8 +9,6 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "h4cc/wkhtmltoimage-amd64": "0.12.x",
-        "h4cc/wkhtmltopdf-amd64": "0.12.x",
         "intervention/image": "^2.5",
         "laravel/framework": "^8",
         "laravel/socialite": "^5.2",
@@ -18,9 +16,7 @@
         "laravel/ui": "^3.3",
         "maatwebsite/excel": "^3.1",
         "nicolaslopezj/searchable": "1.*",
-        "spatie/pdf-to-image": "^1.8",
         "tymon/jwt-auth": "dev-develop",
-        "barryvdh/laravel-snappy": "^0.4.5"
     },
     "require-dev": {
         "doctrine/dbal": "^2.13",
@@ -68,6 +64,12 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/php3ch0/laraval-vue2-spa"
+      }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
