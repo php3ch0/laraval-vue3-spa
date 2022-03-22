@@ -10,7 +10,7 @@ Laravel 9 and vue2 spa using Bootstrap
 -   Login, register, update profile
 -   password reset
 -   Authentication with JWT
--   Bootstrap 5, Font Awsome 6
+-   Bootstrap 5, Font Awesome 6
 
 ## Installation
 
@@ -20,6 +20,7 @@ Laravel 9 and vue2 spa using Bootstrap
 - `php artisan key:generate`
 - `php artisan migrate`
 - `php artisan db:seed --class=CountriesTableSeed`
+- `php artisan storage:link`
 - `npm install`
 - `npm run watch`
 
