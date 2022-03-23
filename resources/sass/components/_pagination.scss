@@ -1,0 +1,17 @@
+.page-link {
+  color: #FFF;
+}
+.page-item, .page-item.disabled{
+  .page-link {
+    background-color: #3C3C3C;
+    color: #FFF;
+  }
+
+}
+.page-item.active {
+  .page-link {
+    background-color: black;
+    color: white;
+    border-color:#CCC;
+  }
+}

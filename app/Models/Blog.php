@@ -17,7 +17,7 @@ class Blog extends Model
         'image',
     ];
 
-    protected $appends =['preview_text','fileurl','article_html'];
+    protected $appends =['preview_text','fileurl','article_html','url'];
 
 
     public function image() {
@@ -36,7 +36,7 @@ class Blog extends Model
         return $this->hasMany(BlogImages::class,'blog_id','id');
     }
 
-    public function url() {
+    public function getUrlAttribute() {
         return "/blog/".$this->slug;
     }
 
@@ -46,7 +46,10 @@ class Blog extends Model
 
         $text = strip_tags(html_entity_decode($this->article));
 
-        return substr($text,0,180);
+        $text= substr($text,0,180);
+        $text = preg_replace('/\[\[.*?\]\]/m','',$text);
+
+        return $text;
 
     }
 

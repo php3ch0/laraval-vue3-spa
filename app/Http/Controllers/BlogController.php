@@ -40,38 +40,15 @@ class BlogController extends Controller
 
         $start = $page*$limit;
 
-        $data = Blog::whereRaw('1=1');
-
-        if($lang) {
-           $data = $data->where('lang','=',$lang);
-        }
-
-        $all = $data->count();
-        $blogs = $data->orderby('created_at','DESC')->offset($start)->limit($limit)->get();
+        $blogs = Blog::whereRaw('1=1');
 
 
-
-        if($blogs->count()) {
-
-            $data=[];
-            $data['posts']=[];
-            foreach($blogs as $b) {
-
-                $item =  [
-                'id' => $b->id,
-                'title' => $b->title,
-                'imageurl' => $b->image(),
-                'preview_text' => mb_convert_encoding(substr(strip_tags(nl2br($b->article)),0,100).'...','UTF-8', 'UTF-8')
-                ];
-                $data['posts'][] = $item;
-            }
-            $data['total'] = $all;
-            $data['page'] = $page;
+        $data['total'] = $blogs->count();
+        $data['posts'] = $blogs->orderby('created_at','DESC')->offset($start)->limit($limit)->get();
+        $data['page'] = $page;
 
 
-            return response()->json($data,200);
-        }
-        return response()->json([],200);
+        return response()->json($data,200);
 
     }
 
@@ -89,12 +66,11 @@ class BlogController extends Controller
 
         if($item) {
             $data=$item->toArray();
-            $data['imageurl'] = $item->image();
             $data['seo'] = [
                 'title'=>$item->title,
                 'description'=>substr(strip_tags($item->article),0,255),
-                'url'=>url($item->url()),
-                'image'=>url($item->image())
+                'url'=>url($item->url),
+                'image'=>url($item->image_url)
             ];
             $data['published']=date('d-m-Y',strtotime($item->created_at));
 

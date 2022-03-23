@@ -14,6 +14,7 @@ use App\Http\Controllers\BlogImagesController;
 use App\Http\Controllers\GalleriesController;
 use App\Http\Controllers\GalleriesImagesController;
 use App\Http\Controllers\TestimonialsController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -115,3 +116,6 @@ Route::get('/galleries/images/{id}',[GalleriesImagesController::class,'get']);
 // Public Testimonials
 Route::get('/testimonials',[TestimonialsController::class,'index']);
 Route::get('/testimonials/{id}',[TestimonialsController::class,'get']);
+
+//Contact Form
+Route::post('contact',[ContactController::class,'contact']);

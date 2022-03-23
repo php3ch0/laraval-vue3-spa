@@ -1,0 +1,138 @@
+.admin-blog-item {
+  border:2px solid #CCC;
+  height:320px;
+  overflow: hidden;
+  margin-bottom:2em;
+  justify-content: center;
+  position: relative;
+  .item-image {
+    overflow: hidden;
+    height:200px;
+    object-fit: contain;
+    position: relative;
+    img {
+      z-index: 1;
+      position: absolute;
+      align-self: center;
+      object-fit: contain;
+      width: 100%;
+    }
+  }
+  .title {
+    padding:5px;
+    height:50px;
+    margin-top:10px;
+    small {
+      display: block;
+    }
+  }
+  a {
+    color: #dedede;
+  }
+
+  .image-controls {
+    width:100%;
+    position: absolute;
+    top:0;
+    lefg:0;
+    right:0;
+    height:0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.8);
+    transition: all 0.4s ease-in-out;
+    color: #CCC;
+    z-index: 2;
+  }
+  &:hover {
+    border:2px solid #333;
+    cursor: pointer;
+    .image-controls {
+      height:auto;
+      padding:10px;
+      i {
+        font-size: 1.3em;
+        &:hover {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+.admin-blog-edit {
+  .img-wrap {
+    height:200px;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    img {
+      max-height:200px;
+    }
+  }
+}
+.blog-item{
+  margin-bottom:2em;
+  justify-content: center;
+  background-color: #FFF;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 8px 8px 30px 0px rgba(42,67,113,.15);
+  .item-image {
+    height:250px;
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    img {
+      object-fit: cover;
+      min-height:100%;
+      min-width:100%;
+    }
+  }
+  .item-name {
+    padding:1em;
+    min-height: 180px;
+    text-align: center;
+    .date {
+      display: block;
+      font-weight: bold !important;
+      text-transform: uppercase;
+      color: rgba($red,0.6);
+      font-size: 0.8em;
+    }
+    .title {
+      margin:1em 0;
+      h3 {
+        font-weight: bold;
+        font-size: 1.2em;
+        color:$black;
+      }
+    }
+    .preview {
+
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    img {
+      transform: scale(1.1);
+      transition-duration: .3s;
+      filter: grayscale(50%);
+      opacity: .7;
+    }
+  }
+}
+.blog-article {
+  h1 {
+    font-size: 2em;
+    padding:0;
+    margin:0 0 0.5em 0;
+    border:0;
+  }
+  .blog-image {
+    padding:25px 0;
+    text-align: center;
+    img {
+      max-width: 100%;
+    }
+  }
+}

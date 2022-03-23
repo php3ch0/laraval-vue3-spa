@@ -1,0 +1,51 @@
+#HeaderImage {
+  min-height: 500px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  &:after {
+    content: ' ';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 10;
+  }
+
+  .title-text {
+    position: absolute;
+    z-index: 11;
+    bottom:25px;
+    left:0;
+    right:0;
+    h1 {
+      color: #FFF;
+      font-size: 40px;
+    }
+  }
+
+  &.chevron {
+    .title-text {
+      bottom: 90px;
+    }
+
+    &:before {
+      content: ' ';
+      position: absolute;
+      z-index: 50;
+      background-image: url('/storage/images/masks/headermask.svg');
+      bottom:0;
+      width:100%;
+      background-position: bottom;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height:99px;
+    }
+  }
+
+
+
+}
