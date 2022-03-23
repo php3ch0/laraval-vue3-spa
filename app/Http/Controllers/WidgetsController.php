@@ -132,7 +132,7 @@ class WidgetsController extends Controller
             return abort(401);
         }
 
-        $widget = Widgets::find($id)->delete();
+        Widgets::find($id)->delete();
         $data['status']='success';
         return response()->json($data,200);
 

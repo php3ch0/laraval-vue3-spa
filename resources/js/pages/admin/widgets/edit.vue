@@ -203,7 +203,7 @@
                 this.$bvModal.msgBoxConfirm('Are you sure you want to delete this?')
                     .then(value => {
                         if(value==true) {
-                            self.$axios.delete('/api/widgets/'+self.id)
+                            self.$axios.delete('/api/widgets/'+self.thisWidget.id)
                                 .then(function () {
                                     self.$router.push({path: '/admin/widgets'});
                                 });
