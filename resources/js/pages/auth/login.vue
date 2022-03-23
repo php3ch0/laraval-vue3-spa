@@ -1,6 +1,6 @@
 <template>
   <div id="LoginPage">
-    <PageHeader title="Please Login" />
+
     <div class="d-flex">
       <div class="container align-self-center pt-3 pb-3">
         <div class="row justify-content-center">
@@ -30,6 +30,7 @@
                       <div class="row">
                         <div class="col-12 col-xl-6 text-center text-xl-start align-self-center">
                           <button type="submit" class="btn btn-primary">Sign In</button>
+                          <router-link to="/register" class="btn btn-secondary">Sign-Up</router-link>
 
                         </div>
                         <div class="col-12 col-xl-6 text-center text-xl-end align-self-center">
@@ -87,7 +88,7 @@ export default {
   }),
 
   mounted() {
-    $store.dispatch('auth/logout')
+    this.$store.dispatch('auth/logout')
   },
 
   methods: {

@@ -1,6 +1,6 @@
 <template>
   <div id="ResetPasswordPage">
-    <PageHeader title="Reset Password" />
+
     <div class="container align-self-center pt-3 pb-3">
         <div class="row">
     <div class="col-lg-7 m-auto">

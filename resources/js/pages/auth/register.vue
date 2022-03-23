@@ -1,6 +1,6 @@
 <template>
   <div id="RegisterPage">
-    <PageHeader title="Create Account" />
+
     <div class="container align-self-center pt-3 pb-3">
       <div  class="row justify-content-center">
         <div class="col-12 col-lg-10 col-xl-8">

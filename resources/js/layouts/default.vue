@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -22,8 +23,10 @@ export default {
   name: 'DefaultLayout',
 
   components: {
-    NotificationHeader,
     Header,Footer,Navbar
-  }
+  },
+  computed: mapGetters({
+    user: 'auth/user',
+  }),
 }
 </script>
