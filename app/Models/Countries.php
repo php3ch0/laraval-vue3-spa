@@ -12,10 +12,6 @@ class Countries extends Model
     ];
 
 
-        public function deliveryTypes() {
-            return $this->belongsToMany(DeliveryTypes::class,'delivery_types_countries','country_id','type_id')->withPivot(['id']);
-        }
-
 
 
 }
