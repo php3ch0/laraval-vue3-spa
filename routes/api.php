@@ -59,7 +59,6 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     /* Admin Widgets */
     Route::get('/widgets',[WidgetsController::class,'index']);
-    Route::get('/widgets/{id}',[WidgetsController::class,'get']);
     Route::post('/widgets/{id}',[WidgetsController::class,'edit']);
     Route::delete('/widgets/{id}',[WidgetsController::class,'delete']);
     Route::post('/widgets',[WidgetsController::class,'add']);
@@ -117,5 +116,8 @@ Route::get('/galleries/images/{id}',[GalleriesImagesController::class,'get']);
 Route::get('/testimonials',[TestimonialsController::class,'index']);
 Route::get('/testimonials/{id}',[TestimonialsController::class,'get']);
 
-//Contact Form
+// Public Contact Form
 Route::post('contact',[ContactController::class,'contact']);
+
+// Public Widgets
+Route::get('/widgets/{id}',[WidgetsController::class,'get']);

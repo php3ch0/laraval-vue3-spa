@@ -20,7 +20,7 @@ class GalleriesImages extends Migration
             $table->string('caption')->nullable();
             $table->text('caption_sub')->nullable();
             $table->string('url')->nullable();
-            $table->integer('orderby')->unsigned()->nullable();
+            $table->integer('order_by')->unsigned()->nullable();
             $table->timestamps();
         });
     }

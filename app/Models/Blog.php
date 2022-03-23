@@ -17,10 +17,10 @@ class Blog extends Model
         'image',
     ];
 
-    protected $appends =['preview_text','fileurl','article_html','url'];
+    protected $appends =['preview_text','file_url','image_url','article_html','url'];
 
 
-    public function image() {
+    public function getImageUrlAttribute() {
 
         $dir = '/storage/images/blog/';
 

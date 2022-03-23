@@ -18,7 +18,7 @@ class Galleries extends Migration
             $table->string('slug')->nullable();
             $table->text('name')->nullable();
             $table->char('show')->default('N')->nullable();
-            $table->string('orderby')->nullable();
+            $table->string('order_by')->nullable();
             $table->timestamps();
         });
     }

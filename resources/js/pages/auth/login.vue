@@ -81,14 +81,12 @@ export default {
   data: () => ({
     loading:false,
     errorsLogin:{},
-
     formLogin: {},
 
   }),
 
   mounted() {
-
-    this.$store.dispatch('auth/logout')
+    this.$store.dispatch('auth/logout');
   },
 
   methods: {

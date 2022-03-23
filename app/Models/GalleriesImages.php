@@ -19,7 +19,7 @@ class GalleriesImages extends Model {
      *
      * @var array
      */
-    protected $fillable = ['gallery_id','orderby','image','caption','caption_sub','url'];
+    protected $fillable = ['gallery_id','order_by','image','caption','caption_sub','url'];
 
 
     protected $appends = ['imageurl'];

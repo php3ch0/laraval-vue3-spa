@@ -72,7 +72,7 @@ class GalleriesController extends Controller
         }
 
 
-        $items->orderby('orderby','ASC')->offset($start)->limit($limit)->get();
+        $items->orderby('order_by','ASC')->offset($start)->limit($limit)->get();
 
 
         $data['status'] = '200';
@@ -189,7 +189,7 @@ class GalleriesController extends Controller
         foreach($data as $key=>$value) {
             $item = Galleries::find($value['id']);
             if(isset($item->id)) {
-                $item->orderby =  str_pad($key, 4, '0', STR_PAD_LEFT);
+                $item->order_by =  str_pad($key, 4, '0', STR_PAD_LEFT);
                 $item->save();
             }
         }

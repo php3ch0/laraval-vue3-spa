@@ -32,6 +32,7 @@ export default [
   { path: '/admin/blog', name: 'AdminBlog', component: page('admin/blog/index.vue') },
   { path: '/admin/blog/add', name: 'AdminBlogAdd', component: page('admin/blog/add.vue') },
   { path: '/admin/blog/:id', name: 'AdminBlogEdit', component: page('admin/blog/edit.vue') },
+
   /* Public Blogs */
   { path: '/blog', name: 'Blog', component: page('blog/index.vue') },
   { path: '/blog/:slug', name: 'BlogView', component: page('blog/view.vue') },
@@ -40,10 +41,15 @@ export default [
   { path: '/admin/galleries', name: 'admin.galleries', component: page('admin/galleries/index.vue') },
   { path: '/admin/galleries/:id', name: 'admin.galleries.edit', component: page('admin/galleries/edit.vue') },
 
+  /* Public Galleries */
+  { path: '/galleries', name: 'Galleries', component: page('galleries/index.vue') },
+  { path: '/galleries/:slug', name: 'GalleriesView', component: page('galleries/view.vue') },
 
   /* admin testimonials */
   { path: '/admin/testimonials', name: 'AdminTestimonials', component: page('admin/testimonials/index.vue') },
   { path: '/admin/testimonials/:id', name: 'AdminTestimonialsEdit', component: page('admin/testimonials/edit.vue') },
+
+  { path: '/contact', name: 'contact', component: page('contact/index.vue') },
 
 
 

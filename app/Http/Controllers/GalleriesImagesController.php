@@ -168,7 +168,7 @@ class GalleriesImagesController extends Controller
         foreach($data as $key=>$value) {
            $image = GalleriesImages::find($value['id']);
            if(isset($image->id)) {
-               $image->orderby =  str_pad($key, 4, '0', STR_PAD_LEFT);
+               $image->order_by =  str_pad($key, 4, '0', STR_PAD_LEFT);
                $image->save();
            }
         }

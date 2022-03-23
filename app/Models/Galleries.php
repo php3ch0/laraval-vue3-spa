@@ -11,11 +11,11 @@ class Galleries extends Model
     protected $url = '/gallery/'; //default url parent
 
     protected $fillable = [
-        'name','show','slug','orderby'
+        'name','show','slug','order_by'
     ];
 
     public function images() {
-        return $this->hasMany('\App\Models\GalleriesImages','gallery_id','id')->orderby('orderby','ASC');
+        return $this->hasMany('\App\Models\GalleriesImages','gallery_id','id')->orderby('order_by','ASC');
     }
 
     protected $appends = ['imageurl','url'];
