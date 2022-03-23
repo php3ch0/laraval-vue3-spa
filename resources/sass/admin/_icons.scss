@@ -1,0 +1,32 @@
+#admin-layout {
+  a.nav-icon-wrap {
+      font-size: 1.2em;
+      &:hover {
+        color: $black;
+        .fas {
+          color: black;
+        }
+      }
+    }
+
+  .doc-row {
+    border-bottom:1px solid $grey-light;
+    padding:4px 0;
+    .fa-check-circle {
+      color: green;
+      &.faded {
+        color: $grey-light;
+        opacity: 0.5;
+      }
+    }
+    &:first-of-type {
+      border-top:1px solid $grey-light;
+    }
+    &:hover {
+      background-color: $grey-light;
+    }
+  }
+  .btn-green {
+    min-width: 150px;
+  }
+}

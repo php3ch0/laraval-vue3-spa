@@ -1,0 +1,19 @@
+@import 'layout';
+@import 'gallery';
+@import 'fonts';
+@import 'icons';
+@import "items";
+@import "card";
+@import "forms";
+
+.img-wrap {
+  img {
+    max-width: 100%;
+  }
+}
+
+.tox-notification { display: none !important }
+
+.img-fluid {
+  width:100%;
+}

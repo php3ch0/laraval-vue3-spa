@@ -31,6 +31,7 @@ import UserDetails from './components/details'
 export default {
   name:"admin.users.view",
   middleware: 'admin',
+  layout:'admin',
 
   components: {
     UserDetails,

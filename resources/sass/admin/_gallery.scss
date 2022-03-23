@@ -1,0 +1,39 @@
+.admin-gallery-image {
+  border:2px solid #CCC;
+  padding:5px;
+  height:240px;
+  overflow: hidden;
+  margin-bottom:2em;
+  justify-content: center;
+  object-fit: contain;
+  display: flex;
+  position: relative;
+  img {
+    align-self: center;
+    object-fit: contain;
+    width: 100%;
+  }
+  .image-controls {
+    position:absolute;
+    width:100%;
+    top:-80px;
+    padding:5px;
+    background-color: rgba(0,0,0,0.8);
+    i {
+      color: rgba(255,255,255,0.4);
+    }
+  }
+  &:hover {
+    border:2px solid #333;
+    cursor: pointer;
+    .image-controls {
+      top:0;
+      i {
+        font-size: 1.3em;
+        &:hover {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}

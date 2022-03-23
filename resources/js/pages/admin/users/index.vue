@@ -67,6 +67,7 @@
 export default {
   name:"admin.users.index",
   middleware: 'admin',
+  layout:'admin',
 
   metaInfo () {
     return { title: 'Admin Portal | '+window.config.appName}
