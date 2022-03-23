@@ -22,7 +22,7 @@ class GalleriesImages extends Model {
     protected $fillable = ['gallery_id','order_by','image','caption','caption_sub','url'];
 
 
-    protected $appends = ['imageurl'];
+    protected $appends = ['image_url'];
 
     public function getImageurlAttribute() {
 

@@ -15,6 +15,7 @@ use App\Http\Controllers\GalleriesController;
 use App\Http\Controllers\GalleriesImagesController;
 use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ServicesController;
 
 
 /*
@@ -81,6 +82,13 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/testimonials/order',[TestimonialsController::class,'order']);
     Route::post('/testimonials/{id}',[TestimonialsController::class,'edit']);
 
+    /* Admin Services */
+    Route::post('/services/add',[ServicesController::class,'add']);
+    Route::post('/services/edit',[ServicesController::class,'edit']);
+    Route::any('/services/order',[ServicesController::class,'order']);
+    Route::get('/services/{id}/delete',[ServicesController::class,'delete']);
+    Route::get('/services/{id}/rotate/{image}',[ServicesController::class,'rotate']);
+
 
 });
 
@@ -121,3 +129,7 @@ Route::post('contact',[ContactController::class,'contact']);
 
 // Public Widgets
 Route::get('/widgets/{id}',[WidgetsController::class,'get']);
+
+/* Public Services */
+Route::get('/services',[ServicesController::class,'index']);
+Route::get('/services/{id}',[ServicesController::class,'get']);

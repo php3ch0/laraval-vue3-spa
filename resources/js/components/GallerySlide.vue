@@ -5,7 +5,7 @@
     <carousel v-if="slides.length" :perPageCustom="[[0,1],[500,2],[768, 4], [1024, 5]]" :navigationEnabled="false" :loop="true">
       <slide v-for="slide in slides" :key="slide.id">
 
-        <img :src="slide.imageurl" :alt="gallery.title" />
+        <img :src="slide.image_url" :alt="gallery.title" />
 
 
       </slide>

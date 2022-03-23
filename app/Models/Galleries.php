@@ -8,7 +8,7 @@ class Galleries extends Model
 {
 
     protected $imgdir = '/storage/images/galleries/'; //default image directory
-    protected $url = '/gallery/'; //default url parent
+    protected $url = '/galleries/'; //default url parent
 
     protected $fillable = [
         'name','show','slug','order_by'
@@ -18,15 +18,15 @@ class Galleries extends Model
         return $this->hasMany('\App\Models\GalleriesImages','gallery_id','id')->orderby('order_by','ASC');
     }
 
-    protected $appends = ['imageurl','url'];
+    protected $appends = ['image_url','url'];
 
 
-    public function getImageurlAttribute() {
+    public function getImageUrlAttribute() {
 
         if($this->has('images')) {
             $image = $this->images->first();
             if(isset($image->id)) {
-                return $image->imageurl;
+                return $image->image_url;
             }
 
         }

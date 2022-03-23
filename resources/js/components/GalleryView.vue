@@ -70,7 +70,7 @@ export default {
 
         //sort out the images
         self.gallery.images.forEach(function(im,index) {
-          self.slides.unshift(im.imageurl);
+          self.slides.unshift(im.image_url);
         });
 
       });

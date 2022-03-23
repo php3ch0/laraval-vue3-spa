@@ -26,6 +26,7 @@
                 <a href="#" class="nav-header" @click.prevent="" v-b-toggle.content-nav>Page Content</a>
                 <b-collapse id="content-nav" role="tabpanel" accordion="nav-accordion">
                   <b-nav-item to="/admin/blog">Blog</b-nav-item>
+                  <b-nav-item to="/admin/services">Services</b-nav-item>
                   <b-nav-item to="/admin/testimonials">Testimonials</b-nav-item>
                   <b-nav-item to="/admin/galleries">Galleries</b-nav-item>
                   <b-nav-item to="/admin/widgets">Widgets</b-nav-item>

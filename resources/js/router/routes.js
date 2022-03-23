@@ -49,6 +49,15 @@ export default [
   { path: '/admin/testimonials', name: 'AdminTestimonials', component: page('admin/testimonials/index.vue') },
   { path: '/admin/testimonials/:id', name: 'AdminTestimonialsEdit', component: page('admin/testimonials/edit.vue') },
 
+  /* Admin Services */
+  { path: '/admin/services', name: 'admin.services', component: page('admin/services/index.vue') },
+  { path: '/admin/services/add', name: 'admin.services.add', component: page('admin/services/add.vue') },
+  { path: '/admin/services/:id', name: 'admin.services.edit', component: page('admin/services/edit.vue') },
+
+  /* Public Services */
+  { path: '/services', name: 'services', component: page('services/index.vue') },
+  { path: '/services/:slug', name: 'services.view', component: page('services/view.vue') },
+
   { path: '/contact', name: 'contact', component: page('contact/index.vue') },
 
 
