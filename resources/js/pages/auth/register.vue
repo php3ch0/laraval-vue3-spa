@@ -102,8 +102,7 @@ export default {
     LoadingSm
 
   },
-  layout:'plain',
-  middleware: 'guest',
+  layout:'default',
 
   metaInfo () {
     return { title: 'Create Account | '+window.config.appName }

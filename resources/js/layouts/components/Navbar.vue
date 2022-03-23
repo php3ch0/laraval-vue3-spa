@@ -15,7 +15,7 @@
 
         <ul class="navbar-nav ms-auto">
           <!-- Authenticated -->
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" v-if="user">
             <a class="nav-link dropdown-toggle"
                href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             >
@@ -43,6 +43,15 @@
               </a>
             </div>
           </li>
+          <template v-else>
+            <li>
+              <router-link to="/login">Sign-In</router-link>
+            </li>
+            <li>
+              <router-link to="/register">Register</router-link>
+            </li>
+          </template>
+
 
         </ul>
       </div>
@@ -54,8 +63,8 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  components: {
-  },
+  name:'NavBar',
+
 
   data: () => ({
     appName: window.config.appName
@@ -70,8 +79,8 @@ export default {
       // Log out the user.
       await this.$store.dispatch('auth/logout')
 
-      // Redirect to login.
-      this.$router.push({ name: 'login' })
+      // Redirect to home page
+      this.$router.push('/')
     }
   }
 }

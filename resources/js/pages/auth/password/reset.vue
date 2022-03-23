@@ -53,9 +53,8 @@
 import LoadingSm from "../../../components/LoadingSm";
 
 export default {
-  layout:'plain',
+  layout:'default',
   components: {LoadingSm},
-  middleware: 'guest',
 
   metaInfo () {
     return { title: 'Reset Your Password | '+window.config.appName }

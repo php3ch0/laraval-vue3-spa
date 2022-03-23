@@ -41,8 +41,7 @@
 
 
 export default {
-  layout:'plain',
-  middleware: 'guest',
+  layout:'default',
 
   metaInfo () {
     return { title: "Reset Password | "+window.config.appName }

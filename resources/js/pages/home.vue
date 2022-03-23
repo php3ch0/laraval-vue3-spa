@@ -22,10 +22,10 @@
 
 export default {
 
-  middleware: 'auth',
+  layout:'default',
 
   data: () => ({
-    searchTerm:null,
+
 
 
   }),

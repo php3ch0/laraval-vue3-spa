@@ -70,8 +70,7 @@
 
 export default {
 
-  layout:'plain',
-  middleware: 'guest',
+  layout:'default',
 
   metaInfo () {
     return { title: "Login | "+window.config.appName }
@@ -88,6 +87,7 @@ export default {
   }),
 
   mounted() {
+
     this.$store.dispatch('auth/logout')
   },
 
