@@ -21,6 +21,21 @@ export default [
   { path: '/admin/users/add', name: 'admin.users.add', component: page('admin/users/add.vue') },
   { path: '/admin/users/:id', name: 'admin.users.view', component: page('admin/users/view.vue') },
 
+  /* Admin Widgets */
+  { path: '/admin/widgets', name: 'AdminWidgets', component: page('admin/widgets/index.vue') },
+  { path: '/admin/widgets/add', name: 'AdminWidgetsAdd', component: page('admin/widgets/add.vue') },
+  { path: '/admin/widgets/:id', name: 'AdminWidgetsEdit', component: page('admin/widgets/edit.vue') },
+
+  /* Blogs */
+
+  /* Admin Blog */
+  { path: '/admin/blog', name: 'AdminBlog', component: page('admin/blog/index.vue') },
+  { path: '/admin/blog/add', name: 'AdminBlogAdd', component: page('admin/blog/add.vue') },
+  { path: '/admin/blog/:id', name: 'AdminBlogEdit', component: page('admin/blog/edit.vue') },
+  /* Public Blogs */
+  { path: '/blog', name: 'Blog', component: page('blog/index.vue') },
+  { path: '/blog/:slug', name: 'BlogView', component: page('blog/view.vue') },
+
 
   { path: '*', component: page('errors/404.vue') }
 ]

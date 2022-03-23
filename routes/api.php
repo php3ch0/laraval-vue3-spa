@@ -8,6 +8,11 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CountriesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WidgetsController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogImagesController;
+use App\Http\Controllers\GalleriesController;
+use App\Http\Controllers\GalleriesImagesController;
 
 
 /*
@@ -41,7 +46,32 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/countries/{id}',[CountriesController::class, 'edit']);
     Route::delete('/countries/{id}',[CountriesController::class, 'delete']);
 
+    /* Admin Blog */
+    Route::post('/blog',[BlogController::class,'add']);
+    Route::post('/blog/{id}',[BlogController::class,'edit']);
+    Route::delete('/blog/{id}',[BlogController::class,'delete']);
 
+    Route::post('/blog/{bid}/images',[BlogImagesController::class,'add']);
+    Route::delete('/blog/{bid}/images/{id}',[BlogImagesController::class,'delete']);
+
+
+    /* Admin Widgets */
+    Route::get('/widgets',[WidgetsController::class,'index']);
+    Route::get('/widgets/{id}',[WidgetsController::class,'get']);
+    Route::post('/widgets/{id}',[WidgetsController::class,'edit']);
+    Route::delete('/widgets/{id}',[WidgetsController::class,'delete']);
+    Route::post('/widgets',[WidgetsController::class,'add']);
+    Route::post('/widgets/upload',[WidgetsController::class,'upload']);
+
+    /* Admin Galleries */
+    Route::post('/galleries',[GalleriesController::class,'add']);
+    Route::patch('/galleries',[GalleriesController::class,'edit']);
+    Route::delete('/galleries/{id}',[GalleriesController::class,'delete']);
+    Route::post('/galleries/images',[GalleriesImagesController::class,'add']);
+    Route::patch('/galleries/images',[GalleriesImagesController::class,'edit']);
+    Route::delete('/galleries/images/{id}',[GalleriesImagesController::class,'delete']);
+    Route::post('/galleries/images/order',[GalleriesImagesController::class,'order']);
+    Route::patch('/galleries/images/{id}/rotate',[GalleriesImagesController::class,'rotate']);
 
 
 });
@@ -61,3 +91,15 @@ Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleCallback']
 
 Route::get('/countries',[CountriesController::class,'index']);
 Route::get('/countries/{id}',[CountriesController::class, 'get']);
+
+/* Public Blog */
+Route::get('/blog',[BlogController::class,'index']);
+Route::get('/blog/{id}',[BlogController::class,'get']);
+
+// Public Widgets
+Route::get('/widget',[WidgetsController::class,'get']);
+
+/* Public Galleries */
+Route::get('/galleries',[GalleriesController::class,'index']);
+Route::get('/galleries/{id}',[GalleriesController::class,'get']);
+Route::get('/galleries/images/{id}',[GalleriesImagesController::class,'get']);
