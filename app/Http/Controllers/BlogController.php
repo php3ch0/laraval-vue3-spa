@@ -96,7 +96,7 @@ class BlogController extends Controller
                 'url'=>url($item->url()),
                 'image'=>url($item->image())
             ];
-            $data['published']=uk_date($item->created_at);
+            $data['published']=date('d-m-Y',strtotime($item->created_at));
 
             return response()->json($data,200);
         }
@@ -125,7 +125,7 @@ class BlogController extends Controller
         $item->title=Request::get('title');
         $item->save();
 
-        $item->slug = $item->id.'-'.url_friendly($item->title);
+        $item->slug = $item->id.'-'.preg_replace('/[^\w-]/', '',$item->title);
         $item->save();
 
         return response()->json($item,200);
@@ -158,7 +158,13 @@ class BlogController extends Controller
             $item->fill(Request::all());
 
             if (Request::hasFile('image')) {
+
                 $dir= public_path("/storage/images/blog/");
+
+                if(!is_dir($dir)) {
+                    mkdir($dir);
+                }
+
                 $extension = Request::file('image')->getClientOriginalExtension();
                  $filename= preg_replace('/\W+/', '-', strtolower(Request::get('title'))."-i".date('Ymdhis')).".".$extension;
                     Image::make(Request::file('image'))->resize(1800, null, function ($constraint) {

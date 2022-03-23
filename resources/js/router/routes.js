@@ -36,6 +36,11 @@ export default [
   { path: '/blog', name: 'Blog', component: page('blog/index.vue') },
   { path: '/blog/:slug', name: 'BlogView', component: page('blog/view.vue') },
 
+  /* admin testimonials */
+  { path: '/admin/testimonials', name: 'AdminTestimonials', component: page('admin/testimonials/index.vue') },
+  { path: '/admin/testimonials/:id', name: 'AdminTestimonialsEdit', component: page('admin/testimonials/edit.vue') },
+
+
 
   { path: '*', component: page('errors/404.vue') }
 ]
