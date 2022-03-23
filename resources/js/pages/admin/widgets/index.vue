@@ -76,7 +76,7 @@
       getItems() {
         let self=this;
         self.Items={};
-        self.$axios.get('/api/admin/widgets?page='+(parseInt(self.Page)-1)).then(function (res) {
+        self.$axios.get('/api/widgets?page='+(parseInt(self.Page)-1)).then(function (res) {
           self.Widgets=res.data.results;
           self.totalRows=res.data.total;
 

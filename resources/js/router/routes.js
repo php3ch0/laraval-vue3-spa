@@ -36,6 +36,11 @@ export default [
   { path: '/blog', name: 'Blog', component: page('blog/index.vue') },
   { path: '/blog/:slug', name: 'BlogView', component: page('blog/view.vue') },
 
+  /* Admin Galleries */
+  { path: '/admin/galleries', name: 'admin.galleries', component: page('admin/galleries/index.vue') },
+  { path: '/admin/galleries/:id', name: 'admin.galleries.edit', component: page('admin/galleries/edit.vue') },
+
+
   /* admin testimonials */
   { path: '/admin/testimonials', name: 'AdminTestimonials', component: page('admin/testimonials/index.vue') },
   { path: '/admin/testimonials/:id', name: 'AdminTestimonialsEdit', component: page('admin/testimonials/edit.vue') },

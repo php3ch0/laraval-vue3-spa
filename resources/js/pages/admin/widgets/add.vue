@@ -2,7 +2,7 @@
   <section>
 
     <div class="row">
-      <div class="col-12 col-lg-6 mb-3 text-center text-lg-start">
+      <div class="col-12 col-lg-6 mb-3 text-center text-lg-left">
         <h1>Widgets</h1>
       </div>
       <div class="col-12 col-lg-6 mb-3 text-center text-lg-end">
@@ -65,7 +65,7 @@ export default {
       let self = this;
       e.preventDefault();
 
-      self.$axios.post('/api/admin/widgets/add',
+      self.$axios.post('/api/widgets',
               { name: self.name }
       )
               .then(function (res) {

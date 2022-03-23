@@ -1,0 +1,30 @@
+.widget-edit {
+  border: 1px solid transparent;
+  position: relative;
+  min-height: 40px;
+
+  .button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 998;
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    background-color: black;
+    display: none;
+    text-align: right;
+  }
+
+  &:hover {
+    border: 1px solid black;
+
+    .button {
+      display: block;
+
+      a, a:hover {
+        color: white;
+      }
+    }
+  }
+}

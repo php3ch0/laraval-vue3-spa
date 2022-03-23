@@ -54,7 +54,6 @@
                             powerpaste_clean_filtered_inline_elements="em, b, i, u, strike, sup, sub, font style"
                             toolbar="pastetext | formatselect | forecolor | bold italic underline strikethrough removeformat | alignleft aligncenter alignright | bullist numlist blockquote | link unlink | code"
                           />
-                          <input type='file' name='fileupload' id='fileupload' style='display: none;'>
 
 
                         </div>
@@ -83,14 +82,10 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="ms-3">
-                            <div style="border:2px dotted #ccc; padding:10px;">
-                               <widget :name="thisWidget.name" :key="date"></widget>
-
+                        <div class="ml-3">
+                            <div style="border:2px dotted #ccc; padding:10px; max-height:300px; overflow: hidden;">
+                               <widget :name="$route.params.id"></widget>
                             </div>
-                          <div v-if="isImage" class="text-center p-2">
-                          <i class="fas fa-sync-alt" title="Rotate Image" @click="rotateImage()"></i>
-                        </div>
                         </div>
                     </div>
 
@@ -98,9 +93,9 @@
 
 
                     <button v-on:click="doUpdate" type="submit" class="btn btn-primary">Save Changes</button>
-                    <!---
-                    <a class="btn btn-danger ms-2" @click="showDeleteModal" >Delete</a>
-                    !-->
+
+                    <a class="btn btn-danger ml-2" @click="showDeleteModal" >Delete</a>
+
                 </form>
             </div>
         </div>
@@ -138,36 +133,15 @@
 
         data() {
             return {
-              thisWidget: null,
+              thisWidget: {},
               id: null,
-              date: new Date(),
+
               ErrorMessages: null,
               file: null,
               content: null,
               DeleteModal: null,
               initTiny: {
                 menubar:false,
-
-                file_picker_callback: function(callback, value, meta) {
-                  // Trigger click on file element
-                  let uploader = document.getElementById("fileupload");
-                  uploader.value=null
-                  uploader.click();
-
-                  uploader.onchange = function() {
-
-                    let file = this.files[0];
-                    let fd = new FormData();
-                    fd.append("file",file);
-
-                    axios.post('/api/uploader', fd, { headers: {'Content-Type': 'multipart/form-data'}})
-                      .then(function (res) {
-                        callback(res.data.file,{'text':res.data.file});
-                      });
-                  }
-
-
-                }
               }
 
             }
@@ -183,20 +157,16 @@
         },
 
         mounted() {
-         this.getWidget();
+          let self = this;
+          self.$axios.get('/api/widgets/' + self.$route.params.id).then(function (res) {
+            self.thisWidget = res.data;
+          });
 
 
 
 
         },
         methods: {
-            getWidget() {
-              let self = this;
-              self.id = self.$route.params.id;
-              self.$axios.get('/api/admin/widgets/' + self.id).then(function (res) {
-                self.thisWidget = res.data;
-              });
-            },
             handleFileUpload(){
                 this.file = this.$refs.file.files[0];
             },
@@ -215,7 +185,7 @@
 
                 formData.append('image',this.file);
 
-                self.$axios.post('/api/admin/widgets',
+                self.$axios.post('/api/widgets/'+self.thisWidget.id,
                     formData,
                     { headers: {'Content-Type': 'multipart/form-data'}})
                 .then(function (res) {
@@ -233,23 +203,13 @@
                 this.$bvModal.msgBoxConfirm('Are you sure you want to delete this?')
                     .then(value => {
                         if(value==true) {
-                            self.$axios.get('/api/admin/widgets/'+self.id+'/delete')
+                            self.$axios.delete('/api/widgets/'+self.id)
                                 .then(function () {
                                     self.$router.push({path: '/admin/widgets'});
                                 });
                         }
                     })
             },
-          rotateImage(image) {
-            let self=this;
-            self.loading=true;
-            self.$axios.get('/api/admin/widgets/'+self.id+'/rotate')
-              .then(function (res) {
-                self.date = new Date();
-                self.loading=false;
-                self.getWidget();
-              });
-          }
 
 
         }

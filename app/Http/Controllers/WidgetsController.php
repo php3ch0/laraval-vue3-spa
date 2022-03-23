@@ -104,6 +104,11 @@ class WidgetsController extends Controller
             if (Request::hasFile('image')) {
 
                 $dir= storage_path("app/public/uploads/");
+
+                if(!is_dir($dir)) {
+                    mkdir($dir);
+                }
+
                 $extension = Request::file('image')->getClientOriginalExtension();
                 $filename= preg_replace('/\W+/', '-', strtolower(Request::get('name'))."-".date('Ymdhis')).".".$extension;
                 Image::make(Request::file('image'))->resize(1200, null, function ($constraint) {
@@ -143,6 +148,10 @@ class WidgetsController extends Controller
         if (Request::hasFile('upload')) {
 
             $dir= storage_path("app/public/uploads/");
+
+            if(!is_dir($dir)) {
+                mkdir($dir);
+            }
 
             $extension = Request::file('upload')->getClientOriginalExtension();
             $filename= preg_replace('/\W+/', '-', strtolower(pathinfo(Request::file('upload')->getClientOriginalName(), PATHINFO_FILENAME))."-".date('Ymdhis')).".".$extension;
