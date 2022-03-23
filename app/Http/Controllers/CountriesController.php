@@ -16,7 +16,7 @@ class CountriesController extends Controller
 
     public function index() {
 
-        $data = Countries::orderby('name','ASC')->with(['deliveryTypes'])->get();
+        $data = Countries::orderby('name','ASC')->get();
 
         if($data->count()) {
             return response()->json($data,200);
@@ -92,8 +92,7 @@ class CountriesController extends Controller
         if(Auth::User()->cannot('access-admin')) {
             return response()->json(['error'=>'Admin not authorised'],401);
         }
-
-        DeliveryTypesCountries::where('country_id','=',$id)->delete();
+        
         Countries::where('id','=',$id)->delete();
 
         return response()->json([],200);
