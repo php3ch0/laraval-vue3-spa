@@ -6,7 +6,7 @@ use App\Notifications\ResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
 class User extends Authenticatable implements JWTSubject //, MustVerifyEmail

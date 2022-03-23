@@ -92,7 +92,7 @@ class CountriesController extends Controller
         if(Auth::User()->cannot('access-admin')) {
             return response()->json(['error'=>'Admin not authorised'],401);
         }
-        
+
         Countries::where('id','=',$id)->delete();
 
         return response()->json([],200);
