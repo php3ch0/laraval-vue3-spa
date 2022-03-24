@@ -110,6 +110,11 @@ class ServicesController extends Controller
             if (Request::hasFile('image_header')) {
 
                 $dir= public_path('/storage/images/services/');
+
+                if(!is_dir($dir)) {
+                    mkdir($dir);
+                }
+
                 $extension = Request::file('image_header')->getClientOriginalExtension();
                 $filename= date('mdhis').rand(0,99).".".$extension;
                 Image::make(Request::file('image_header'))->resize(1600, null, function ($constraint) {
@@ -181,10 +186,10 @@ class ServicesController extends Controller
             $gi->{$image} = $newimage;
             $gi->save();
 
-            return response()->json(200);
+
 
         }
-
+        return response()->json([],200);
     }
 
 

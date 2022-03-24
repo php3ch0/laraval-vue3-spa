@@ -52,9 +52,9 @@
           <div class="col">
             <div class="mb-2">
               <div class="admin-image">
-                <img :src="Service.imageheader_url" :alt="Service.name" ref="image_header_image" />
+                <img :src="Service.image_header_url" :alt="Service.name" ref="image_header_image" />
               </div>
-              <div class="text-center p-2">
+              <div class="text-center p-2" v-if="Service.image_header">
                 <i class="fas fa-sync-alt" title="Rotate Image" @click="rotateImage('image_header')"></i>
               </div>
               <label>Header Image</label>
@@ -66,9 +66,9 @@
           <div class="col">
             <div class="mb-2">
               <div class="admin-image">
-                <img :src="Service.imageicon_url" :alt="Service.name" ref="image_icon_image" />
+                <img :src="Service.image_icon_url" :alt="Service.name" ref="image_icon_image" />
               </div>
-              <div class="text-center p-2">
+              <div class="text-center p-2" v-if="Service.image_icon">
                 <i class="fas fa-sync-alt" title="Rotate Image" @click="rotateImage('image_icon')"></i>
               </div>
               <label>Icon Image</label>
@@ -157,7 +157,7 @@ import Editor from '@tinymce/tinymce-vue';
                 let file = self.$refs[ref].files[0];
                 let file_image = self.$refs[ref+'_image'];
                 //first change the image to a loader
-                file_image.src = '/storage/images/loaders/loading-sm.svg';
+                file_image.src = '/storage/images/loaders/loading.svg';
                 //now post the data
                 let formData = new FormData();
                 formData.append(ref,file);
@@ -171,9 +171,9 @@ import Editor from '@tinymce/tinymce-vue';
                         self.$axios.get('/api/services/'+self.$route.params.id).then(function (res) {
                             //got to if this as the appi returns different results to the item_name
                             if(ref==='image_icon') {
-                                file_image.src = res.data['imageicon_url'];
+                                file_image.src = res.data['image_icon_url'];
                             } else {
-                                file_image.src = res.data['imageheader_url'];
+                                file_image.src = res.data['image_header_url'];
                             }
                             //empty out the file so we do not double submit
                             self.$refs[ref].value='';

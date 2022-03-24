@@ -16,8 +16,8 @@ class Services extends Migration
         Schema::create('services', function($table) {
             $table->increments('id');
             $table->string('name')->nullable();
-            $table->string('icon')->nullable();
-            $table->string('header_image')->nullable();
+            $table->string('image_icon')->nullable();
+            $table->string('image_header')->nullable();
             $table->string('type')->nullable();
             $table->string('order_by')->nullable();
             $table->string('gallery_id')->nullable();
