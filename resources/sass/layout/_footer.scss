@@ -1,6 +1,6 @@
 #Footer {
   .footer {
-    background-color: $white;
+    background-color: $grey-light;
     padding: 35px 15px;
 
     .footer-logo {
@@ -11,14 +11,14 @@
 
     .footer-links {
       padding: 10px;
-      color: #FFF;
+      color: $blue;
 
       h4 {
         padding: 10px 0 15px 0;
-        border-bottom: 1px solid $lime;
+        border-bottom: 1px solid $grey-dark;
         display: block;
         margin-bottom: 15px;
-        color: $white;
+        color: $blue;
       }
 
       ul {
@@ -38,12 +38,12 @@
       }
 
       a {
-        color: $grey-light;
+        color: $grey-dark;
         transition: all 0.3s ease-in-out;
         font-weight: 200;
 
         &:hover {
-          color: $white;
+          color: $black;
         }
       }
     }

@@ -1,8 +1,16 @@
 body {
   font-family:$font-body;
   font-weight:300;
-  color: #FFF;
+  color: $grey-dark;
   font-size: 18px;
+  a {
+    color: $blue;
+    transition: color 0.4s ease-in-out;
+    &:hover {
+      text-decoration: none;
+      color: $black;
+    }
+  }
 }
 
 h1,h2,h3 {

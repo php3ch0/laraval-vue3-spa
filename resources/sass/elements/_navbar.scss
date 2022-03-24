@@ -1,5 +1,5 @@
 .navbar {
-  background-color: $grey-dark;
+  background-color: $blue;
   font-weight: 500;
   padding:0;
 
@@ -18,11 +18,11 @@
       height:100%;
       a {
         padding:0.7em 1em;
-        color: $lime;
+        color: $white;
         text-transform: uppercase;
         transition: background-color 0.4s ease-in-out;
         &:hover {
-          background-color: $black;
+          background-color: $blue-dark;
           text-decoration: none;
         }
       }
