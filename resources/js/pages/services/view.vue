@@ -3,10 +3,6 @@
 
 <div v-if="Service" id="ServicesPage">
 
-  <ServiceHeader :title="Service.name" :subtitle="Service.short_text" :image="Service.image_header_url" />
-
-
-
 
   <div class="container pt-3 pb-3">
     <div  class="row">
@@ -67,9 +63,9 @@ export default {
     name:'serviceViews',
 
   metaInfo: {
-    title: window.config.appName+' | Town Planning and Development Planning Services',
+    title: window.config.appName+' | Services',
     meta: [
-      { name: 'description', content: 'We can provide help and guidance on projects ranging from complex development schemes to domestic and commercial extensions. We offer a professional service that is personable and tailored to meet individual client needs.' }
+      { name: 'description', content: '' }
     ]
   },
     beforeRouteUpdate (to, from, next) {
@@ -96,18 +92,19 @@ export default {
             dots: false,
             navButtons: false,
             slidesToShow: 3,
-            responsive: [
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 3 } },
-
-
-
-                {
-                    breakpoint: 1000,
-                    settings: {
-                        navButtons: false } }] },
+            responsive: [{
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 3
+                }
+              },
+              {
+                breakpoint: 1000,
+                settings: {
+                  navButtons: false
+                }
+              }]
+        },
         slides: []
     }},
 
@@ -123,7 +120,7 @@ export default {
             self.$axios.get('/api/services/'+slug).then(function (res) {
                 self.Service=res.data;
                 document.getElementsByTagName('meta').namedItem('description').setAttribute('content', self.Service.short_text+' covering Maidstone, Medway, Ashford and South East Kent');
-                document.title = '1st Setting Events | '+self.Service.name;
+                document.title = window.config.appName+' | '+self.Service.name;
             }).then( function() {
                 if(self.Service && self.Service.gallery_id) {
                     self.$axios.get('/api/galleries/'+self.Service.gallery_id).then(function (response) {

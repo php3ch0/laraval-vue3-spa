@@ -1,7 +1,6 @@
 <template>
   <div id="ContactPage">
 
-    <HeaderImageChevron image="contact.jpg" title="Contact Us To Discuss Your Requirements" />
 
     <div class="container mt-3 mb-3 pt-3 pb-3">
 
@@ -72,12 +71,12 @@
 
           <div class="row contact-row">
             <div class="col-auto"><i class="fas fa-phone fa-fw"></i></div>
-            <div class="col"><a href="tel:01634 294751">01634 294751</a></div>
+            <div class="col"><a href="tel:0000">0000</a></div>
           </div>
 
           <div class="row contact-row">
             <div class="col-auto"><i class="far fa-envelope fa-fw"></i></div>
-            <div class="col"><a href="mailto:info@penshurstplanning.co.uk">info@penshurstplanning.co.uk</a></div>
+            <div class="col"><a href="mailto:info@website.co.uk">info@website.co.uk</a></div>
           </div>
 
         </div>
@@ -85,9 +84,9 @@
           <h4>Write To Us</h4>
 
           <div class="contact-address">
-            <p>Penshurst Planning<br />
-              163 Brompton Farm Road<br />
-              Rochester, Kent, ME2 3RH</p>
+            <p>Address1<br />
+              Address2<br />
+              Town, Postcode</p>
           </div>
         </div>
       </div>
@@ -99,17 +98,15 @@
 
 <script>
 
-import HeaderImageChevron from "../../components/HeaderImageChevron";
 import LoadingSm from "../../components/LoadingSm";
 export default {
-  components: {LoadingSm, HeaderImageChevron},
+  components: {LoadingSm},
 
   metaInfo () {
-    let self = this;
     return {
       title: window.config.appName+' | Contact Us',
       meta: [
-        {name: 'description',content: 'Contact Penshurst Town Planning and Development Consultants to discuss your next project.'},
+        {name: 'description',content: 'Contact App Name to discuss your next project.'},
       ]
     }
   },

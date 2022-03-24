@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col align-self-auto">
           <a href="/">
-            <img src="/storage/images/logo_black.png" class="logo" alt="Penshurst Town Planning & Development Planning in Medway and Kent" />
+            <h2>Logo</h2>
           </a>
         </div>
         <div class="col-auto align-self-end align-self-center">

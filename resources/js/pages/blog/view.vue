@@ -1,8 +1,6 @@
 <template>
   <div id="BlogView">
 
-    <BlogHeaderImage :image="thisItem.image_url" :title="thisItem.title" />
-
 
     <div v-if="thisItem" class="pt-4">
         <div class="container">
@@ -30,18 +28,18 @@
 
 <script>
 
-import BlogHeaderImage from "./components/BlogHeaderImage";
+
 
 
   export default {
     layout: 'default',
     name:'BlogView',
-    components: { BlogHeaderImage },
+
     data() {
       return {
         thisItem: {
             title:window.config.appName+' | News Blog',
-            article:'Read more about the latest news and information from Penshurst Planning, Town Planning and Development Planning kent and Medway',
+            article:'Read more about the latest news and information from App Name',
             seo:{ title: window.config.appName+' | News Blog and Information',}
         },
 
@@ -51,7 +49,7 @@ import BlogHeaderImage from "./components/BlogHeaderImage";
           let self = this;
           return {
 
-              title: 'Penshurst Planning | '+ self.thisItem.title,
+              title: window.config.appName+' | '+ self.thisItem.title,
               meta: [
                   {name: 'description',content: self.thisItem.article.replace(/<[^>]*>?/gm, '').substring(0, 180)+'...'},
                   {name: 'og:title', content: self.thisItem.seo.title },

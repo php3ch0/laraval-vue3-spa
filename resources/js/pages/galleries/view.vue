@@ -29,6 +29,7 @@
 <script>
 import GalleryView from "../../components/GalleryView";
 import LoadingSm from "../../components/LoadingSm";
+
 export default {
   name: "gallery.view",
   components: {LoadingSm, GalleryView},
@@ -42,13 +43,13 @@ export default {
         title:window.config.appName+' |  Galleries',
         image:null,
         url:null,
-        description:'View photos and pictures from Penshurst Town Planning and Development Planning in Medway and Kent',
+        description:'View photos and pictures from '+window.config.appName,
       },
     }},
   mounted() {
     let self=this;
     self.getGallery();
-    self.seo.url = 'https://penshurstplanning.co.uk'+self.$route.fullPath;
+    self.seo.url = window.config.appURL+'/'+self.$route.fullPath;
   },
   methods: {
     getGallery() { //load page categories

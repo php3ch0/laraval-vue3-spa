@@ -7,7 +7,7 @@
         <div class="col-12 d-none d-lg-block col-lg-auto align-self-center">
           <div class="footer-logo pe-3 text-center text-md-start">
             <a href="/">
-              <img src="/storage/images/logo_white.png" alt="Penshurst Town and Development Planning Kent" />
+              <h2>Logo</h2>
             </a>
           </div>
         </div>
@@ -41,19 +41,19 @@
                 <h4>Contact Us</h4>
                 <div class="row footer-contact">
                   <div class="col-12 col-md-auto"><i class="fas fa-map-marker-alt fa-fw"></i></div>
-                  <div class="col-12 col-md">Penshurst Planning,
-                    163 Brompton Farm Road,
-                    Rochester,
-                    ME2 3RH</div>
+                  <div class="col-12 col-md">Address1,
+                    Address2,
+                    Town,
+                    Postcode</div>
                 </div>
                 <div class="row footer-contact">
                   <div class="col-12 col-md-auto"><i class="fas fa-phone fa-fw"></i></div>
-                  <div class="col"><a href="tel:01634 294751">01634 294751</a></div>
+                  <div class="col"><a href="tel:0000">0000</a></div>
                 </div>
 
                 <div class="row footer-contact">
                   <div class="col-12 col-md-auto"><i class="far fa-envelope fa-fw"></i></div>
-                  <div class="col-12 col-md"><a href="mailto:info@penshurstplanning.co.uk">info@penshurstplanning.co.uk</a></div>
+                  <div class="col-12 col-md"><a href="mailto:info@website.co.uk">info@website.co.uk</a></div>
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@
     </div>
   </div>
     <div class="copyright text-center pt-3 pb-3">
-      <small>© 2022 Penshurst Planning. All rights Reserved</small>
+      <small>© 2022 App Name. All rights Reserved</small>
     </div>
 
 

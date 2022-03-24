@@ -1,7 +1,6 @@
 <template>
   <div id="AboutPage">
 
-    <HeaderImageChevron title="Cookie Policy" image="generic.jpg" />
 
     <div class="container pt-3 pb-3">
 
@@ -17,8 +16,6 @@
 <script>
 
 
-
-import HeaderImageChevron from "../../components/HeaderImageChevron";
 export default {
   name:'terms.cookies',
   components: {HeaderImageChevron},

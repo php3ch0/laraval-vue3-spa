@@ -1,6 +1,7 @@
 @php
 $config = [
     'appName' => config('app.name'),
+    'appURL'=>config('app.url')
 ];
 $appJs = mix('dist/js/app.js');
 $appCss = mix('dist/css/app.css');

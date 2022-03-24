@@ -1,7 +1,6 @@
 <template>
 <div id="ServicesPage" :key="$route.fullPath">
 
-  <HeaderImageChevron title="Planning Services" image="services.gif" />
 
       <div class="container">
         <div class="pt-3 pb-3">
@@ -58,9 +57,9 @@
 export default {
   name:'services',
   metaInfo: {
-    title: window.config.appName+' | Town Planning and Development Planning Services',
+    title: window.config.appName+' | Services',
     meta: [
-      { name: 'description', content: 'Penshurst Planning provides a comprehensive range of planning services, including applications, appraisals and appeals. These services are provided across a variety of sectors, including residential, commercial, equestrian and agricultural land uses.' }
+      { name: 'description', content: '' }
     ]
   },
 

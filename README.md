@@ -1,21 +1,26 @@
 # Laravel Vue2 SPA
 
-Laravel 9 and vue2 spa using Bootstrap
-
+Laravel 9 and vue2 spa using Bootstrap 5
 
 ## Features
 
--   Laravel 9
--   Vue + VueRouter + Vuex
--   Login, register, update profile
--   password reset
--   Authentication with JWT
--   Bootstrap 5, Font Awesome 6
+- Laravel 9
+- Vue + VueRouter + Vuex
+- Login, register, update profile
+- Password reset
+- Authentication with JWT
+- Bootstrap 5, Font Awesome 6
+- Admin CRM for:
+  - Galleries
+  - Blogs
+  - Services
+  - Testimonials
+  - Widget Areas
 
 ## Installation
 
+- Navigate to the web root directory
 - `composer create-project Php3ch0/laravel-vue2-spa .`
-- `cd laravel-vue-sanctum-spa`
 - Edit `.env` and set your database connection details
 - `php artisan key:generate`
 - `php artisan migrate`

@@ -1,7 +1,7 @@
 <template>
   <div id="BlogIndex">
 
-    <HeaderImageChevron image="blog.jpg" title="News and Information" />
+
 
 
   <div id="top" class="container mt-4">
@@ -40,7 +40,7 @@
               meta: [
                   {
                       name: 'description',
-                      content: 'Read more about the latest news and information from Penshurst Planning, Town Planning and Development Consultants in Kent'
+                      content: 'Read more about the latest news and information from App Name'
                   },
               ]
           }

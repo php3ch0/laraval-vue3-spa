@@ -1,7 +1,6 @@
 <template>
     <div id="AboutPage">
 
-      <HeaderImageChevron title="Privacy Policy" image="generic.jpg" />
 
       <div class="container pt-3 pb-3">
 
@@ -15,8 +14,6 @@
 </template>
 
 <script>
-
-
 
 export default {
     name:'privacy',
