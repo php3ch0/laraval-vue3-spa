@@ -23,6 +23,11 @@ export default {
   computed: mapGetters({
     user: 'auth/user'
   }),
+
+  metaInfo () {
+    return { title: 'Account | '+window.config.appName }
+  },
+
   methods: {
     async logout () {
       // Log out the user.

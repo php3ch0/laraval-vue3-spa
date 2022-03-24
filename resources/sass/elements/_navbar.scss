@@ -1,6 +1,6 @@
 .navbar {
-  background-color: $blue;
-  font-weight: 600;
+  background-color: $grey-dark;
+  font-weight: 500;
   padding:0;
 
   .profile-image {
@@ -18,9 +18,11 @@
       height:100%;
       a {
         padding:0.7em 1em;
-        color: $white;
+        color: $lime;
+        text-transform: uppercase;
+        transition: background-color 0.4s ease-in-out;
         &:hover {
-          background-color: $red;
+          background-color: $black;
           text-decoration: none;
         }
       }

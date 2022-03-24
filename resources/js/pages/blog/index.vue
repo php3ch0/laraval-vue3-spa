@@ -1,7 +1,7 @@
 <template>
   <div id="BlogIndex">
 
-    <HeaderImage image="news.jpg" title="News" />
+    <HeaderImageChevron image="blog.jpg" title="News and Information" />
 
 
   <div id="top" class="container mt-4">
@@ -25,21 +25,22 @@
 
 <script>
   import Item from './components/item';
+  import HeaderImageChevron from "../../components/HeaderImageChevron";
 
   let VueScrollTo = require('vue-scrollto');
 
   export default {
     layout: 'default',
     name:'BlogIndex',
-    components: { Item },
+    components: {HeaderImageChevron, Item },
 
       metaInfo () {
           return {
-              title: 'Fox Energy | News Blog',
+              title: window.config.appName+' | News Blog',
               meta: [
                   {
                       name: 'description',
-                      content: 'Read more about the latest news and information from Fox Energy, Leading provider to the commercial energy markets'
+                      content: 'Read more about the latest news and information from Penshurst Planning, Town Planning and Development Consultants in Kent'
                   },
               ]
           }

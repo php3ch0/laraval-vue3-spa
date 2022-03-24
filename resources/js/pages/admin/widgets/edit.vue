@@ -47,11 +47,8 @@
                             v-model="thisWidget.data"
                             :initial-value="thisWidget.data"
                             :inline=false
-                            plugins="code link lists powerpaste image media"
-                            paste_as_text=true
-                            powerpaste_word_import="clean"
-                            powerpaste_html_import= "clean"
-                            powerpaste_clean_filtered_inline_elements="em, b, i, u, strike, sup, sub, font style"
+                            plugins="code link lists paste image media"
+                            paste_as_text: true
                             toolbar="pastetext | formatselect | forecolor | bold italic underline strikethrough removeformat | alignleft aligncenter alignright | bullist numlist blockquote | link unlink | code"
                           />
 

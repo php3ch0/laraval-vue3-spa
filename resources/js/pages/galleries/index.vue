@@ -41,7 +41,7 @@ export default {
     let self = this;
     return {
 
-      title: 'Penshurst Planning | Photo Galleries Of Town Planning and Development Planning Work',
+      title: window.config.appName+' | Photo Galleries Of Town Planning and Development Planning Work',
       meta: [
         {name: 'description',content: 'Pictures and galleries from Penshurst Planning of our town planning and development planning work in Kent and Medway'},
       ]

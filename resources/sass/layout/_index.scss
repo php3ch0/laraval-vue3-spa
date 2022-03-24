@@ -1,8 +1,8 @@
 @import 'defaults';
 @import "footer";
-@import "header";
+@import "HeaderDesktop";
+@import "HeaderMobile";
 
-.border-blue {
-  border:2px solid $blue;
-  padding:10px 15px;
+body {
+  background-color: #000;
 }

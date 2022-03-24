@@ -71,10 +71,8 @@
                             v-model="thisItem.article"
                             :initial-value="thisItem.article"
                             :inline=false
-                            plugins="code link lists powerpaste image media"
-                            powerpaste_word_import="clean"
-                            powerpaste_html_import= "clean"
-                            powerpaste_clean_filtered_inline_elements="em, b, i, u, strike, sup, sub, font"
+                            plugins="code link lists paste image media"
+                            paste_as_text: true
                             toolbar="formatselect | forecolor | bold italic underline strikethrough removeformat | alignleft aligncenter alignright | bullist numlist blockquote | link unlink | code"
                           />
                           <input type='file' name='fileupload' id='fileupload' style='display: none;'>

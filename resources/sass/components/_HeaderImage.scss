@@ -18,18 +18,27 @@
   .title-text {
     position: absolute;
     z-index: 11;
-    bottom:25px;
     left:0;
     right:0;
     h1 {
       color: #FFF;
-      font-size: 40px;
+      font-size: 50px;
     }
   }
 
   &.chevron {
     .title-text {
-      bottom: 90px;
+      text-align: center;
+      top:40%;
+      h1 {
+        font-size: 50px;
+      }
+
+    }
+    @media screen and (max-width: 400px) {
+      .title-text {
+        top:20%;
+      }
     }
 
     &:before {
@@ -43,6 +52,12 @@
       background-size: cover;
       background-repeat: no-repeat;
       height:99px;
+    }
+  }
+
+  &.service-header {
+    .title-text {
+      top:35%;
     }
   }
 

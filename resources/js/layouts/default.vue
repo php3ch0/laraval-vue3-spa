@@ -1,7 +1,8 @@
 <template>
   <div class="main-layout">
-    <Header  />
-    <Navbar />
+    <HeaderDesktop  />
+    <headerMobile />
+
 
     <div class="content">
       <child />
@@ -15,15 +16,16 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import Header from "./components/Header";
+
+import HeaderMobile from "./components/HeaderMobile";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import HeaderDesktop from "./components/HeaderDesktop";
 
 export default {
   name: 'DefaultLayout',
 
   components: {
-    Header,Footer,Navbar
+    HeaderDesktop,HeaderMobile,Footer
   },
   computed: mapGetters({
     user: 'auth/user',

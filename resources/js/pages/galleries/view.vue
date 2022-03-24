@@ -39,7 +39,7 @@ export default {
     return {
       gallery: {id: 0},
       seo: {
-        title:'Pemnshurst Planning |  Galleries',
+        title:window.config.appName+' |  Galleries',
         image:null,
         url:null,
         description:'View photos and pictures from Penshurst Town Planning and Development Planning in Medway and Kent',

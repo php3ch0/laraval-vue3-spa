@@ -6,20 +6,18 @@
       </button>
 
       <div id="navbar" class="collapse navbar-collapse">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ms-auto">
 
           <li><router-link to="/">Home</router-link></li>
-
-
-        </ul>
-
-        <ul class="navbar-nav ms-auto">
-          <!-- Authenticated -->
+          <li><router-link to="/about">About</router-link></li>
+          <li><router-link to="/services">Services</router-link></li>
+          <li><router-link to="/galleries">Gallery</router-link></li>
+          <li><router-link to="/blog">News</router-link></li>
+          <li><router-link to="/contact">Contact</router-link></li>
           <li class="nav-item dropdown" v-if="user">
             <a class="nav-link dropdown-toggle"
                href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             >
-              <img src="/storage/images/profile/blank.png" :alt="user.firstname" class="profile-image" />
               {{ user.firstname }}
             </a>
             <div class="dropdown-menu">
@@ -43,17 +41,11 @@
               </a>
             </div>
           </li>
-          <template v-else>
-            <li>
-              <router-link to="/login">Sign-In</router-link>
-            </li>
-            <li>
-              <router-link to="/register">Register</router-link>
-            </li>
-          </template>
 
 
         </ul>
+
+
       </div>
     </div>
   </nav>

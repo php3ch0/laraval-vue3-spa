@@ -40,9 +40,9 @@ import BlogHeaderImage from "./components/BlogHeaderImage";
     data() {
       return {
         thisItem: {
-            title:'Penshurst Planning | News Blog',
+            title:window.config.appName+' | News Blog',
             article:'Read more about the latest news and information from Penshurst Planning, Town Planning and Development Planning kent and Medway',
-            seo:{ title:'Penshurst Planning | News Blog and Information',}
+            seo:{ title: window.config.appName+' | News Blog and Information',}
         },
 
       }

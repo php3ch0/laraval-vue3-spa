@@ -33,6 +33,14 @@ export default [
   { path: '/admin/blog/add', name: 'AdminBlogAdd', component: page('admin/blog/add.vue') },
   { path: '/admin/blog/:id', name: 'AdminBlogEdit', component: page('admin/blog/edit.vue') },
 
+  /* About Page */
+  { path: '/about', name: 'about', component: page('about/index.vue') },
+
+  /* Terms Page */
+  { path: '/terms', name: 'terms', component: page('terms/terms.vue') },
+  { path: '/privacy', name: 'privacy', component: page('terms/privacy.vue') },
+  { path: '/cookies', name: 'cookies', component: page('terms/cookies.vue') },
+
   /* Public Blogs */
   { path: '/blog', name: 'Blog', component: page('blog/index.vue') },
   { path: '/blog/:slug', name: 'BlogView', component: page('blog/view.vue') },

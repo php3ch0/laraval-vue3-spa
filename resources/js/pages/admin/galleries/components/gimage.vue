@@ -16,7 +16,7 @@
       <LoadingSm />
     </template>
     <template v-else>
-      <img :src="thisImage.imageurl" :alt="thisImage.caption"  />
+      <img :src="thisImage.image_url" :alt="thisImage.caption"  />
     </template>
     </div>
   </div>

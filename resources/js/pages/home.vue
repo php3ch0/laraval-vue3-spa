@@ -1,16 +1,10 @@
 <template>
-  <div id="LoginPage">
-    <div class="container pt-3 pb-3">
-
-          <card title="Dashboard">
-            <div class="row justify-content-center">
-
-            </div>
-
-
-
-
-          </card>
+  <div id="HomePage">
+    <HomeHeader :id="3" />
+    <div class="container mt-3 mb-3">
+      <div class="text-center">
+        <Widget name="HomeText" />
+      </div>
 
     </div>
   </div>
@@ -18,11 +12,12 @@
 
 <script>
 
-
+import HomeHeader from "../components/HomeHeader";
 
 export default {
 
   layout:'default',
+  components: { HomeHeader },
 
   data: () => ({
 
@@ -31,8 +26,14 @@ export default {
   }),
 
   metaInfo () {
-    return { title: ''}
-  },
+    return {
+
+      title: window.config.appName+' | Town Planning and Development Planning Services',
+      meta: [
+        {name: 'description',content: 'Expert town planning and development planning advice from Penshurst Planning for construction and building projects in Kent and Medway '},
+      ]
+    }
+  }
 
 }
 </script>
