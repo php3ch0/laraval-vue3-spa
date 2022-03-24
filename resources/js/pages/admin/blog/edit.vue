@@ -47,7 +47,7 @@
                         <div class="row justify-content-center mb-2 mt-3">
                           <div class="col">
                             <div class="img-wrap text-center" style="margin:0 auto; text-center">
-                              <img :src="thisItem.imageurl" :alt="thisItem.title" style="max-width: 100%; max-height: 240px;" />
+                              <img :src="thisItem.image_url" :alt="thisItem.title" style="max-width: 100%; max-height: 240px;" />
                             </div>
                           </div>
                         </div>

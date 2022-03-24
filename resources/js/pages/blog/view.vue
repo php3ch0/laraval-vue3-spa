@@ -9,7 +9,7 @@
 
 
               <div class="text-left blog-article">
-                <article class="text-body">
+                <article>
                   <div v-html="thisItem.article_html"></div>
                 </article>
 

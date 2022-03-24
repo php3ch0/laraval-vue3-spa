@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="item-image">
-      <img v-if="thisItem.imageurl" :src="thisItem.imageurl" :alt="thisItem.name"  />
+      <img v-if="thisItem.image_url" :src="thisItem.image_url" :alt="thisItem.name"  />
       <img v-else src="/storage/images/loaders/loading-sm.svg" alt="Loading" />
     </div>
     <div class="title text-center">

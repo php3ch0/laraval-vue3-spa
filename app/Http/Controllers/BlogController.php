@@ -92,9 +92,7 @@ class BlogController extends Controller
 
         if ($v->fails())
         {
-            $data['status']='error';
-            $data['errors'] = $v->errors();
-            return response()->json($data,200);
+            return response()->json($v->errors,422);
         }
 
         $item = new Blog();
