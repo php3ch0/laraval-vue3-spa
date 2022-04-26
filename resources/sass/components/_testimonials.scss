@@ -1,0 +1,59 @@
+#TestimonialsSlide {
+
+
+    .testimonial {
+      color: $black;
+      padding:35px;
+      .image {
+        width:260px;
+        height:260px;
+        overflow: hidden;
+        margin:0 auto 25px auto;
+        text-align: center;
+        display: flex;
+        img {
+          position: relative;
+          max-width: 260px;
+          max-height:160px;
+          align-self: center;
+        }
+      }
+      .text {
+        margin-bottom:15px;
+        font-size: 18px;
+      }
+    }
+    .VueCarousel-navigation-button {
+
+      height:90px;
+      width:60px;
+      position: absolute;
+      top:42%;
+      &:active, &:focus {
+        border:none;
+        outline: none;
+      }
+
+
+      &.VueCarousel-navigation-prev {
+        transform: none;
+        left:-50px;
+        top:40%
+      }
+      &.VueCarousel-navigation-next {
+        transform: none;
+        right:-50px;
+        top:40%
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      @media only screen and (max-width: 600px) {
+        img {
+          display: none;
+        }
+      }
+
+    }
+  }
