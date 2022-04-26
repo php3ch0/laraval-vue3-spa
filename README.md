@@ -29,6 +29,8 @@ Laravel 9 and vue2 spa using Bootstrap 5
 - `npm install`
 - `npm run watch`
 
+- Go to signup and create an account. Then login to database and give account 'admin' role.
+
 ## Usage
 
 #### Development

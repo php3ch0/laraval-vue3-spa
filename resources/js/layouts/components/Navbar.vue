@@ -41,6 +41,9 @@
               </a>
             </div>
           </li>
+          <li v-else>
+            <router-link to="/register">Sign Up</router-link>
+          </li>
 
 
         </ul>
