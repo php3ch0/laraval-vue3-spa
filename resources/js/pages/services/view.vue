@@ -57,7 +57,7 @@
 
     import { VueAgile } from 'vue-agile';
     import Widget from "../../components/Widget";
-    import ServiceHeader from "./components/ServiceHeader";
+    import ServiceHeader from "./components/ServicesHeader";
 
 export default {
     name:'serviceViews',
@@ -74,7 +74,7 @@ export default {
     },
 
     components: {
-        ServiceHeader,
+        ServicesHeader,
         Widget,
         agile: VueAgile
     },
