@@ -5,13 +5,13 @@
   transition:background-color 0.2s ease-in-out;
 
   &.btn-primary {
-    color:$black;
-    background-color:$lime;
+    color:$white;
+    background-color:$blue;
     transition: background-color 0.4s ease-in-out;
 
     &:hover,&:active,&:focus {
-      background-color:rgba($lime,0.8);
-      color:$black;
+      background-color:rgba($blue,0.8);
+      color:$white;
     }
   }
 
