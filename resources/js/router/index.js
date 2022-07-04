@@ -1,260 +1,50 @@
-import Vue from 'vue'
-import store from '~/store'
-import Meta from 'vue-meta'
-import routes from './routes'
-import Router from 'vue-router'
-import { sync } from 'vuex-router-sync'
+import { createRouter, createWebHistory } from "vue-router";
+import store from '@/js/stores'
+import NotFound from '@/js/pages/NotFound'
+import Register from '@/js/pages/auth/Register'
+import Login from '@/js/pages/auth/Login'
+import TwoFactorChallenge from '@/js/pages/auth/TwoFactorChallenge'
+import ForgotPassword from '@/js/pages/auth/ForgotPassword'
+import ResetPassword from '@/js/pages/auth/ResetPassword'
+import VerifyEmail from '@/js/pages/auth/VerifyEmail'
 
-Vue.use(Meta)
-Vue.use(Router)
+import Default from '@/js/layouts/Default'
+import ConfirmPassword from '@/js/pages/auth/ConfirmPassword'
+import Home from '@/js/pages/Home'
 
-// The middleware for every page of the application.
-const globalMiddleware = ['check-auth']
+/* Account */
+import AccountIndex from '@/js/pages/account/index';
+import AdminIndex from '@/js/pages/admin/index';
 
-// Load middleware modules dynamically.
-const routeMiddleware = resolveMiddleware(
-  require.context('~/middleware', false, /.*\.js$/)
-)
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
 
-const router = createRouter()
+        { path: "/", name: 'Home', component: Home },
+        { path: "/account", meta: {auth:['user','admin'] },name: 'Account', component: AccountIndex },
+        { path: '/admin', meta: {auth:['admin'] }, name: 'AdminIndex', component: AdminIndex},
+        { path: "/confirm-password", meta: {auth:['user','admin'] }, name: 'ConfirmPassword', component: ConfirmPassword },
+        { path: "/register", name: 'Register', component: Register },
+        { path: "/login", name: 'Login', component: Login },
+        { path: "/verify-email", name: 'VerifyEmail', component: VerifyEmail },
+        { path: "/two-factor-challenge", name: 'TwoFactorChallenge', component: TwoFactorChallenge },
+        { path: "/forgot-password", name: 'ForgotPassword', component: ForgotPassword },
+        { path: "/reset-password/:token", name: 'ResetPassword', component: ResetPassword },
 
-sync(store, router)
 
-export default router
+        { path: '/:pathMatch(.*)*', name: '404', component: NotFound}
+    ],
+});
 
-/**
- * Create a new router instance.
- *
- * @return {Router}
- */
-function createRouter () {
-  const router = new Router({
-    scrollBehavior,
-    mode: 'history',
-    routes
-  })
-
-  router.beforeEach(beforeEach)
-  router.afterEach(afterEach)
-
-  return router
-}
-
-/**
- * Global router guard.
- *
- * @param {Route} to
- * @param {Route} from
- * @param {Function} next
- */
-async function beforeEach (to, from, next) {
-  let components = []
-
-  try {
-    // Get the matched components and resolve them.
-    components = await resolveComponents(
-      router.getMatchedComponents({ ...to })
-    )
-  } catch (error) {
-    if (/^Loading( CSS)? chunk (\d)+ failed\./.test(error.message)) {
-      window.location.reload(true)
-      return
+router.beforeEach((to, from, next) => {
+    if(to.meta.auth && !store.getters.user) {
+        next({name: "Login"})
     }
-  }
-
-  if (components.length === 0) {
-    return next()
-  }
-
-  // Start the loading bar.
-  if (components[components.length - 1].loading !== false) {
-    router.app.$nextTick(() => router.app.$loading.start())
-  }
-
-  // Get the middleware for all the matched components.
-  const middleware = getMiddleware(components)
-
-  // Load async data for all the matched components.
-  await asyncData(components)
-
-  // Call each middleware.
-  callMiddleware(middleware, to, from, (...args) => {
-    // Set the application layout only if "next()" was called with no args.
-    if (args.length === 0) {
-      router.app.setLayout(components[0].layout || '')
-    }
-
-    next(...args)
-  })
-}
-
-/**
- * @param  {Array} components
- * @return {Promise<void>
- */
-async function asyncData (components) {
-  for (let i = 0; i < components.length; i++) {
-    const component = components[i]
-
-    if (!component.asyncData) {
-      continue
-    }
-
-    const dataFn = component.data
-
-    try {
-      const asyncData = await component.asyncData()
-
-      component.data = function () {
-        return {
-          ...(dataFn ? dataFn.apply(this) : {}),
-          ...asyncData
-        }
-      }
-    } catch (e) {
-      component.layout = 'error'
-
-      console.error('Failed to load asyncData', e)
-    }
-  }
-}
-
-/**
- * Global after hook.
- *
- * @param {Route} to
- * @param {Route} from
- * @param {Function} next
- */
-async function afterEach (to, from, next) {
-  await router.app.$nextTick()
-
-  router.app.$loading.finish()
-}
-
-/**
- * Call each middleware.
- *
- * @param {Array} middleware
- * @param {Route} to
- * @param {Route} from
- * @param {Function} next
- */
-function callMiddleware (middleware, to, from, next) {
-  const stack = middleware.reverse()
-
-  const _next = (...args) => {
-    // Stop if "_next" was called with an argument or the stack is empty.
-    if (args.length > 0 || stack.length === 0) {
-      if (args.length > 0) {
-        router.app.$loading.finish()
-      }
-
-      return next(...args)
-    }
-
-    const { middleware, params } = parseMiddleware(stack.pop())
-
-    if (typeof middleware === 'function') {
-      middleware(to, from, _next, params)
-    } else if (routeMiddleware[middleware]) {
-      routeMiddleware[middleware](to, from, _next, params)
+    if(to.meta.auth && !to.meta.auth.includes(store.getters.user.role)) {
+        next({name: "Login"})
     } else {
-      throw Error(`Undefined middleware [${middleware}]`)
+        next();
     }
-  }
+});
 
-  _next()
-}
-
-/**
- * @param  {String|Function} middleware
- * @return {Object}
- */
-function parseMiddleware (middleware) {
-  if (typeof middleware === 'function') {
-    return { middleware }
-  }
-
-  const [name, params] = middleware.split(':')
-
-  return { middleware: name, params }
-}
-
-/**
- * Resolve async components.
- *
- * @param  {Array} components
- * @return {Array}
- */
-function resolveComponents (components) {
-  return Promise.all(components.map(component => {
-    return typeof component === 'function' ? component() : component
-  }))
-}
-
-/**
- * Merge the the global middleware with the components middleware.
- *
- * @param  {Array} components
- * @return {Array}
- */
-function getMiddleware (components) {
-  const middleware = [...globalMiddleware]
-
-  components.filter(c => c.middleware).forEach(component => {
-    if (Array.isArray(component.middleware)) {
-      middleware.push(...component.middleware)
-    } else {
-      middleware.push(component.middleware)
-    }
-  })
-
-  return middleware
-}
-
-/**
- * Scroll Behavior
- *
- * @link https://router.vuejs.org/en/advanced/scroll-behavior.html
- *
- * @param  {Route} to
- * @param  {Route} from
- * @param  {Object|undefined} savedPosition
- * @return {Object}
- */
-function scrollBehavior (to, from, savedPosition) {
-  if (savedPosition) {
-    return savedPosition
-  }
-
-  if (to.hash) {
-    return { selector: to.hash }
-  }
-
-  const [component] = router.getMatchedComponents({ ...to }).slice(-1)
-
-  if (component && component.scrollToTop === false) {
-    return {}
-  }
-
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({ x: 0, y: 0 })
-    }, 190)
-  })
-}
-
-/**
- * @param  {Object} requireContext
- * @return {Object}
- */
-function resolveMiddleware (requireContext) {
-  return requireContext.keys()
-    .map(file =>
-      [file.replace(/(^.\/)|(\.js$)/g, ''), requireContext(file)]
-    )
-    .reduce((guards, [name, guard]) => (
-      { ...guards, [name]: guard.default }
-    ), {})
-}
+export default router;

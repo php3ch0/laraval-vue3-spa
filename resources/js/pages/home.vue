@@ -1,34 +1,11 @@
 <template>
-  <div id="HomePage">
-    <div class="container mt-3 mb-3">
-      <div class="text-center">
-        <Widget name="HomeText" />
-      </div>
-
-    </div>
+  <div class="max-w-xl bg-white shadow-md rounded-lg mx-auto p-4 my-10">
+    <h3 class="text-lg font-semibold">Welcome.</h3>
   </div>
 </template>
 
 <script>
-
-
 export default {
-
-  layout:'default',
-
-  data: () => ({
-
-  }),
-
-  metaInfo () {
-    return {
-
-      title: window.config.appName+' | App Name',
-      meta: [
-        {name: 'description',content: ''},
-      ]
-    }
-  }
 
 }
 </script>

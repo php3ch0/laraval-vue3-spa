@@ -1,121 +1,89 @@
 <template>
-  <div id="LoginPage">
+  <div class="flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
+    <logo></logo>
 
-    <div class="d-flex">
-      <div class="container align-self-center pt-3 pb-3">
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-10 col-lg-8 col-xl-7">
-
-            <card title="Please Sign In">
-
-              <template v-if="loading">
-                <LoadingSm />
-              </template>
-
-              <template v-else>
-                <div class="login-box p-2">
-
-                  <form  @submit.prevent="login">
-                    <div class="mb-3">
-                      <label for="email" :class="{ error: errorsLogin.email }">Email Address</label>
-                      <input v-model="formLogin.email"  class="form-control" type="text" name="email">
-                      <div v-if="errorsLogin.email" class="form-error">{{ errorsLogin.email[0] }}</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="password" :class="{ error: errorsLogin.password }">Password</label>
-                      <input v-model="formLogin.password"  class="form-control" type="password" name="password">
-                      <div v-if="errorsLogin.password" class="form-error">{{ errorsLogin.password[0] }}</div>
-                    </div>
-                    <div class="container-fluid p-0">
-                      <div class="row">
-                        <div class="col-12 col-xl-6 text-center text-xl-start align-self-center">
-                          <button type="submit" class="btn btn-primary">Sign In</button>
-                          <router-link to="/register" class="btn btn-secondary">Sign-Up</router-link>
-
-                        </div>
-                        <div class="col-12 col-xl-6 text-center text-xl-end align-self-center">
-                          <router-link to="/password/reset" class="small">
-                            Forgotten Your Password?
-                          </router-link>
-                        </div>
-                      </div>
-                    </div>
-
-
-                  </form>
-
-                </div>
-
-              </template>
-
-
-            </card>
-
-
-
-
-          </div>
-
-
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded-lg">
+      <form @submit.prevent="login">
+        <div>
+          <label class="block font-medium text-sm text-gray-500" for="email">
+            Email
+          </label>
+          <input v-model="data.email" class="p-2 rounded-md shadow-sm bg-white border border-gray-300 text-gray-400 block mt-1 w-full" id="email" type="email" name="email" required="required" autofocus="autofocus">
         </div>
-
-      </div>
+        <div class="mt-4">
+          <label class="block font-medium text-sm text-gray-500" for="password">
+            Password
+          </label>
+          <input v-model="data.password" class="p-2 rounded-md shadow-sm bg-white border border-gray-300 text-gray-400 focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50 block mt-1 w-full" id="password" type="password" name="password" required="required" autocomplete="current-password">
+        </div>
+        <div v-if="errors" class="text-red-500 py-2 font-semibold">
+          <span>{{ errors.message }}</span>
+        </div>
+        <div class="block mt-4">
+          <label for="remember" class="inline-flex items-center">
+            <input v-model="data.remember" id="remember" type="checkbox" class="rounded border border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+            <span class="ml-2 text-sm text-gray-500">Remember me</span>
+          </label>
+        </div>
+        <div class="flex items-center justify-end mt-4">
+          <router-link class="underline text-sm text-gray-500 hover:text-gray-200" :to="{name: 'ForgotPassword'}">
+            Forgot your password?
+          </router-link>
+          <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
+            Log in
+          </button>
+        </div>
+      </form>
     </div>
-
+    <div class="text-center text-sm mt-4">
+        Don't have an account yet?
+        <router-link class="underline text-gray-500 hover:text-gray-200" :to="{name: 'Register'}">
+          Sign up now
+        </router-link>
+    </div>
   </div>
 </template>
 
 <script>
-
+import Logo from '@/js/components/Logo'
 
 export default {
-
-  layout:'default',
-
-  metaInfo () {
-    return { title: "Login | "+window.config.appName }
+  data: () => {
+    return {
+      errors: null,
+      data: {
+        email: null,
+        password: null,
+        remember: null,
+      },
+    }
   },
-
-
-
-  data: () => ({
-    loading:false,
-    errorsLogin:{},
-    formLogin: {},
-
-  }),
-
-  mounted() {
-    this.$store.dispatch('auth/logout');
+  components: {
+    Logo,
   },
-
   methods: {
-    login () {
-      let self=this;
-      self.loading=true;
-      self.errorsLogin={};
-      // Submit the form.
-      self.$axios.post('/api/login',{ 'email':self.formLogin.email, 'password':self.formLogin.password }).then(function(res) {
+    login() {
+      this.errors = null
+      axios.get('/sanctum/csrf-cookie').then(response => {
+        axios.post('/login', this.data)
+          .then((response) => {
+            if(response?.status === 200 && response.data?.two_factor) {
+              this.$router.replace({name: 'TwoFactorChallenge'})
+              return;
+            }
 
-        self.$store.dispatch('auth/saveToken', {
-          token: res.data.token,
-        });
-        // Fetch the user.
-        self.$store.dispatch('auth/fetchUser')
-        // Redirect home.
-
-        if(self.$route.params.nextUrl && self.$route.params.nextUrl !=='/login') {
-          self.$router.push(self.$route.params.nextUrl)
-        } else {
-          self.$router.push('/')
-        }
-      }).catch(error => {
-        self.loading=false;
-        self.errorsLogin = error.response.data.errors;
+            this.$store.dispatch('attempt_user')
+              .then((response) => {
+                if(response?.status === 200) {
+                  this.$router.replace({name: 'Home'})
+                }
+              })
+          })
+          .catch((error) => {
+            this.errors = error.response.data
+          })
       });
-
-    },
-
+    }
   }
 }
 </script>

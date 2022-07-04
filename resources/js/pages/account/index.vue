@@ -1,41 +1,47 @@
 <template>
-  <div id="AccountPage">
-    <div class="container mt-3 mb-3">
-      <card title="Welcome To Your Account">
-        <router-link to="/account/profile">Update Profile</router-link><br>
-        <router-link to="/account/password">Change Password</router-link><br>
-        <router-link v-if="user.role==='admin'" to="/admin">Admin Dashboard</router-link><br>
-        <a href="#" @click.prevent="logout">Log Out</a><br>
-      </card>
+<div class="container px-2 md:px-0 mx-auto space-y-2">
+  <div class="md:flex md:justify-between md:space-x-2 py-6">
+    <div class="md:w-1/3 pb-4">
+      <h3 class="text-xl">Profile</h3>
+      <p class="mt-1 text-sm text-gray-600">
+        Update your account's profile information and email address.
+      </p>
     </div>
-
+    <profile-update class="md:w-2/3 p-4 bg-white shadow-md rounded-lg"></profile-update>
   </div>
+
+  <div class="md:flex md:justify-between md:space-x-2 py-6">
+    <div class="md:w-1/3 pb-4">
+      <h3 class="text-xl">Password</h3>
+      <p class="mt-1 text-sm text-gray-600">
+        Ensure your account is using a long, random password to stay secure.
+      </p>
+    </div>
+    <password-update class="md:w-2/3 p-4 bg-white shadow-md rounded-lg"></password-update>
+  </div>
+
+  <div class="md:flex md:justify-between md:space-x-2 py-6">
+    <div class="md:w-1/3 pb-4">
+      <h3 class="text-xl">Two Factor Authentication</h3>
+      <p class="mt-1 text-sm text-gray-600">
+        Add additional security to your account using two factor authentication.
+      </p>
+    </div>
+    <two-Factor-authentication class="md:w-2/3 p-4 bg-white shadow-md rounded-lg"></two-Factor-authentication>
+  </div>
+</div>
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex';
+import TwoFactorAuthentication from './components/TwoFactorAuthentication'
+import ProfileUpdate from './components/ProfileUpdate'
+import PasswordUpdate from './components/PasswordUpdate'
 
 export default {
-  name: "account.index",
-  middleware:'auth',
-
-  computed: mapGetters({
-    user: 'auth/user'
-  }),
-
-  metaInfo () {
-    return { title: 'Account | '+window.config.appName }
-  },
-
-  methods: {
-    async logout () {
-      // Log out the user.
-      await this.$store.dispatch('auth/logout');
-      // Redirect to login.
-      this.$router.push('/')
-    },
-
-  },
+  components: {
+    TwoFactorAuthentication,
+    ProfileUpdate,
+    PasswordUpdate,
+  }
 }
 </script>

@@ -1,36 +1,12 @@
 <template>
-  <div id="AdminDashboard">
-    <div class="container pt-3 pb-3">
+  <DefaultTemplate>
+    <div class="p-20">Admin</div>
+  </DefaultTemplate>
 
-          <card title="Admin Dashboard">
-            <div class="ps-3 pe-3">
-              <div class="row">
-
-
-
-              </div>
-            </div>
-
-
-          </card>
-
-    </div>
-  </div>
 </template>
 
 <script>
-
-
-
 export default {
-  name:"admin.index",
-  middleware: 'admin',
-  layout:'admin',
-
-  metaInfo () {
-    return { title: 'Admin Portal | '+window.config.appName}
-  },
-
-
+  name: "Admin",
 }
 </script>

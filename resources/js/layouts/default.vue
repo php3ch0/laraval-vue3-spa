@@ -1,34 +1,22 @@
 <template>
-  <div class="main-layout">
-    <HeaderDesktop  />
-    <headerMobile />
+  <main>
+    <navigation></navigation>
 
-
-    <div class="content">
-      <child />
-    </div>
-
-
-    <Footer />
-
-  </div>
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
-import HeaderMobile from "./components/HeaderMobile";
-import Footer from "./components/Footer";
-import HeaderDesktop from "./components/HeaderDesktop";
+import Navigation from '@/js/components/Navigation'
 
 export default {
-  name: 'DefaultLayout',
-
   components: {
-    HeaderDesktop,HeaderMobile,Footer
+    Navigation,
   },
-  computed: mapGetters({
-    user: 'auth/user',
-  }),
+  computed: {
+    user() {
+      return this.$store.getters.user
+    }
+  },
 }
 </script>

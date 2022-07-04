@@ -1,55 +1,69 @@
-# Laravel Vue2 SPA
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-Laravel 9 and vue2 spa using Bootstrap 5
+<p align="center">
+    <img src="https://app.chipperci.com/projects/6fad1690-acea-4dbd-b83c-20d34e4b8737/status/master" alt="Build Status">
+</p>
+
+## Laravel Fortify Vue SPA
+
+A simple and clean boilerplate to start a new SPA project with authentication and more features from fortify. Its like the little sister of Jetstream, but as SPA. This boilerplate uses the following tools:
+
+- [Laravel 9.x](https://github.com/laravel/laravel)
+- [Laravel Sanctum](https://laravel.com/docs/9.x/sanctum)
+- [Laravel Fortify](https://laravel.com/docs/9.x/fortify)
+- [Vue 3](https://github.com/vuejs/vue)
+- [Vue Router](https://router.vuejs.org/)
+- [Vuex](https://vuex.vuejs.org/)
+- [Tailwindcss 3.x](https://tailwindcss.com/)
 
 ## Features
 
-- Laravel 9
-- Vue + VueRouter + Vuex
-- Login, register, update profile
-- Password reset
-- Authentication with JWT
-- Bootstrap 5, Font Awesome 6
-- Admin CRM for:
-  - Galleries
-  - Blogs
-  - Services
-  - Testimonials
-  - Widget Areas
+The following Sanctum and Fortify features are implemented in this Vue SPA:
 
-## Installation
+- ✅ Login
+- ✅ Passwort Reset
+- ✅ Registration
+- ✅ Profile Management
+- ✅ Password Confirmation
+- ✅ Two Factor Authentication with Confirmation
+- ✅ E-Mail Verification
 
-- Navigate to the web root directory
-- `composer create-project Php3ch0/laravel-vue2-spa .`
-- Edit `.env` and set your database connection details
-- `php artisan key:generate`
-- `php artisan migrate`
-- `php artisan db:seed --class=CountriesTableSeed`
-- `php artisan storage:link`
-- `npm install`
-- `npm run watch`
+## Screenshots
 
-- Go to signup and create an account. Then login to database and give account 'admin' role.
+A Picture Is Worth More Than A Thousand Words.
 
-## Usage
+![art/screenshot-login.jpg](art/screenshot-login.jpg)
 
-#### Development
+![art/screenshot-home.jpg](art/screenshot-home.jpg)
+
+![art/screenshot-user-settings.jpg](art/screenshot-user-settings.jpg)
+
+![art/screenshot-2fa-activation.jpg](art/screenshot-2fa-activation.jpg)
+
+![art/screenshot-confirm-password.jpg](art/screenshot-confirm-password.jpg)
+
+## Testing
+
+PHPunit is ready setup to test the API side of this boilerplate. Tested are all Sanctum and Fortify features cause there are heavily based on there original tests. Thats a good starting point to add tests for your next project. To run the tests you can call phpunit like this:
 
 ```bash
-npm run watch
-
+php artisan test
 ```
 
-#### Production
+## Contributing
 
-```bash
-npm run build
-```
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-##
+## Code of Conduct
 
-Highly inspired by [laravel-vue-spa by cretueusebiu](https://github.com/cretueusebiu/laravel-vue-spa) where it uses bootstrap 4 fontawesome and JWT for authentification
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-##
+## Security Vulnerabilities
 
-> Other features are under development coming soon :fire:
+If you discover a security vulnerability within Laravel, please send an e-mail via [tobias@byte.software](mailto:tobias@byte.software). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).    
+The Vue framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).    
+This repository is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).    
