@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import store from '@/js/stores';
 import router from '@/js/router';
 import App from '@/js/layouts/App';
+import Card from "./components/Card";
+import Loading from "./components/Loading";
 
 
 window.axios = require('axios');
@@ -13,8 +15,10 @@ window.axios.defaults.withCredentials = true;
 store.dispatch('attempt_user')
   .then(() => {
     const app = createApp(App)
-      .use(store)
-      .use(router);
+        .use(store)
+        .use(router)
+        .component("Card", Card)
+        .component("Loading", Loading);
 
     app.mount('#app');
   });

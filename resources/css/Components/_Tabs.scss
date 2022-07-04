@@ -1,0 +1,18 @@
+.tabs {
+        button.tab {
+            background-color: #efefef;
+            padding: 10px 15px;
+            border-top: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            transition: background-color 0.4s ease-in-out;
+            &.active {
+                background-color: #dedede;
+            }
+
+        }
+    .tab-content {
+        padding:15px;
+        border: 1px solid #ccc;
+    }
+}
