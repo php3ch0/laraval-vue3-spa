@@ -9,6 +9,7 @@
     <link rel="apple-touch-icon" href="{{ asset('img/icons/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/styles.css') }}" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
