@@ -43,6 +43,49 @@ return [
     */
 
     'debug' => (bool) env('APP_DEBUG', false),
+    'debug_blacklist' =>[
+        '_ENV' => [
+            'APP_KEY',
+            'DB_USERNAME',
+            'MAIL_USERNAME',
+            'DB_PASSWORD',
+            'REDIS_PASSWORD',
+            'MAIL_PASSWORD',
+            'PUSHER_APP_KEY',
+            'PUSHER_APP_SECRET',
+            'AWS_ACCESS_KEY_ID',
+            'AWS_SECRET_ACCESS_KEY',
+            'AWS_BUCKET',
+            'MAILCHIMP_APIKEY',
+            'LB_PROJECT_KEY',
+            'LB_KEY'
+        ],
+        '_SERVER' => [
+            'APP_KEY',
+            'DB_PASSWORD',
+            'REDIS_PASSWORD',
+            'MAIL_PASSWORD',
+            'PUSHER_APP_KEY',
+            'PUSHER_APP_SECRET',
+            'MC_KEY',
+            'DB_USERNAME',
+            'MAIL_USERNAME',
+            'PP_USER',
+            'PP_PASS',
+            'PP_SIG',
+            'S_PKEY',
+            'S_SKEY',
+            'AWS_ACCESS_KEY_ID',
+            'AWS_SECRET_ACCESS_KEY',
+            'AWS_BUCKET',
+            'MAILCHIMP_APIKEY',
+            'LB_PROJECT_KEY',
+            'LB_KEY'
+        ],
+        '_POST' => [
+            'password',
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
