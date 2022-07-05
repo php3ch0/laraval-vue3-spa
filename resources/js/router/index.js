@@ -14,6 +14,8 @@ import Home from '@/js/pages/Home'
 /* Account */
 import AccountIndex from '@/js/pages/account/index';
 import AdminIndex from '@/js/pages/admin/index';
+import AdminUsersIndex from '@/js/pages/admin/users/index';
+import AdminUsersView from '@/js/pages/admin/users/view';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -21,7 +23,13 @@ const router = createRouter({
 
         { path: "/", meta: {auth:['user','admin'] }, name: 'Home', component: Home },
         { path: "/account", meta: {auth:['user','admin'] },name: 'Account', component: AccountIndex },
+
         { path: '/admin', meta: {auth:['admin'] }, name: 'AdminIndex', component: AdminIndex},
+        { path: '/admin/users', meta: {auth:['admin'] }, name: 'AdminUsersIndex', component: AdminUsersIndex},
+        { path: '/admin/users/:id', meta: {auth:['admin'] }, name: 'AdminUsersView', component: AdminUsersView},
+
+
+
         { path: "/confirm-password", meta: {auth:['user','admin'] }, name: 'ConfirmPassword', component: ConfirmPassword },
         { path: "/register", name: 'Register', component: Register },
 

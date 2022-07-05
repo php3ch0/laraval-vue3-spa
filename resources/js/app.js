@@ -4,6 +4,10 @@ import router from '@/js/router';
 import App from '@/js/layouts/App';
 import Card from "./components/Card";
 import Loading from "./components/Loading";
+import DefaultTemplate from "./layouts/DefaultTemplate";
+import AdminTemplate from "./layouts/AdminTemplate";
+import Modal from "./components/Modal";
+import ConfirmButton from "./components/ConfirmButton";
 
 
 window.axios = require('axios');
@@ -17,7 +21,11 @@ store.dispatch('attempt_user')
     const app = createApp(App)
         .use(store)
         .use(router)
+        .component("DefaultTemplate",DefaultTemplate)
+        .component("AdminTemplate",AdminTemplate)
         .component("Card", Card)
+        .component("Modal",Modal)
+        .component("ConfirmButton",ConfirmButton)
         .component("Loading", Loading);
 
     app.mount('#app');

@@ -1,0 +1,105 @@
+.btn {
+    background-color: var(--green);
+    padding: 10px 20px;
+    color:#FFF;
+    transition: background-color 0.4s ease-in-out;
+    border-top-right-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+    &:hover {
+        background-color: var(--greendark) !important;
+        cursor: pointer;
+    }
+
+    &.btn-secondary {
+        background-color: #677279;
+        &:hover {
+            background-color: #333333;
+        }
+    }
+    &.btn-red {
+        background-color: #FF0000;
+        &:hover {
+            background-color: #c43d2c;
+        }
+    }
+    &.btn-green {
+        background-color: #22911f;
+        &:hover {
+            background-color: #1a6418;
+        }
+    }
+
+}
+
+a.btn {
+    display: inline-block;
+}
+
+
+
+label {
+    display: block;
+    margin-bottom:4px;
+}
+
+input,select,textarea {
+    height: auto;
+    width:100%;
+    border-top-right-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+    border:1px solid var(--greendark);
+    min-height:50px;
+    padding:8px 12px;
+    &:focus {
+        border:1px solid var(--greendark) !important;
+        box-shadow: none !important;
+        border-color: var(--greendark) !important;
+    }
+    &.error {
+        border:1px solid #F00;
+    }
+}
+
+.form-error {
+    font-size: 0.9em;
+    color: #F00;
+}
+
+input[type="checkbox"] {
+    min-width:30px;
+    text-align: center;
+}
+
+.form-inline {
+    input, select {
+        width:100%;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        border-right: 0;
+    }
+
+    select {
+        height:42px;
+    }
+
+    .btn {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+    }
+}
+
+/* Errors */
+.bg-red-50 {
+    background-color: rgba(255, 0, 0, 0.5);
+    .text-red-700 {
+        color: rgba(white,1);
+        font-size: 1em;
+    }
+    .flex div {
+        align-self: center;
+    }
+}

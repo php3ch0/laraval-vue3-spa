@@ -5,7 +5,7 @@
         <AdminMenu />
       </div>
       <div class="col-span-10">
-        <router-view></router-view>
+        <slot name="content"></slot>
       </div>
     </div>
   </div>

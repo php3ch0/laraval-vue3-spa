@@ -9,10 +9,9 @@
 import axios from 'axios'
 import router from '@/js/router'
 import store from '@/js/stores'
-import DefaultTemplate from "./DefaultTemplate";
 
 export default {
-  components: {DefaultTemplate},
+
   mounted() {
     axios.interceptors.response.use(function (response) {
       return response;

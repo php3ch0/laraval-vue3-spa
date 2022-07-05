@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\User\UsersController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,5 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('\App\Http\Controllers\Api')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
-        Route::get('/user', User\UserController::class);
+        Route::get('/user', Auth\UserController::class);
+
+        Route::get('/users',[UsersController::class,'index']);
+        Route::post('/users',[UsersController::class,'add']);
+        Route::get('/users/{id}',[UsersController::class,'get']);
+        Route::patch('/users/{id}',[UsersController::class,'edit']);
+        Route::delete('/users/{id}',[UsersController::class,'delete']);
     });
