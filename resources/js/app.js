@@ -8,6 +8,7 @@ import DefaultTemplate from "./layouts/DefaultTemplate";
 import AdminTemplate from "./layouts/AdminTemplate";
 import Modal from "./components/Modal";
 import ConfirmButton from "./components/ConfirmButton";
+import HeaderImage from "./components/HeaderImage";
 
 
 window.axios = require('axios');
@@ -26,6 +27,7 @@ store.dispatch('attempt_user')
         .component("Card", Card)
         .component("Modal",Modal)
         .component("ConfirmButton",ConfirmButton)
+        .component("HeaderImage",HeaderImage)
         .component("Loading", Loading);
 
     app.mount('#app');

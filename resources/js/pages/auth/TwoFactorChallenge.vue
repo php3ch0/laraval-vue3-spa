@@ -1,6 +1,6 @@
 <template>
   <div class=" flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
-    <logo></logo>
+
 
     <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded-lg">
       <form @submit.prevent="login">
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Logo from '@/js/components/Logo'
+
 
 export default {
   data() {
@@ -33,9 +33,7 @@ export default {
       errors: null,
     }
   },
-  components: {
-    Logo,
-  },
+
   methods: {
     login() {
       this.errors = null

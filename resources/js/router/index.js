@@ -12,21 +12,60 @@ import ConfirmPassword from '@/js/pages/auth/ConfirmPassword'
 import Home from '@/js/pages/Home'
 
 /* Account */
-import AccountIndex from '@/js/pages/account/index';
-import AdminIndex from '@/js/pages/admin/index';
+import AccountPage from '@/js/pages/account/index';
+
+
+import AboutPage from '@/js/pages/about/index';
+import ContactPage from '@/js/pages/contact/index';
+import Warranties from "@/js/pages/legal/Warranties";
+import Terms from "@/js/pages/legal/Terms";
+import Privacy from "@/js/pages/legal/Privacy";
+
+/* Account */
+import TwoFactorAuth from "@/js/pages/account/2fa/index";
+import PasswordUpdate from "@/js/pages/account/password/index";
+import Profile from "@/js/pages/account/profile/index";
+import AccountIndex from "@/js/pages/account/components/AccountIndex";
+
+/*Admin */
+import AdminIndex from "@/js/pages/admin/index";
+import AdminDashboard from "@/js/pages/admin/dashboard";
 import AdminUsersIndex from '@/js/pages/admin/users/index';
 import AdminUsersView from '@/js/pages/admin/users/view';
+
+import AdminBlogIndex from "@/js/pages/admin/blog/index";
+import AdminBlogEdit from "@/js/pages/admin/blog/edit";
+
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
 
-        { path: "/", meta: {auth:['user','admin'] }, name: 'Home', component: Home },
-        { path: "/account", meta: {auth:['user','admin'] },name: 'Account', component: AccountIndex },
+        { path: "/", name: 'Home', component: Home },
 
-        { path: '/admin', meta: {auth:['admin'] }, name: 'AdminIndex', component: AdminIndex},
-        { path: '/admin/users', meta: {auth:['admin'] }, name: 'AdminUsersIndex', component: AdminUsersIndex},
-        { path: '/admin/users/:id', meta: {auth:['admin'] }, name: 'AdminUsersView', component: AdminUsersView},
+        { path: "/about", name: 'AboutPage', component: AboutPage },
+        { path: "/contact", name: 'ContactPage', component: ContactPage },
+
+        { path: "/account", meta: {auth:['user','admin'] },name: 'Account', component: AccountPage,
+            children: [
+                {path:"", name: 'Index', component: AccountIndex},
+                {path:"password", name: 'Password', component: PasswordUpdate},
+                {path:"profile", name: 'Profile', component: Profile},
+                {path:"2fa", name: 'TwoFactor', component: TwoFactorAuth}
+            ]
+        },
+
+        { path: '/admin', meta: {auth:['admin'] }, name: 'AdminIndex', component: AdminIndex,
+            children: [
+                { path: '', name: 'AdminDashboard',component: AdminDashboard},
+                { path: '/admin/users', name: 'AdminUsersIndex', component: AdminUsersIndex},
+                { path: '/admin/users/:id', name: 'AdminUsersView', component: AdminUsersView},
+
+                {path: '/admin/blog', name: 'AdminBlog', component: AdminBlogIndex},
+                {path: '/admin/blog/:id', name: 'AdminBlogEdit', component: AdminBlogEdit}
+            ]
+        },
+
 
 
 
@@ -40,9 +79,19 @@ const router = createRouter({
         { path: "/forgot-password", name: 'ForgotPassword', component: ForgotPassword },
         { path: "/reset-password/:token", name: 'ResetPassword', component: ResetPassword },
 
+        { path: "/legal/warranties", name: 'Warranties', component: Warranties },
+        { path: "/legal/terms", name: 'Terms', component: Terms },
+        { path: "/legal/privacy", name: 'Privacy', component: Privacy },
 
         { path: '/:pathMatch(.*)*', name: '404', component: NotFound}
     ],
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { top: 0 }
+        }
+    },
 });
 
 router.beforeEach((to, from, next) => {

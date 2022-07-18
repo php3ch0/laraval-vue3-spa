@@ -1,0 +1,9 @@
+@import "Account";
+
+.white-box {
+    background-color: #FFF;
+    padding:25px;
+    border:1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}

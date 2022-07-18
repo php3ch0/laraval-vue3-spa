@@ -1,35 +1,51 @@
 <template>
-  <nav class="bg-white border-b border-gray-200 p-4 mb-4">
+  <nav id="TopNav" class="bg-white border-b border-gray-200 p-4">
     <div class="container mx-auto flex justify-center md:justify-between">
       <router-link :to="{name: 'Home'}" class="hidden md:flex text-xl font-semibold place-items-center space-x-2">
-        <span>G1098 Tailoring</span>
+        <img src="/storage/images/logo.webp" class="h-[80px]" alt="Shepway Computer Support and Repair Folkestone, Kent" />
       </router-link>
-      <ul class="list flex items-center text-gray-500 text-sm font-semibold">
+      <ul class="list flex items-center">
         <li>
-          <router-link :to="{name: 'Home'}" class="hover:text-gray-700 p-2 rounded flex items-center space-x-2">
+          <router-link :to="{name: 'Home'}">
             <span>Home</span>
           </router-link>
         </li>
-        <li v-if="user">
-          <router-link to="/account" class="hover:text-gray-700 p-2 rounded flex items-center space-x-2 font-semibold">
-            <span>Account</span>
+        <li>
+          <router-link to="/services/telephone">
+            <span>Telephone IT Support</span>
           </router-link>
         </li>
-        <li v-if="user && user.role==='admin'">
-          <router-link to="/admin" class="hover:text-gray-700 p-2 rounded flex items-center space-x-2 font-semibold">
-            <span>Admin</span>
+        <li>
+          <router-link to="/services/repairs">
+            <span>Computer & Laptop Repairs</span>
           </router-link>
         </li>
-        <li v-if="user" >
-          <button @click="logout" class="hover:text-gray-700 p-2 rounded flex items-center space-x-2">
-            <span>logout</span>
-          </button>
-        </li>
-        <li v-if="!user">
-          <router-link to="/login" class="hover:text-gray-700 p-2 rounded flex items-center space-x-2 font-semibold">
-            <span>Login</span>
+        <li>
+          <router-link to="/services/apple">
+            <span>Apple Support</span>
           </router-link>
         </li>
+        <li>
+          <router-link to="/services/callouts">
+            <span>Callouts</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/news">
+            <span>News</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/sales">
+            <span>Sales</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/contact">
+            <span>Contact Us</span>
+          </router-link>
+        </li>
+
       </ul>
     </div>
   </nav>

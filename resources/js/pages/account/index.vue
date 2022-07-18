@@ -1,47 +1,26 @@
 <template>
-<div class="container px-2 md:px-0 mx-auto space-y-2">
-  <div class="md:flex md:justify-between md:space-x-2 py-6">
-    <div class="md:w-1/3 pb-4">
-      <h3 class="text-xl">Profile</h3>
-      <p class="mt-1 text-sm text-gray-600">
-        Update your account's profile information and email address.
-      </p>
-    </div>
-    <profile-update class="md:w-2/3 p-4 bg-white shadow-md rounded-lg"></profile-update>
-  </div>
+    <div id="AccountPage" class="mt-4 mb-4">
+      <div class="container mx-auto">
+        <div class="flex gap-4">
+          <div class="flex-none xl:w-[250px]">
+            <AccountMenu />
+          </div>
+          <div class="flex-auto">
+            <div class="white-box">
+              <router-view />
+            </div>
 
-  <div class="md:flex md:justify-between md:space-x-2 py-6">
-    <div class="md:w-1/3 pb-4">
-      <h3 class="text-xl">Password</h3>
-      <p class="mt-1 text-sm text-gray-600">
-        Ensure your account is using a long, random password to stay secure.
-      </p>
-    </div>
-    <password-update class="md:w-2/3 p-4 bg-white shadow-md rounded-lg"></password-update>
-  </div>
+          </div>
+        </div>
 
-  <div class="md:flex md:justify-between md:space-x-2 py-6">
-    <div class="md:w-1/3 pb-4">
-      <h3 class="text-xl">Two Factor Authentication</h3>
-      <p class="mt-1 text-sm text-gray-600">
-        Add additional security to your account using two factor authentication.
-      </p>
+      </div>
     </div>
-    <two-Factor-authentication class="md:w-2/3 p-4 bg-white shadow-md rounded-lg"></two-Factor-authentication>
-  </div>
-</div>
 </template>
 
 <script>
-import TwoFactorAuthentication from './components/TwoFactorAuthentication'
-import ProfileUpdate from './components/ProfileUpdate'
-import PasswordUpdate from './components/PasswordUpdate'
-
+import AccountMenu from "./components/AccountMenu";
 export default {
-  components: {
-    TwoFactorAuthentication,
-    ProfileUpdate,
-    PasswordUpdate,
-  }
+  name: "AccountPage",
+  components: {AccountMenu}
 }
 </script>

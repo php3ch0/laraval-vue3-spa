@@ -14,10 +14,20 @@
         "axios": "^0.27.2",
         "laravel-mix": "^6.0.6",
         "postcss": "^8.4.12",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.53.0",
+        "sass-loader": "^12.1.0",
         "tailwindcss": "^3.0.12",
         "vue": "^3.2.31",
         "vue-loader": "^17.0.0",
         "vue-router": "^4.0.14",
         "vuex": "^4.0.2"
+    },
+    "dependencies": {
+        "@tinymce/tinymce-vue": "^4.0.7",
+        "dropzone": "^6.0.0-beta.2",
+        "@vuepic/vue-datepicker": "^3.3.0",
+        "vue3-cookies": "^1.0.6",
+        "vuedraggable": "^4.1.0"
     }
 }

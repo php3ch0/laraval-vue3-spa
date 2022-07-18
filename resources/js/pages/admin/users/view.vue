@@ -1,6 +1,6 @@
 <template>
-  <AdminTemplate>
-    <template #content>
+  <div id="AdminUsersEdit">
+
       <div class="flex mb-3">
         <div class="flex-auto self-center">
           <h1 class="text-2lg uppercase">Manage User</h1>
@@ -70,10 +70,7 @@
 
       </Card>
 
-
-
-    </template>
-  </AdminTemplate>
+  </div>
 
 </template>
 

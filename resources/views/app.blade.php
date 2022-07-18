@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="utf-8">
+        <title>IT Support and Computer repair Folkestone | Shepway Computers</title>
+    <noscript>
+        <meta name="description" content="Computer and laptop repair specialists in Folkestone, Kent. IT Support callouts, Business and Home PC Problems Solved." />
+    </noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name') }}</title>
-    <meta name="theme-color" content="#6777ef" />
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/styles.css') }}" rel="stylesheet">

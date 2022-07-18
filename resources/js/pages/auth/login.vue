@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
-    <logo></logo>
+
 
     <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded-lg">
       <form @submit.prevent="login">
@@ -21,7 +21,7 @@
         </div>
         <div class="block mt-4">
           <label for="remember" class="inline-flex items-center">
-            <input v-model="data.remember" id="remember" type="checkbox" class="rounded border border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+            <input v-model="data.remember" id="remember" type="checkbox" class="flex-none rounded border border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:auto;" name="remember">
             <span class="ml-2 text-sm text-gray-500">Remember me</span>
           </label>
         </div>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import Logo from '@/js/components/Logo'
+
 
 export default {
   data: () => {
@@ -58,9 +58,7 @@ export default {
       },
     }
   },
-  components: {
-    Logo,
-  },
+
   methods: {
     login() {
       this.errors = null
@@ -75,7 +73,12 @@ export default {
             this.$store.dispatch('attempt_user')
               .then((response) => {
                 if(response?.status === 200) {
-                  this.$router.replace({name: 'Home'})
+                  if(!this.$route.redirectedFrom) {
+                    this.$router.push({name: 'Home'})
+                  } else {
+                    this.$router.push(this.$route.redirectedFrom.fullPath)
+                  }
+
                 }
               })
           })

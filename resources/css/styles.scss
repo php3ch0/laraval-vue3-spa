@@ -2,6 +2,8 @@
 @import "Components";
 @import "Admin";
 @import "Forms";
+@import "Layout";
+@import "Pages";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 
 :root {
@@ -10,6 +12,8 @@
     --fontbody:'Ubuntu', sans-serif;
     --green: rgb(57, 192, 167);
     --greendark: #278b6f;
+    --blue: #0fb6fb;
+    --bluedark: #4285ec;
     --white:#FFF;
     --black:#FFF;
     --red:#F00;

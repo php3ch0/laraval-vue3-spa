@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\User\UsersController;
+use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\Api\Blog\BlogController;
+use App\Http\Controllers\Api\Blog\BlogImagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +28,23 @@ Route::namespace('\App\Http\Controllers\Api')
         Route::get('/users/{id}',[UsersController::class,'get']);
         Route::patch('/users/{id}',[UsersController::class,'edit']);
         Route::delete('/users/{id}',[UsersController::class,'delete']);
+
+        /* Admin Blog */
+        Route::post('/blog',[BlogController::class,'add']);
+        Route::post('/blog/{id}',[BlogController::class,'edit']);
+        Route::delete('/blog/{id}',[BlogController::class,'delete']);
+
+        Route::post('/blog/{bid}/images',[BlogImagesController::class,'add']);
+        Route::delete('/blog/{bid}/images/{id}',[BlogImagesController::class,'delete']);
+
+    });
+
+Route::namespace('\App\Http\Controllers\Api')
+    ->group(function() {
+        Route::post('/contact',[ContactController::class,'sendEnquiry']);
+
+        /* Public Blog */
+        Route::get('/blog',[BlogController::class,'index']);
+        Route::get('/blog/{id}',[BlogController::class,'get']);
+
     });

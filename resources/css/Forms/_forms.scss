@@ -1,14 +1,15 @@
 .btn {
-    background-color: var(--green);
-    padding: 10px 20px;
+    background-color: var(--blue);
+    padding: 15px 25px;
     color:#FFF;
     transition: background-color 0.4s ease-in-out;
     border-top-right-radius: 4px !important;
     border-top-left-radius: 4px !important;
     border-bottom-right-radius: 4px !important;
     border-bottom-left-radius: 4px !important;
+    font-size: 18px;
     &:hover {
-        background-color: var(--greendark) !important;
+        background-color: var(--bluedark) !important;
         cursor: pointer;
     }
 

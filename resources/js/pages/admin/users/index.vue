@@ -1,6 +1,6 @@
 <template>
-  <AdminTemplate>
-    <template #content>
+  <div id="AdminUsers">
+
       <div class="flex mb-3">
         <div class="flex-auto self-center">
           <h1 class="text-2lg uppercase">Manage Users</h1>
@@ -92,8 +92,7 @@
       </Modal>
 
 
-    </template>
-  </AdminTemplate>
+  </div>
 
 </template>
 

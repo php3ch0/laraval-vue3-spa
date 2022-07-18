@@ -1,4 +1,5 @@
 <template>
+
   <DefaultTemplate>
     <router-view :key="$route.path"></router-view>
   </DefaultTemplate>
@@ -10,9 +11,12 @@ import axios from 'axios'
 import router from '@/js/router'
 import store from '@/js/stores'
 
+
 export default {
 
+
   mounted() {
+    document.getElementsByTagName('title')[0].remove();
     axios.interceptors.response.use(function (response) {
       return response;
     }, function (error) {

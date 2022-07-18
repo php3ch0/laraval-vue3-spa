@@ -1,16 +1,24 @@
 <template>
   <div class=" flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
-    <logo></logo>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+    <div class="w-full sm:max-w-md mt-6 mb-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
       <form @submit.prevent="register">
         <div>
           <label class="block font-medium text-sm text-gray-500" for="email">
-            Name
+            Firstname
           </label>
-          <input v-model="data.name" class="p-2 rounded-md shadow-sm bg-white border border-gray-300 text-gray-400 block mt-1 w-full" id="name" type="text" name="name" required="required" autofocus="autofocus">
-          <div v-if="errors && errors.name">
-            <p v-for="(error, index) in errors.name" :key="'name-'+index" class="text-red-500">{{ error }}</p>
+          <input v-model="data.firstname" class="p-2 rounded-md shadow-sm bg-white border border-gray-300 text-gray-400 block mt-1 w-full" id="name" type="text" name="name" required="required" autofocus="autofocus">
+          <div v-if="errors && errors.firstname">
+            <p v-for="(error, index) in errors.firstname" :key="'name-'+index" class="text-red-500">{{ error }}</p>
+          </div>
+        </div>
+        <div>
+          <label class="block font-medium text-sm text-gray-500" for="email">
+            Lastname
+          </label>
+          <input v-model="data.lastname" class="p-2 rounded-md shadow-sm bg-white border border-gray-300 text-gray-400 block mt-1 w-full" id="name" type="text" name="name" required="required" autofocus="autofocus">
+          <div v-if="errors && errors.lastname">
+            <p v-for="(error, index) in errors.lastname" :key="'name-'+index" class="text-red-500">{{ error }}</p>
           </div>
         </div>
         <div class="mt-4">
@@ -51,13 +59,13 @@
 </template>
 
 <script>
-import Logo from '@/js/components/Logo'
 
 export default {
   data: () => {
     return {
       data: {
-        name: null,
+        firstname: null,
+        lastname: null,
         email: null,
         password: null,
         password_confirmation: null,
@@ -65,9 +73,7 @@ export default {
       errors: null,
     }
   },
-  components: {
-    Logo,
-  },
+
   methods: {
     register() {
       this.errors = null
