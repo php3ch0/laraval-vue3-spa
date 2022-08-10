@@ -5,7 +5,6 @@ import App from '@/js/layouts/App';
 import Card from "./components/Card";
 import Loading from "./components/Loading";
 import DefaultTemplate from "./layouts/DefaultTemplate";
-import AdminTemplate from "./layouts/AdminTemplate";
 import Modal from "./components/Modal";
 import ConfirmButton from "./components/ConfirmButton";
 import HeaderImage from "./components/HeaderImage";
@@ -23,7 +22,6 @@ store.dispatch('attempt_user')
         .use(store)
         .use(router)
         .component("DefaultTemplate",DefaultTemplate)
-        .component("AdminTemplate",AdminTemplate)
         .component("Card", Card)
         .component("Modal",Modal)
         .component("ConfirmButton",ConfirmButton)
