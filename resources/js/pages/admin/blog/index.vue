@@ -24,8 +24,6 @@
       </div>
     </div>
     <div class="mt-3 justify-content-center d-flex text-center">
-    <b-pagination size="md" :total-rows="totalRows" v-model="Page" :per-page="perPage" @input="getItems(Page)">
-    </b-pagination>
     </div>
 
 

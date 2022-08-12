@@ -1,13 +1,14 @@
 #TopNav {
+    border-bottom:3px solid $orange;
     ul {
         li {
             a {
                 padding:10px 15px;
                 font-size: 18px;
-                color: #677279;
+                color: #FFF;
                 &:hover {
                     color: #FFF;
-                    background-color: #36aee0;
+                    background-color: $orange;
                 }
             }
         }

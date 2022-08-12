@@ -1,10 +1,3 @@
-@import "Fonts";
-@import "Components";
-@import "Admin";
-@import "Forms";
-@import "Layout";
-@import "Pages";
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 
 :root {
     --fontcolor:#677279;
@@ -18,3 +11,21 @@
     --black:#FFF;
     --red:#F00;
 }
+
+$orange: #c57411;
+$orange-dark:#b1790c;
+
+$black:#000;
+$white:#FFF;
+
+$grey-light:#d7d7d7;
+$grey:#9c9c9c;
+$grey-dark:#333;
+
+@import "Fonts";
+@import "Components";
+@import "Admin";
+@import "Forms";
+@import "Layout";
+@import "Pages";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");

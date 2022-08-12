@@ -1,0 +1,35 @@
+.widget {
+    position: relative;
+    img {
+        max-width: 100%;
+    }
+
+    &.admin-widget {
+        border:1px solid transparent;
+        .controls {
+            display: none;
+            background-color: rgba(0,0,0,0.7);
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            height:46px;
+            padding:5px 15px;
+
+            a {
+                color: #FFF;
+                text-decoration: none;
+                font-size: 24px;
+                &:hover {
+                    color: #FFF;
+                }
+            }
+        }
+        &:hover {
+            border:1px solid #000;
+            .controls {
+                display: block;
+            }
+        }
+    }
+}

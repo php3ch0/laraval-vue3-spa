@@ -1,10 +1,18 @@
 #PageFooter {
+    background-color: rgba(0,0,0,0.6);
+    border-top: 2px solid $orange;
+    border-bottom: 2px solid $orange;
+    color: $grey;
     h4 {
+        color:$orange;
         font-weight: bold;
     }
     .footer-menu {
         a {
-            color: #FFF;
+            color: $grey;
+            &:hover {
+                color: $white;
+            }
         }
     }
 }

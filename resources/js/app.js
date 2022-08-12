@@ -8,6 +8,8 @@ import DefaultTemplate from "./layouts/DefaultTemplate";
 import Modal from "./components/Modal";
 import ConfirmButton from "./components/ConfirmButton";
 import HeaderImage from "./components/HeaderImage";
+import Widget from "./components/Widget";
+import Pagination from 'v-pagination-3';
 
 
 window.axios = require('axios');
@@ -26,7 +28,10 @@ store.dispatch('attempt_user')
         .component("Modal",Modal)
         .component("ConfirmButton",ConfirmButton)
         .component("HeaderImage",HeaderImage)
-        .component("Loading", Loading);
+        .component("Loading", Loading)
+        .component("pagination", Pagination)
+        .component("Widget",Widget);
+
 
     app.mount('#app');
   });

@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\User\UsersController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\Blog\BlogController;
 use App\Http\Controllers\Api\Blog\BlogImagesController;
+use App\Http\Controllers\Api\Widgets\WidgetsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,11 @@ Route::namespace('\App\Http\Controllers\Api')
         Route::post('/blog/{bid}/images',[BlogImagesController::class,'add']);
         Route::delete('/blog/{bid}/images/{id}',[BlogImagesController::class,'delete']);
 
+        Route::get('/widgets', [WidgetsController::class,'index']);
+        Route::post('/widgets', [WidgetsController::class,'add']);
+        Route::post('/widgets/{id}', [WidgetsController::class,'edit']);
+        Route::delete('/widgets/{id}', [WidgetsController::class,'delete']);
+
     });
 
 Route::namespace('\App\Http\Controllers\Api')
@@ -46,5 +52,8 @@ Route::namespace('\App\Http\Controllers\Api')
         /* Public Blog */
         Route::get('/blog',[BlogController::class,'index']);
         Route::get('/blog/{id}',[BlogController::class,'get']);
+
+        /* public Widgets */
+        Route::get('/widgets/{id}', [WidgetsController::class,'get']);
 
     });

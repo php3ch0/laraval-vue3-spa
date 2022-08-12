@@ -17,7 +17,7 @@ import AccountPage from '@/js/pages/account/index';
 
 import AboutPage from '@/js/pages/about/index';
 import ContactPage from '@/js/pages/contact/index';
-import Warranties from "@/js/pages/legal/Warranties";
+import Cookies from "@/js/pages/legal/Cookies";
 import Terms from "@/js/pages/legal/Terms";
 import Privacy from "@/js/pages/legal/Privacy";
 
@@ -33,8 +33,22 @@ import AdminDashboard from "@/js/pages/admin/dashboard";
 import AdminUsersIndex from '@/js/pages/admin/users/index';
 import AdminUsersView from '@/js/pages/admin/users/view';
 
-import AdminBlogIndex from "@/js/pages/admin/blog/index";
-import AdminBlogEdit from "@/js/pages/admin/blog/edit";
+import AdminTeamsIndex from "@/js/pages/admin/teams/index";
+import AdminTeamsEdit from "@/js/pages/admin/teams/edit";
+
+import AdminWidgetsIndex from "@/js/pages/admin/widgets/Index";
+import AdminWidgetsEdit from "@/js/pages/admin/widgets/Edit";
+
+import AdminGalleriesIndex from "@/js/pages/admin/galleries/index";
+import AdminGalleriesEdit from "@/js/pages/admin/galleries/edit";
+
+import Sponsor from "@/js/pages/sponsor/Sponsor";
+import TheClub from "@/js/pages/club/index";
+
+import Teams from "@/js/pages/teams/index";
+import TeamsView from "@/js/pages/teams/view";
+
+
 
 
 const router = createRouter({
@@ -61,8 +75,14 @@ const router = createRouter({
                 { path: '/admin/users', name: 'AdminUsersIndex', component: AdminUsersIndex},
                 { path: '/admin/users/:id', name: 'AdminUsersView', component: AdminUsersView},
 
-                {path: '/admin/blog', name: 'AdminBlog', component: AdminBlogIndex},
-                {path: '/admin/blog/:id', name: 'AdminBlogEdit', component: AdminBlogEdit}
+                {path: '/admin/teams', name: 'AdminTeams', component: AdminTeamsIndex},
+                {path: '/admin/teams/:id', name: 'AdminTeamsEdit', component: AdminTeamsEdit},
+
+                {path: '/admin/widgets', name: 'AdminWidgets', component: AdminWidgetsIndex},
+                {path: '/admin/widgets/:id', name: 'AdminWidgetsEdit', component: AdminWidgetsEdit},
+
+                {path: '/admin/galleries', name: 'AdminGalleries', component: AdminGalleriesIndex},
+                {path: '/admin/galleries/:id', name: 'AdminGalleriesEdit', component: AdminGalleriesEdit}
             ]
         },
 
@@ -79,9 +99,15 @@ const router = createRouter({
         { path: "/forgot-password", name: 'ForgotPassword', component: ForgotPassword },
         { path: "/reset-password/:token", name: 'ResetPassword', component: ResetPassword },
 
-        { path: "/legal/warranties", name: 'Warranties', component: Warranties },
+        { path: "/legal/cookies", name: 'Warranties', component: Cookies },
         { path: "/legal/terms", name: 'Terms', component: Terms },
         { path: "/legal/privacy", name: 'Privacy', component: Privacy },
+
+        { path: "/sponsor", name: 'Sponsor', component: Sponsor },
+        { path: "/club", name: 'TheClub', component: TheClub },
+
+        { path: "/teams", name: 'Teams', component: Teams },
+        { path: "/teams/:id", name: 'TeamsView', component: TeamsView },
 
         { path: '/:pathMatch(.*)*', name: '404', component: NotFound}
     ],

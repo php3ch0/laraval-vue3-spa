@@ -20,7 +20,7 @@ const props = defineProps({
 </script>
 <template>
 <div id="AccountIcon">
-    <Link :href="props.link">
+    <router-link :href="props.link">
         <div class="AccountIcon">
             <div class="image">
                 <img v-if="props.icon_image" :src="props.icon_image" :alt="name" />
@@ -30,7 +30,7 @@ const props = defineProps({
                 {{ props.name }}
             </div>
         </div>
-    </Link>
+    </router-link>
 </div>
 
 

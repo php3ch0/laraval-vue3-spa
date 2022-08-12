@@ -1,6 +1,8 @@
 <template>
     <div id="AboutPage">
-        <HeaderImage imageurl="/storage/images/headers/about.webp" title="About Shepway Computers" subtitle="Offering Computer, Laptop and Apple repairs in Folkestone and Hythe" />
+       <div class="box black">
+         <Widget name="aboutpagetitle" />
+       </div>
        <div class="max-w-7xl p-6 mx-auto">
            <div class="mb-4 mt-4 text-center">
                <h2>We repair PC's, Laptop Computers, Apple iMac and Macbook from our offices in Folkestone, Kent</h2>
@@ -25,8 +27,9 @@
 
 <script>
 
+import Widget from "../../components/Widget";
 export default {
     name: "AboutPage",
-
+  components: {Widget},
 }
 </script>

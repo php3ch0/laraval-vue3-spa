@@ -1,11 +1,11 @@
 <template>
-    <div id="PrivacyPage">
+    <div id="CookiesPage">
       <teleport to="head">
-        <title>Privacy</title>
+        <title>Cookie Policy</title>
       </teleport>
       <div class="container">
         <div class="white-box mt-3 mb-3">
-          <Widget name="PrivacyPolicy" />
+          <Widget name="Cookies" />
         </div>
 
       </div>
@@ -13,9 +13,8 @@
 </template>
 
 <script>
-
 export default {
-  name: "PrivacyPolicy",
+  name: "Terms",
 
 }
 </script>

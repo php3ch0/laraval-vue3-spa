@@ -3,6 +3,11 @@
 
 html, body {
     overflow-x: hidden;
+    background-color: #000;
+    background-image: url('/storage/images/backgrounds/bg.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 .container {
     margin:0 auto;

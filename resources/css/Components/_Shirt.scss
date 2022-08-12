@@ -1,0 +1,17 @@
+.shirt {
+    background-image: url('/storage/images/shirt.png');
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+    width:100%;
+    .number {
+        font-size: 28px;
+        font-weight: bold;
+        color: #FFF;
+        position: absolute;
+        display: block;
+        width:100%;
+        text-align: center;
+        top:70px;
+    }
+}
