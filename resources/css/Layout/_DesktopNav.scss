@@ -1,10 +1,12 @@
-#TopNav {
-    border-bottom:3px solid $orange;
+#DesktopNav {
+    border-bottom:4px solid $orange;
     ul {
         li {
+            background-color: rgba(0,0,0,0.3);
             a {
                 padding:10px 15px;
-                font-size: 18px;
+                font-size: 22px;
+                font-weight: bold;
                 color: #FFF;
                 &:hover {
                     color: #FFF;

@@ -1,16 +1,15 @@
-@import 'TopNav';
+@import 'DesktopNav';
+@import "MobileNav";
 @import 'Footer';
+@import "TopBar";
 
 html, body {
     overflow-x: hidden;
-    background-color: #000;
-    background-image: url('/storage/images/backgrounds/bg.jpg');
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-color: #FFF;
 }
 .container {
     margin:0 auto;
+    width:unset;
 }
 @media screen and (max-width: 660px) {
     .container {

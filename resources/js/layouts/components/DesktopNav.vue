@@ -1,8 +1,8 @@
 <template>
-  <nav id="TopNav" class="bg-white border-b border-gray-200 p-4">
+  <nav id="DesktopNav" class="p-4 hidden lg:block xl:block">
     <div class="container mx-auto flex justify-center md:justify-between">
       <router-link :to="{name: 'Home'}" class="hidden md:flex text-xl font-semibold place-items-center space-x-2">
-        <img src="/storage/images/logo.webp" class="h-[80px]" alt="Shepway Computer Support and Repair Folkestone, Kent" />
+        <img src="/storage/images/logo.png" class="h-[100px]" alt="Folkestone Invicta Youth Football Club" />
       </router-link>
       <ul class="list flex items-center">
         <li>
@@ -11,33 +11,18 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/services/telephone">
-            <span>Telephone IT Support</span>
+          <router-link to="/about">
+            <span>About</span>
           </router-link>
         </li>
         <li>
-          <router-link to="/services/repairs">
-            <span>Computer & Laptop Repairs</span>
+          <router-link to="/teams">
+            <span>Teams</span>
           </router-link>
         </li>
         <li>
-          <router-link to="/services/apple">
-            <span>Apple Support</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/services/callouts">
-            <span>Callouts</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/news">
-            <span>News</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/sales">
-            <span>Sales</span>
+          <router-link to="/club">
+            <span>The Club</span>
           </router-link>
         </li>
         <li>

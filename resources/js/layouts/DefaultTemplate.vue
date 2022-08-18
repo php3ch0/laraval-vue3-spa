@@ -1,7 +1,8 @@
 <template>
   <main>
     <Topbar />
-    <navigation></navigation>
+    <DesktopNav />
+    <MobileNav />
     <router-view></router-view>
     <PageFooter />
 
@@ -9,15 +10,17 @@
 </template>
 
 <script>
-import Navigation from './components/Navigation'
 import Topbar from "./components/Topbar";
 import PageFooter from "./components/Footer";
+import DesktopNav from "./components/DesktopNav";
+import MobileNav from "./components/MobileNav";
 
 export default {
   components: {
     PageFooter,
     Topbar,
-    Navigation,
+    DesktopNav,
+    MobileNav
   },
   computed: {
     user() {
