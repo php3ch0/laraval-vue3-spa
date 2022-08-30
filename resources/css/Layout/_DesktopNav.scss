@@ -1,18 +1,39 @@
 #DesktopNav {
-    border-bottom:4px solid $orange;
+    border-bottom:4px solid $pink;
+    background-color: $white;
+    .logo {
+        position: absolute;
+        z-index: 50;
+        left:0;
+        top:0;
+        height:180px;
+        transition: all 0.4s ease-in-out;
+    }
     ul {
         li {
-            background-color: rgba(0,0,0,0.3);
+            background-color: none;
             a {
+                transition: all 0.4s ease-in-out;
                 padding:10px 15px;
                 font-size: 22px;
-                font-weight: bold;
-                color: #FFF;
+                color: $grey;
                 &:hover {
                     color: #FFF;
-                    background-color: $orange;
+                    background-color: $pink;
                 }
             }
+        }
+    }
+
+    &.fixed-menu {
+        position: fixed;
+        width:100%;
+        top:0;
+        z-index: 999;
+        background-color: $pink-light;
+        .logo {
+            top:-10px;
+            height:120px;
         }
     }
 }

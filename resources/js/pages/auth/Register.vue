@@ -1,7 +1,14 @@
 <template>
-  <div class=" flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
+  <div class=" flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
 
-    <div class="w-full sm:max-w-md mt-6 mb-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+    <teleport to="head">
+      <title>The Picnic Hut | Create Account</title>
+      <meta name="description" content="Create An Account" />
+    </teleport>
+
+    <div class="w-full sm:max-w-md  px-4 py-4">
+
+    <Card title="Please Login Or Create An Account" class="mt-3 mb-3">
       <form @submit.prevent="register">
         <div>
           <label class="block font-medium text-sm text-gray-500" for="email">
@@ -49,13 +56,16 @@
           </div>
         </div>
         <div class="flex items-center justify-end mt-4">
-          <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
+          <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
             Register
           </button>
         </div>
       </form>
-    </div>
+
+    </Card>
   </div>
+  </div>
+
 </template>
 
 <script>

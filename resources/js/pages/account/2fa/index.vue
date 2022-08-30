@@ -1,5 +1,7 @@
 <template>
   <div>
+
+
     <h3 v-if="active" class="text-lg font-medium text-gray-900">You have enabled two factor authentication.</h3>
     <h3 v-else class="text-lg font-medium text-gray-900">You have not enabled two factor authentication.</h3>
 
@@ -24,7 +26,7 @@
           <span>{{ errors.message }}</span>
         </div>
         <div class="flex items-center justify-end mt-4">
-          <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
+          <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
             Activate 2FA
           </button>
         </div>
@@ -36,10 +38,10 @@
     </div>
 
     <div class="space-x-2 mt-3">
-      <button v-if="!active && !qrCode" @click="activate" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Activate</button>
-      <button v-if="active && !recoveryCodes" @click="loadRecoveryCodes" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Show Recovery-Codes</button>
-      <button v-if="active && recoveryCodes" @click="resetRecoveryCodes" class="inline-flex items-center px-4 py-2 bg-transparent border border-gray-600 rounded-md font-semibold text-xs text-gray-500 uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Reset Recovery-Codes</button>
-      <button v-if="active" @click="deactivate" class="inline-flex items-center px-4 py-2 bg-red-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Deactivate</button>
+      <button v-if="!active && !qrCode" @click="activate" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Activate</button>
+      <button v-if="active && !recoveryCodes" @click="loadRecoveryCodes" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Show Recovery-Codes</button>
+      <button v-if="active && recoveryCodes" @click="resetRecoveryCodes" class="inline-flex items-center px-4 py-2 bg-transparent border border-gray-600 rounded-md font-semibold text-xs text-gray-500  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Reset Recovery-Codes</button>
+      <button v-if="active" @click="deactivate" class="inline-flex items-center px-4 py-2 bg-red-500 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Deactivate</button>
     </div>
   </div>
 </template>

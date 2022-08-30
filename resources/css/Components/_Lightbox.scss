@@ -1,0 +1,74 @@
+#lightbox {
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.8);
+    width:100vw;
+    height:100vh;
+    .lb-close {
+        position: fixed;
+        display: flex;
+        top:0;
+        right:0;
+        font-size: 30px;
+        color: #dedede;
+        text-align: center;
+        padding:15px 30px;
+        background-color: #000;
+        &:hover {
+            cursor: pointer;
+            color: #FFF;
+        }
+    }
+    .lb-image {
+        align-self: center;
+        justify-content: center;
+        width: 90vw;
+        height: 90vh;
+        position: relative;
+        z-index: 9998;
+        display: flex;
+        margin:60px;
+    }
+}
+
+.lb-link {
+    position: relative;
+    width:auto;
+    &:after {
+        content: ' ';
+        position: absolute;
+        top:100%;
+        left:0;
+        bottom:0;
+        right:0;
+        z-index: 5;
+        background-color: rgba($pink,0.8);
+        transition: all 0.4s ease-in-out;
+    }
+    &:hover {
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        &:after {
+            top:0;
+        }
+        &:before {
+            font: var(--fa-font-solid);
+            content: "\f00e";
+            font-size: 36px;
+            color: #FFF;
+            position: absolute;
+            z-index: 6;
+            text-align: center;
+            top:45%;
+            width:100%;
+        }
+    }
+    .image {
+        position: relative;
+        z-index: 4;
+    }
+}

@@ -1,6 +1,13 @@
+body {
+    font-family: $font-body;
+    font-weight: 300;
+    font-size: 1.2em;
+    color: #333;
+}
 h1,h2,h3,h4,h5 {
-    font-weight: bold;
-    margin-bottom:1.2em;
+    margin-bottom:15px;
+    color: $pink;
+    font-weight: 600;
 }
 h1 {
     font-size: 2em;
@@ -23,7 +30,6 @@ blockquote {
     border-left:10px solid #dedede;
     margin-bottom:1.2em;
     font-style: italic;
-    font-family: 'Lora', serif;
     color: #4b5563;
     font-size: 1.2em;
 }

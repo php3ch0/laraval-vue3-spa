@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 :root {
     --fontcolor:#677279;
     --bg-color:#f0f3f4;
@@ -12,6 +13,10 @@
     --red:#F00;
 }
 
+$pink:#d69dc6;
+$pink-light:#eabbdd;
+$pink-dark:#ac4790;
+
 $orange: #c57411;
 $orange-dark:#b1790c;
 
@@ -19,8 +24,11 @@ $black:#000;
 $white:#FFF;
 
 $grey-light:#d7d7d7;
-$grey:#9c9c9c;
+$grey:#6a686b;
 $grey-dark:#333;
+
+$font-title:'Sarabun', sans-serif;
+$font-body:'Sarabun', sans-serif;
 
 @import "Fonts";
 @import "Components";
@@ -28,4 +36,3 @@ $grey-dark:#333;
 @import "Forms";
 @import "Layout";
 @import "Pages";
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");

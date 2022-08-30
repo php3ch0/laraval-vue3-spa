@@ -1,9 +1,23 @@
 <template>
   <div class=" flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
 
+    <teleport to="head">
+      <title>Account | Reset Password</title>
+      <meta name="description" content="Reset Your password" />
+    </teleport>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded-lg">
-      <form @submit.prevent="resetPassword">
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4">
+      <Card title="Please Enter New Password">
+      <div v-if="success">
+        <div class="text-green-500 py-2 font-semibold mb-3">{{ success.message }}</div>
+
+        <router-link to="/account" class="items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
+          Return To Login
+        </router-link>
+
+      </div>
+
+      <form v-else @submit.prevent="resetPassword">
         <div>
           <label class="block font-medium text-sm text-gray-500" for="email">
             Email
@@ -26,11 +40,12 @@
           <span>{{ errors.message }}</span>
         </div>
         <div class="flex items-center justify-end mt-4">
-          <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
+          <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
             Reset Password
           </button>
         </div>
       </form>
+      </Card>
     </div>
   </div>
 </template>
@@ -42,6 +57,7 @@ export default {
   data: () => {
     return {
       errors: null,
+      success:false,
       data: {
         email: null,
         password: null,
@@ -53,10 +69,10 @@ export default {
   methods: {
     resetPassword() {
       this.errors = null
+      this.success=false;
       axios.post('/reset-password', {...this.data, ...{token: this.$route.params.token}})
         .then((response) => {
-          console.log(response)
-          router.push({name: 'Home'})
+          this.success=response.data;
         })
         .catch((error) => {
           this.errors = error.response.data

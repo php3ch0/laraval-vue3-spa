@@ -3,7 +3,7 @@
 
       <div class="flex mb-3">
         <div class="flex-auto self-center">
-          <h1 class="text-2lg uppercase">Manage User</h1>
+          <h1 class="text-2lg ">Manage User</h1>
         </div>
         <div class="flex-none justify-end self-center">
           <router-link to="/admin/users" class="btn btn-secondary ml-2">Go Back</router-link>

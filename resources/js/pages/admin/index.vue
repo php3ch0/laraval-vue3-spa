@@ -1,5 +1,14 @@
 <template>
-    <div id="AdminPage" class="mt-4 mb-4">
+  <div id="AdminPage">
+
+    <teleport to="head">
+      <title>Admin | Manage Your Website</title>
+      <meta name="description" content="Manage Your Website" />
+    </teleport>
+
+    <HeaderImage widget="accounttitle" title="Admin Page" imageurl="/storage/images/headers/event-catering.jpg" />
+    <div  class="mt-4 mb-4">
+
       <div class="container mx-auto">
         <div class="flex gap-4">
           <div class="flex-none xl:w-[250px]">
@@ -15,6 +24,8 @@
 
       </div>
     </div>
+  </div>
+
 </template>
 
 <script>

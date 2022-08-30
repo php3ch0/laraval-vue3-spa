@@ -1,8 +1,14 @@
 <template>
   <div class="flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
 
+    <teleport to="head">
+      <title>The Picnic Hut | Login</title>
+      <meta name="description" content="Login to your Picnic Hut Account" />
+    </teleport>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded-lg">
+
+    <div class="w-full sm:max-w-md mt-6 px-4 py-4">
+      <Card title="Please Login Or Create An Account">
       <form @submit.prevent="login">
         <div>
           <label class="block font-medium text-sm text-gray-500" for="email">
@@ -25,22 +31,29 @@
             <span class="ml-2 text-sm text-gray-500">Remember me</span>
           </label>
         </div>
-        <div class="flex items-center justify-end mt-4">
-          <router-link class="underline text-sm text-gray-500 hover:text-gray-200" :to="{name: 'ForgotPassword'}">
+        <div class="flex items-center mt-4 mb-4">
+          <router-link class="underline text-sm text-gray-500 hover:text-gray-200 flex-auto" :to="{name: 'ForgotPassword'}">
             Forgot your password?
           </router-link>
-          <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
-            Log in
-          </button>
+          <div class="justify-end">
+            <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
+              Log in
+            </button>
+          </div>
+
         </div>
       </form>
+        <hr>
+        <div class="text-center text-sm mt-4">
+          Don't have an account yet?
+          <router-link class="underline text-gray-500 hover:text-gray-200" :to="{name: 'Register'}">
+            Sign up now
+          </router-link>
+        </div>
+
+      </Card>
     </div>
-    <div class="text-center text-sm mt-4">
-        Don't have an account yet?
-        <router-link class="underline text-gray-500 hover:text-gray-200" :to="{name: 'Register'}">
-          Sign up now
-        </router-link>
-    </div>
+
   </div>
 </template>
 
@@ -72,9 +85,10 @@ export default {
 
             this.$store.dispatch('attempt_user')
               .then((response) => {
+                console.log(response);
                 if(response?.status === 200) {
                   if(!this.$route.redirectedFrom) {
-                    this.$router.push({name: 'Home'})
+                    this.$router.push('/')
                   } else {
                     this.$router.push(this.$route.redirectedFrom.fullPath)
                   }
@@ -83,6 +97,7 @@ export default {
               })
           })
           .catch((error) => {
+            console.log(error);
             this.errors = error.response.data
           })
       });

@@ -15,7 +15,6 @@ import Home from '@/js/pages/Home'
 import AccountPage from '@/js/pages/account/index';
 
 
-import AboutPage from '@/js/pages/about/index';
 import ContactPage from '@/js/pages/contact/index';
 import Cookies from "@/js/pages/legal/Cookies";
 import Terms from "@/js/pages/legal/Terms";
@@ -40,7 +39,8 @@ import AdminGalleriesIndex from "@/js/pages/admin/galleries/index";
 import AdminGalleriesEdit from "@/js/pages/admin/galleries/edit";
 
 
-
+import MobileCatering from "@/js/pages/mobile-catering";
+import Catering from "@/js/pages/catering";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -48,7 +48,8 @@ const router = createRouter({
 
         { path: "/", name: 'Home', component: Home },
 
-        { path: "/about", name: 'AboutPage', component: AboutPage },
+        { path: "/mobile-catering", name: 'MobileCateringPage', component: MobileCatering },
+        { path: "/catering", name: 'CateringPage', component: Catering },
         { path: "/contact", name: 'ContactPage', component: ContactPage },
 
         { path: "/account", meta: {auth:['user','admin'] },name: 'Account', component: AccountPage,

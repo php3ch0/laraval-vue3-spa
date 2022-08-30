@@ -8,6 +8,9 @@ use App\Http\Controllers\Api\Blog\BlogController;
 use App\Http\Controllers\Api\Blog\BlogImagesController;
 use App\Http\Controllers\Api\Widgets\WidgetsController;
 
+use App\Http\Controllers\Api\Galleries\GalleriesController;
+use App\Http\Controllers\Api\Galleries\GalleriesImagesController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -43,6 +46,19 @@ Route::namespace('\App\Http\Controllers\Api')
         Route::post('/widgets/{id}', [WidgetsController::class,'edit']);
         Route::delete('/widgets/{id}', [WidgetsController::class,'delete']);
 
+        /* Galleries */
+
+        Route::post('/galleries',[GalleriesController::class,'add']);
+
+        Route::post('/galleries/{id}',[GalleriesController::class,'edit']);
+        Route::delete('/galleries/{id}',[GalleriesController::class,'delete']);
+
+        Route::post('/galleriesimages',[GalleriesImagesController::class,'add']);
+        Route::post('/galleriesimages/order',[GalleriesImagesController::class,'order']);
+        Route::post('/galleriesimages/{id}',[GalleriesImagesController::class,'edit']);
+        Route::post('/galleriesimages/{id}/rotate',[GalleriesImagesController::class,'rotate']);
+        Route::delete('/galleriesimages/{id}',[GalleriesImagesController::class,'delete']);
+
     });
 
 Route::namespace('\App\Http\Controllers\Api')
@@ -55,5 +71,10 @@ Route::namespace('\App\Http\Controllers\Api')
 
         /* public Widgets */
         Route::get('/widgets/{id}', [WidgetsController::class,'get']);
+
+        /*Public Galleries */
+        Route::get('/galleries',[GalleriesController::class,'index']);
+        Route::get('/galleries/{id}',[GalleriesController::class,'get']);
+        Route::get('/galleriesimages/{id}',[GalleriesImagesController::class,'get']);
 
     });

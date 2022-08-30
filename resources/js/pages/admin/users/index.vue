@@ -3,7 +3,7 @@
 
       <div class="flex mb-3">
         <div class="flex-auto self-center">
-          <h1 class="text-2lg uppercase">Manage Users</h1>
+          <h1 class="text-2lg ">Manage Users</h1>
         </div>
         <div class="flex-none justify-end self-center">
           <a @click="toggleAddUserModal" class="btn btn-secondary ml-2">Add User</a>

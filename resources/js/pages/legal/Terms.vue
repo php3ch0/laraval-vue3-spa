@@ -1,8 +1,10 @@
 <template>
     <div id="TermsPage">
       <teleport to="head">
-        <title>Terms</title>
+        <title>The Picnic Hut | Terms and Conditions</title>
+        <meta name="description" content="Terms and conditions about the use of this web site" />
       </teleport>
+
       <div class="container">
         <div class="white-box mt-3 mb-3">
           <Widget name="Terms" />

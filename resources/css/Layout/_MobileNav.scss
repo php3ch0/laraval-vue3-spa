@@ -1,9 +1,9 @@
 @import "~hamburgers/dist/hamburgers.min.css";
 #MobileNav {
 
-    padding:30px 10px;
+    padding:10px;
     .logo {
-        max-height: 55px;
+        max-height: 75px;
         max-width: 100%;
     }
     .hamburger.is-active:hover, .hamburger:hover {
@@ -11,7 +11,7 @@
     }
 
     .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
-        background-color: $orange;
+        background-color: $pink;
         border-radius: unset;
     }
     .hamburger-inner:before {
@@ -33,25 +33,25 @@
         &.nav-open {
             max-height: 1500px;
             padding-top: 15px;
-            border-top:1px solid $grey-dark;
+            border-top:1px solid $pink-light;
             margin-top:15px;
         }
         ul.navbar {
             margin:0px;
             padding:0px;
             display: block;
-            background-color: #2a2424;
+            background-color: $pink-light;
             li {
                 display: block;
                 a {
                     display: block;
                     width:100%;
                     padding: 12px;
-                    color: $grey-light;
+                    color: $white;
                     font-size: 1.2em;
                     border-bottom:1px solid #474646;
                     &:hover {
-                        background-color: #2a2424;
+                        background-color: $pink;
                         color: $white;
                     }
                 }
