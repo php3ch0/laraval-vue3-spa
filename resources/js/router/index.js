@@ -13,18 +13,22 @@ import Home from '@/js/pages/Home'
 
 /* Account */
 import AccountPage from '@/js/pages/account/index';
-
-
-import ContactPage from '@/js/pages/contact/index';
-import Cookies from "@/js/pages/legal/Cookies";
-import Terms from "@/js/pages/legal/Terms";
-import Privacy from "@/js/pages/legal/Privacy";
-
-/* Account */
 import TwoFactorAuth from "@/js/pages/account/2fa/index";
 import PasswordUpdate from "@/js/pages/account/password/index";
 import Profile from "@/js/pages/account/profile/index";
 import AccountIndex from "@/js/pages/account/components/AccountIndex";
+
+/* Pages */
+import Contact from '@/js/pages/contact/index';
+import Cookies from "@/js/pages/legal/Cookies";
+import Terms from "@/js/pages/legal/Terms";
+import Privacy from "@/js/pages/legal/Privacy";
+import About from "@/js/pages/about";
+import Sales from "@/js/pages/sales";
+
+import ServicesPage from "@/js/pages/services";
+import ServicesCallouts from "@/js/pages/services/callouts"
+
 
 /*Admin */
 import AdminIndex from "@/js/pages/admin/index";
@@ -38,9 +42,11 @@ import AdminWidgetsEdit from "@/js/pages/admin/widgets/Edit";
 import AdminGalleriesIndex from "@/js/pages/admin/galleries/index";
 import AdminGalleriesEdit from "@/js/pages/admin/galleries/edit";
 
+import AdminTestimonialsIndex from "@/js/pages/admin/testimonials/index";
+import AdminTestimonialsEdit from "@/js/pages/admin/testimonials/edit";
 
-import MobileCatering from "@/js/pages/mobile-catering";
-import Catering from "@/js/pages/catering";
+
+
 
 const router = createRouter({
     history: createWebHistory(),
@@ -48,9 +54,12 @@ const router = createRouter({
 
         { path: "/", name: 'Home', component: Home },
 
-        { path: "/mobile-catering", name: 'MobileCateringPage', component: MobileCatering },
-        { path: "/catering", name: 'CateringPage', component: Catering },
-        { path: "/contact", name: 'ContactPage', component: ContactPage },
+        { path: "/contact", name: 'Contact', component: Contact },
+
+        { path: "/about", name: 'About', component: About },
+        { path: "/sales", name: 'Sales', component: Sales },
+
+
 
         { path: "/account", meta: {auth:['user','admin'] },name: 'Account', component: AccountPage,
             children: [
@@ -58,6 +67,13 @@ const router = createRouter({
                 {path:"password", name: 'Password', component: PasswordUpdate},
                 {path:"profile", name: 'Profile', component: Profile},
                 {path:"2fa", name: 'TwoFactor', component: TwoFactorAuth}
+            ]
+        },
+
+        { path: "/services", name: 'Services', component: ServicesPage,
+            children: [
+                {path:"callouts", name: 'ServicesCallouts', component: ServicesCallouts}
+
             ]
         },
 
@@ -71,7 +87,9 @@ const router = createRouter({
                 {path: '/admin/widgets/:id', name: 'AdminWidgetsEdit', component: AdminWidgetsEdit},
 
                 {path: '/admin/galleries', name: 'AdminGalleries', component: AdminGalleriesIndex},
-                {path: '/admin/galleries/:id', name: 'AdminGalleriesEdit', component: AdminGalleriesEdit}
+                {path: '/admin/galleries/:id', name: 'AdminGalleriesEdit', component: AdminGalleriesEdit},
+
+                {path: '/admin/testimonials', name: 'AdminTestimonials', component: AdminTestimonialsIndex}
             ]
         },
 

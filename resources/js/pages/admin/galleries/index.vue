@@ -28,7 +28,7 @@
     </div>
 
 
-    <Modal :show="addGalleryModal" @close="toggleAddGalleryModal" width="lg" title="Add Gallery">
+    <Modal :show="addGalleryModal" @close="toggleAddGalleryModal" width="lg" title="Add Gallery" static="true">
       <template #body>
         <Loading v-if="loading" />
         <form v-else @submit.prevent="addGallerySubmit">

@@ -1,7 +1,7 @@
 .card {
     .card-header {
         padding:0.5em 0.8em;
-        background-color:$pink;
+        background-color:$blue-dark;
         color:#FFF;
         border-top-left-radius:8px;
         border-top-right-radius:8px;
@@ -9,7 +9,7 @@
 
     }
     .card-body {
-        border:1px solid $pink;
+        border:1px solid $grey;
         padding:0.8em;
         background-color: #FFF;
     }

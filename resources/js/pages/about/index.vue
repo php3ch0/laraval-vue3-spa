@@ -1,15 +1,16 @@
 <template>
     <div id="AboutPage">
-       <div class="box black">
-         <Widget name="aboutpagetitle" />
-       </div>
-       <div class="max-w-7xl p-6 mx-auto">
+
+      <HeaderImage widget="abouttitle" title="About Shepway Computers, IT Support and Computer Repair in Folkestone" imageurl="/storage/images/headers/about.webp" />
+
+
+      <div class="container">
            <div class="mb-4 mt-4 text-center">
-               <h2>We repair PC's, Laptop Computers, Apple iMac and Macbook from our offices in Folkestone, Kent</h2>
+               <h2>We repair PC's, Laptop Computers, Apple iMac and Macbooks from our offices in Folkestone, Kent</h2>
            </div>
            <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                <div class="white-box">
-                   <p>Shepway Computers is an IT Support and computer repair company based in Hythe near Folkestone that provides computer and laptop repairs to homes and business in Kent. We cover Folkestone, Ashford, Hythe, Hawkinge, Lyminge, Sandgate and all the surrounding areas.</p>
+                   <p>Shepway Computers is an IT Support and computer repair company based in Folkestone. We provide computer and laptop repairs to homes and business in Kent. We cover Folkestone, Ashford, Hythe, Hawkinge, Lyminge, Sandgate and all the surrounding areas.</p>
                    <blockquote>We believe that the personal and friendly service that we give to all our customers is important to building the trust that is required for a long business relationship.</blockquote>
                    <p>Shepway Computers specialise in Laptop repairs and PC repairs either on-site, at your home or business, or from our workshop in Seabrook, close to Hythe and Folkestone. We are local, friendly and affordable, with over 12 years experience repairing and upgrading all brands of computers and laptops. Your computers can either be dropped off, collected, or repaired on-site at your home or business.</p>
                </div>
@@ -27,9 +28,9 @@
 
 <script>
 
-import Widget from "../../components/Widget";
+
 export default {
     name: "AboutPage",
-  components: {Widget},
+
 }
 </script>

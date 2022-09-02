@@ -30,6 +30,7 @@
         "hamburgers": "^1.2.1",
         "v-pagination-3": "^0.1.7",
         "vue-agile": "^2.0.0",
+        "vue-star-rating": "^2.1.0",
         "vue3-cookies": "^1.0.6",
         "vuedraggable": "^4.1.0"
     }

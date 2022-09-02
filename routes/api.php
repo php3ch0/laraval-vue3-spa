@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\Widgets\WidgetsController;
 
 use App\Http\Controllers\Api\Galleries\GalleriesController;
 use App\Http\Controllers\Api\Galleries\GalleriesImagesController;
+use App\Http\Controllers\Api\Testimonials\TestimonialsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,13 @@ Route::namespace('\App\Http\Controllers\Api')
         Route::post('/galleriesimages/{id}/rotate',[GalleriesImagesController::class,'rotate']);
         Route::delete('/galleriesimages/{id}',[GalleriesImagesController::class,'delete']);
 
+
+        /* Testimonials */
+        Route::post('/testimonials',[TestimonialsController::class,'add']);
+        Route::get('/testimonials/{id}',[TestimonialsController::class,'get']);
+        Route::post('/testimonials/{id}',[TestimonialsController::class,'edit']);
+        Route::delete('/testimonials/{id}',[TestimonialsController::class,'delete']);
+
     });
 
 Route::namespace('\App\Http\Controllers\Api')
@@ -76,5 +84,8 @@ Route::namespace('\App\Http\Controllers\Api')
         Route::get('/galleries',[GalleriesController::class,'index']);
         Route::get('/galleries/{id}',[GalleriesController::class,'get']);
         Route::get('/galleriesimages/{id}',[GalleriesImagesController::class,'get']);
+
+        /* testimonials */
+        Route::get('/testimonials',[TestimonialsController::class,'index']);
 
     });

@@ -1,16 +1,16 @@
 #HeaderImage {
     overflow: hidden;
-    border-bottom:4px solid $pink;
+    border-bottom:4px solid $blue;
     min-height:450px;
     h1 {
         font-size: 2.8em;
         font-weight: 600;
         margin-bottom: 0;
-        color: $pink;
+        color: $white;
     }
     p {
         font-size: 1.1em;
-        color: $grey;
+        color: $white;
         font-weight: 600;
     }
     .header-image {
@@ -26,7 +26,7 @@
             right:0;
             bottom:0;
             position: absolute;
-            background: linear-gradient(90deg, rgba(255,255,255,1) 29%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.9) 29%, rgba(0,0,0,0.4) 100%);
             z-index: 8;
             display: flex;
         }
@@ -48,7 +48,6 @@
     .widget-header {
         &.container {
             position: relative;
-            margin-top:80px;
             z-index: 9;
             width:100%;
             opacity: 0;
@@ -75,7 +74,7 @@
         min-height:350px;
         .header-image {
             &:before {
-                background: rgba(255,255,255,0.8);
+                background: rgba(0,0,0,0.7);
             }
 
             img {
@@ -97,7 +96,7 @@
     @media screen and (min-width:800px) and (max-width:1100px) {
         .widget {
             padding:25px;
-            background-color: rgba(255,255,255,0.8);
+            background-color: rgba(0,0,0,0.8);
         }
     }
 }

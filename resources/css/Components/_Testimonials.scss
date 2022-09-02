@@ -1,0 +1,40 @@
+#TestimonialsSlide {
+    background-color: #f4f4f4;
+    padding:25px;
+    .title {
+        padding-bottom:15px;
+        border-bottom:3px solid #000;
+    }
+    .google-logo {
+        max-height: 45px;
+    }
+    h4 {
+        font-size: 1.4em;
+
+        color: #000;
+    }
+    .testimonial-wrap {
+        padding:25px;
+        .text {
+            font-size: 0.85em;
+            font-style: italic;
+        }
+        .name {
+            font-weight: bold;
+        }
+    }
+
+    .agile__nav-button--prev, .agile__nav-button--next {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 100%;
+    }
+    .agile__nav-button--prev {
+        left: -50px;
+    }
+
+    .agile__nav-button--next {
+        right:-50px
+    }
+}

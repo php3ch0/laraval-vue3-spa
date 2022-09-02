@@ -4,9 +4,11 @@
     <div class="white-box">
       <ul>
         <li><router-link to="/admin">Dashboard</router-link></li>
-        <li><router-link to="/admin/users">Manage Users</router-link></li>
-        <li><router-link to="/admin/widgets">Manage Widgets</router-link></li>
-        <li><router-link to="/admin/galleries">Manage Galleries</router-link></li>
+        <li><router-link to="/admin/users">Users</router-link></li>
+        <li><router-link to="/admin/blog">Blog</router-link></li>
+        <li><router-link to="/admin/widgets">Widgets</router-link></li>
+        <li><router-link to="/admin/galleries">Galleries</router-link></li>
+        <li><router-link to="/admin/testimonials">Testimonials</router-link></li>
         <li><a href="/">Return To Web Site</a></li>
       </ul>
     </div>

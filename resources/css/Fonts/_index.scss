@@ -6,7 +6,7 @@ body {
 }
 h1,h2,h3,h4,h5 {
     margin-bottom:15px;
-    color: $pink;
+    color: $blue;
     font-weight: 600;
 }
 h1 {
@@ -23,6 +23,10 @@ h4 {
 }
 p {
     margin-bottom:1.2em;
+}
+
+strong {
+    font-weight: 600;
 }
 
 blockquote {

@@ -1,12 +1,9 @@
 #DesktopNav {
-    border-bottom:4px solid $pink;
+    border-bottom:4px solid $blue;
     background-color: $white;
     .logo {
-        position: absolute;
-        z-index: 50;
-        left:0;
-        top:0;
-        height:180px;
+        position: relative;
+        height:90px;
         transition: all 0.4s ease-in-out;
     }
     ul {
@@ -14,12 +11,12 @@
             background-color: none;
             a {
                 transition: all 0.4s ease-in-out;
-                padding:10px 15px;
-                font-size: 22px;
+                padding:10px 12px;
+                font-size: 19px;
                 color: $grey;
                 &:hover {
                     color: #FFF;
-                    background-color: $pink;
+                    background-color: $blue;
                 }
             }
         }
@@ -30,10 +27,10 @@
         width:100%;
         top:0;
         z-index: 999;
-        background-color: $pink-light;
+        background-color: $blue-light;
         .logo {
             top:-10px;
-            height:120px;
+            height:90px;
         }
     }
 }
