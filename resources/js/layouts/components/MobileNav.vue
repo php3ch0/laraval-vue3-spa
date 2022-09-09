@@ -6,7 +6,7 @@
     <div class="flex gap-4">
       <div class="flex-auto self-center">
         <a href="/">
-          <img src="/storage/images/logo.png" class="logo" alt="Folkestone Invicta Youth Football" />
+          <img src="/storage/images/logo.png" class="logo" alt="Peter Kifodu Foundation" />
         </a>
       </div>
       <div class="flex-none self-center">
@@ -26,8 +26,6 @@
     <ul class="navbar">
       <li @click="toggleNav"><router-link to="/">Home</router-link></li>
       <li @click="toggleNav"><router-link to="/about">About</router-link></li>
-      <li @click="toggleNav"><router-link to="/teams">Teams</router-link></li>
-      <li @click="toggleNav"><router-link to="/club">The Club</router-link></li>
       <li @click="toggleNav"><router-link to="/contact">Contact Us</router-link></li>
     </ul>
   </div>

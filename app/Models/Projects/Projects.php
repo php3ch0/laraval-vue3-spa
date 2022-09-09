@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\Blog;
+namespace App\Models\Projects;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Projects extends Model
 {
 
-    protected $table = 'blog';
-    protected string $urldir = '/blog/';
-    protected string $imgdir="/images/blog/";
+    protected  $table = 'projects';
+    protected string $urldir = '/projects/';
+    protected string $imgdir="/images/projects/";
 
     protected $fillable = [
         'title', 'article','slug','image'
@@ -23,6 +23,8 @@ class Blog extends Model
 
     public function getImageUrlAttribute() {
 
+
+
         if(!file_exists(storage_path('app/public'.$this->imgdir.$this->image)) || empty($this->image)) {
             return '/storage/images/no-image.png';
         } else {
@@ -32,7 +34,7 @@ class Blog extends Model
     }
 
     public function images() {
-        return $this->hasMany(BlogImages::class,'blog_id','id')->orderBy('order_by','ASC');
+        return $this->hasMany(ProjectsImages::class,'project_id','id')->orderBy('order_by','ASC');
     }
 
     public function getUrlAttribute() {
@@ -114,4 +116,5 @@ class Blog extends Model
         return $html;
 
     }
+
 }

@@ -3,12 +3,12 @@
   <div id="ContactPage">
 
     <teleport to="head">
-      <title>The Picnic Hut | Contact Us</title>
-      <meta name="description" content="Contact the Picnic Hut, New Romney to find out more about our catering services or to enquire about our mobile catering" />
+      <title>Peter Kifodu Foundation | Contact Us</title>
+      <meta name="description" content="Contact the The Peter Kifodu Foundation" />
     </teleport>
 
 
-    <HeaderImage widget="contacttitle" title="Contact The Picnic Hut" imageurl="/storage/images/headers/contact.jpg" />
+    <HeaderImage widget="contacttitle" title="Contact The Picnic Hut" imageurl="/storage/images/headers/contact.webp" />
 
 
     <div class="container">
@@ -27,7 +27,7 @@
                 <i class="fa-solid fa-at fa-2x fa-fw"></i>
               </div>
               <div class="ml-2 text-2xl">
-                <a href="mailto:info@picnichut.co.uk">info@picnichut.co.uk</a>
+                <a href="mailto:info@peterkifodufoundation.org">info@peterkifodufoundation.org</a>
               </div>
             </div>
           </div>
@@ -38,9 +38,12 @@
                 <i class="fa-solid fa-envelope fa-2x fa-fw"></i>
               </div>
               <div class="ml-2">
-                <p>The Picnic Hut<br>
-                  New Romney<br>
-                  Kent<br>
+                <p>Peter Kifodu Foundation<br>
+                  Address 1<br>
+                  Address 2<br>
+                  Town<br>
+                  County<br>
+                  Postcode<br>
                 </p>
               </div>
             </div>

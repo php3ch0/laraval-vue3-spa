@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Models\Blog;
+namespace App\Models\Projects;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BlogImages extends Model
+class ProjectsImages extends Model
 {
 
-    protected $table = 'blog_images';
+    protected $table = 'projects_images';
 
     protected $fillable = [
-        'blog_id','image'
+        'project_id','image'
     ];
 
 
@@ -19,7 +19,7 @@ class BlogImages extends Model
 
     public function getImageUrlAttribute() {
 
-        $dir = '/images/blog/';
+        $dir = '/images/projects/';
 
         if(!file_exists(storage_path('app/public/'.$dir.$this->image)) || empty($this->image)) {
             return '/storage/images/no-image.png';
@@ -32,7 +32,6 @@ class BlogImages extends Model
     public function getShortCodeAttribute() {
         return "[[image=".$this->id."]]";
     }
-
 
 
 }

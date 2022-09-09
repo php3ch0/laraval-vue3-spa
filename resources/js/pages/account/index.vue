@@ -6,9 +6,7 @@
       <meta name="description" content="Manage Your Account" />
     </teleport>
 
-  <HeaderImage widget="accounttitle" title="Admin Page" imageurl="/storage/images/headers/event-catering.jpg" />
-
-  <div class="mt-4 mb-4">
+  <div class="mt-4 mb-4 pt-4 pb-4">
       <div class="container mx-auto">
         <div class="flex gap-4">
           <div class="flex-none xl:w-[250px]">

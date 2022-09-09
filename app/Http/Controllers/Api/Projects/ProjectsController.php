@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Api\Blog;
+namespace App\Http\Controllers\Api\Projects;
+
 
 use http\Env\Response;
 use Request;
@@ -10,15 +11,16 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Intervention\Image\ImageManagerStatic as Image;
-use App\Models\Blog\Blog;
-use App\Models\Blog\BlogImages;
+use App\Models\Projects\Projects;
+use App\Models\Projects\ProjectsImages;
 use Schema;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
-class BlogController extends Controller
+class ProjectsController extends Controller
 {
-    private string $imgdir = "/images/blog/";
+
+    private string $imgdir = "/images/projects/";
 
     public function index() {
 
@@ -36,7 +38,7 @@ class BlogController extends Controller
 
         $start = $page*$limit;
 
-        $data = Blog::whereRaw('1=1');
+        $data = Projects::whereRaw('1=1');
 
         $all = $data->count();
         $results = $data->orderby('created_at','DESC')->offset($start)->limit($limit)->get();
@@ -60,9 +62,9 @@ class BlogController extends Controller
     public function get($id=null) {
 
         if(is_numeric($id)) {
-            $item =  Blog::where('id','=',$id)->with(['images'])->first();
+            $item =  Projects::where('id','=',$id)->with(['images'])->first();
         } else {
-            $item =  Blog::where('slug','=',$id)->with(['images'])->first();
+            $item =  Projects::where('slug','=',$id)->with(['images'])->first();
         }
 
         if(!isset($item->id)) {
@@ -92,11 +94,11 @@ class BlogController extends Controller
             return response()->json($data,200);
         }
 
-        $item = new Blog();
+        $item = new Projects();
         $item->title=Request::get('title');
         $item->save();
 
-        $item->slug = $item->id.'-'.preg_replace('/\W+/', '-', strtolower($item->title));
+        $item->slug = $item->id.'-'.strtolower(preg_replace("/[^A-Za-z0-9 ]/", '-',$item->title));
         $item->save();
 
         return response()->json($item,200);
@@ -105,6 +107,8 @@ class BlogController extends Controller
 
     public function edit() {
 
+
+
         if(Auth::User()->cannot('access-admin')) {
             return abort(401);
         }
@@ -112,7 +116,7 @@ class BlogController extends Controller
         $v = Validator::make(Request::all(), [
             'id' => 'required',
             'title'=>'required',
-            'slug'=>'required|max:255|unique:blog,slug,'.Request::get('id')
+            'slug'=>'required|max:255|unique:projects,slug,'.Request::get('id')
         ]);
 
         if ($v->fails())
@@ -120,22 +124,11 @@ class BlogController extends Controller
             return response()->json($v->errors(),422);
         }
 
-        $item = Blog::find(Request::get('id'));
+        $item = Projects::find(Request::get('id'));
 
 
         if(isset($item->id)) {
             $item->fill(Request::all());
-
-            $item->slug = preg_replace('/\W+/', '-', strtolower(Request::get('slug')));
-
-            $dd = Request::get('created_at');
-            if(is_int($dd)) {
-                $dd=($dd/1000);
-                $item->created_at = date('Y-m-d H:i:s',$dd);
-            } else {
-                $item->created_at = date('Y-m-d H:i:s',strtotime(Request::Get('created_at')));
-            }
-
 
             if (Request::hasFile('image')) {
 
@@ -144,14 +137,16 @@ class BlogController extends Controller
                 }
 
                 $extension = Request::file('image')->getClientOriginalExtension();
-                $filename= preg_replace('/\W+/', '-', strtolower(Request::get('title'))."-i".date('Ymdhis')).".".$extension;
-                Image::make(Request::file('image'))->resize(1800, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save(storage_path('app/public'.$this->imgdir . $filename));
+                 $filename= preg_replace('/\W+/', '-', strtolower(Request::get('title'))."-i".date('Ymdhis')).".".$extension;
+                    Image::make(Request::file('image'))->resize(1800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save(storage_path('app/public'.$dir . $filename));
 
-                $item->image = $filename;
+                 $item->image = $filename;
 
             }
+
+
 
 
             $item->save();
@@ -166,15 +161,35 @@ class BlogController extends Controller
             return abort(401);
         }
 
-        $item = Blog::where('id','=',$id)->first();
-        BlogImages::where('blog_id','=',$id)->delete();
+        $item = Projects::where('id','=',$id)->first();
 
         if($item->id) {
+            ProjectsImages::where('project_id','=',$id)->delete();
             $item->delete();
         }
 
         $data['status']='success';
         return response()->json($data,200);
+
+    }
+
+    public function order() {
+
+        if(Auth::User()->cannot('access-admin')) {
+            return abort(401);
+        }
+
+        $data = Request::get('projects');
+
+        foreach($data as $key=>$value) {
+            $item = Projects::find($value['id']);
+            if(isset($item->id)) {
+                $item->order_by =  str_pad($key, 4, '0', STR_PAD_LEFT);
+                $item->save();
+            }
+        }
+
+        return response()->json([],200);
 
     }
 

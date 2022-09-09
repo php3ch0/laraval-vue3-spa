@@ -18,6 +18,7 @@ class BlogImages extends Migration
             $table->bigIncrements('id');
             $table->text('blog_id')->nullable();
             $table->string('image')->nullable();
+            $table->string('order_by')->nullable();
             $table->timestamps();
         });
     }

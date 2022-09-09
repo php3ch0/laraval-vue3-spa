@@ -2,7 +2,7 @@
   <div id="AdminBlogPage" class="container-fluid">
     <div class="flex">
       <div class="flex-auto">
-        <h1>Manage Blog</h1>
+        <h1>Manage Blogs</h1>
       </div>
       <div class="flex-none justify-end">
         <a hre="#" @click.prevent="toggleAddBlogModal" class="btn btn-primary">Add Item</a>
@@ -12,7 +12,7 @@
 
 
     <div class="card card-default mt-3">
-      <div class="card-header">Manage Blog</div>
+      <div class="card-header">Manage Blogs</div>
       <div class="card-body">
 
         <div class="grid grid-cols-3 gap-4">
@@ -24,6 +24,7 @@
       </div>
     </div>
     <div class="mt-3 justify-content-center d-flex text-center">
+      <pagination v-model="page" :records="totalRows" :per-page="perPage" @paginate="getItems"/>
     </div>
 
 
@@ -55,7 +56,6 @@
 <script>
   import Item from './components/item';
 
-
   export default {
     middleware: 'admin',
     layout: 'admin',
@@ -82,7 +82,7 @@
         let self=this;
         self.Items={};
         axios.get('/api/blog?page='+(parseInt(self.Page)-1)).then(function (res) {
-          self.Items=res.data.posts;
+          self.Items=res.data.results;
           self.totalRows=res.data.total;
         })
       },

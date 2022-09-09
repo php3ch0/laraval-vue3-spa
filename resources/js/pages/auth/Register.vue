@@ -2,7 +2,7 @@
   <div class=" flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
 
     <teleport to="head">
-      <title>The Picnic Hut | Create Account</title>
+      <title>Pter Kifodu Foundation | Create Account</title>
       <meta name="description" content="Create An Account" />
     </teleport>
 

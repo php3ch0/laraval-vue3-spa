@@ -2,10 +2,10 @@
     <div class="container-fluid admin-project-edit">
       <div class="flex">
         <div class="flex-auto">
-          <h1>Manage Blog</h1>
+          <h1>Manage Project</h1>
         </div>
         <div class="flex-none">
-          <router-link to="/admin/blog" class="btn btn-primary">Go Back</router-link>
+          <router-link to="/admin/projects" class="btn btn-primary">Go Back</router-link>
         </div>
       </div>
 
@@ -30,12 +30,6 @@
                         <label for="name">Item Slug URL:</label>
                         <input v-model="editItem.slug" type="text" :class="{'error':editItemErrors.slug }">
                         <div class="form-error" v-if="editItemErrors.slug">{{ editItemErrors.slug[0] }}</div>
-                      </div>
-
-                      <div class="mb-2">
-                        <label>Change Publish Date</label>
-                        <Datepicker v-model="editItem.created_at" format="dd/MM/yyyy" :autoApply="true" :enableTimePicker="false"></Datepicker>
-                        <div class="form-error" v-if="editItemErrors.created_at">{{ editItemErrors.created_at[0] }}</div>
                       </div>
 
 
@@ -63,7 +57,7 @@
                 <div  class="wtype-text row">
                     <div class="col">
                         <div class="mb-2 mt-3">
-                            <label>Blog Article</label>
+                            <label>Project Description</label>
                           <editor
                             api-key="no-api-key"
                             :disabled=false
@@ -136,16 +130,12 @@
   import { Dropzone } from "dropzone";
   import 'dropzone/dist/dropzone.css';
   import draggable from 'vuedraggable';
-  import Datepicker from '@vuepic/vue-datepicker';
-  import '@vuepic/vue-datepicker/dist/main.css';
-
 
     export default {
         middleware: 'admin',
         layout: 'admin',
-        name:'adminBlogEdit',
+        name:'adminProjectEdit',
         components: {
-          Datepicker,
           'editor': Editor,
           draggable
         },
@@ -165,14 +155,14 @@
           let self=this;
           self.getItem();
           let dz = new Dropzone("div#dropzone", {
-            url:'/api/blogimages',
+            url:'/api/projectsimages',
             uploadMultiple:false,
             acceptedFiles:'image/*',
             clickable:true,
             parallelUploads:2,
           });
           dz.on('sending', function(data, xhr, formData){
-            formData.append('blog_id', self.$route.params.id);
+            formData.append('project_id', self.$route.params.id);
           });
           dz.on("complete", function(file) {
             dz.removeFile(file);
@@ -186,7 +176,7 @@
             getItem() {
               let self=this;
               self.editItem.id = self.$route.params.id;
-              axios.get('/api/blog/'+self.editItem.id).then(function (res) {
+              axios.get('/api/projects/'+self.editItem.id).then(function (res) {
                 self.editItem=res.data;
               });
             },
@@ -214,11 +204,11 @@
                 formData.append('image',self.editItem.image);
 
 
-                axios.post('/api/blog/'+self.editItem.id,
+                axios.post('/api/projects/'+self.editItem.id,
                     formData,
                     { headers: {'Content-Type': 'multipart/form-data'}})
                 .then(function (res) {
-                    self.$router.push({path: '/admin/blog'});
+                    self.$router.push({path: '/admin/projects'});
                 }).catch(e => {
                       self.loading=false;
 
@@ -236,26 +226,26 @@
 
             deleteItem() {
               let self=this;
-              axios.delete('/api/blog/'+self.editItem.id).then(function(res) {
-                self.$router.push('/admin/blog');
+              axios.delete('/api/projects/'+self.editItem.id).then(function(res) {
+                self.$router.push('/admin/projects');
               })
             },
 
             sortEnd() {
               let self=this;
-              axios.post('/api/blogimages/order',self.editItem);
+              axios.post('/api/projectsimages/order',self.editItem);
             },
 
             deleteImage(id) {
               let self=this;
-              axios.delete('/api/blogimages/'+id).then(function(res) {
+              axios.delete('/api/projectsimages/'+id).then(function(res) {
                 self.getItem();
               })
             },
 
             rotateImage(id) {
               let self=this;
-              axios.post('/api/blogimages/'+id+'/rotate', { 'id':id }).then(function(res) {
+              axios.post('/api/projectsimages/'+id+'/rotate', { 'id':id }).then(function(res) {
                 self.getItem();
               });
             },

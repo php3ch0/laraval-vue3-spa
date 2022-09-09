@@ -1,21 +1,29 @@
 #PageFooter {
-    background: rgb(15,182,251);
-    background: linear-gradient(0deg, rgba(15,182,251,1) 0%, rgba(66,133,236,1) 100%);
+    background: rgb(199,199,199);
+    background: linear-gradient(180deg, rgba(199,199,199,1) 0%, rgba(177,177,177,1) 100%);
     border-top: 2px solid $grey-dark;
     border-bottom: 2px solid $grey-dark;
-    color: $white;
-    h4 {
-        color:$white;
-        font-weight: bold;
-    }
-    .footer-menu {
-        a {
-            color: $white;
-            font-size: 0.9em;
-            transition: all 0.4s ease-in-out;
-            &:hover {
+    color: $black;
+    position: fixed;
+    width:100%;
+    bottom:0;
+
+    .footer-links {
+        margin:0;
+        padding:0;
+        list-style: none;
+        li {
+            display: inline;
+            a {
                 color: $black;
+                font-size: 0.9em;
+                transition: all 0.4s ease-in-out;
+                padding:5px 15px;
+                &:hover {
+                    color: $black;
+                }
             }
         }
+
     }
 }

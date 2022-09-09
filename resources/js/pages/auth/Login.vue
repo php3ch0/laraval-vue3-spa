@@ -2,8 +2,8 @@
   <div class="flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
 
     <teleport to="head">
-      <title>The Picnic Hut | Login</title>
-      <meta name="description" content="Login to your Picnic Hut Account" />
+      <title>The Peter Kifodu Foundation | Login</title>
+      <meta name="description" content="Login to your peter Kifodu Foundation Account" />
     </teleport>
 
 

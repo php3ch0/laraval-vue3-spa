@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Blog;
+namespace App\Http\Controllers\Api\Projects;
 
 use http\Env\Response;
 use Request;
@@ -9,14 +9,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Intervention\Image\ImageManagerStatic as Image;
-use App\Models\Blog\BlogImages;
+use App\Models\Projects\ProjectsImages;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
-class BlogImagesController extends Controller
-{
+class ProjectsImagesController extends Controller {
 
-    private string $dir = "/images/blog/";
+    private string $dir = "/images/projects/";
 
     public function add() {
 
@@ -25,7 +24,7 @@ class BlogImagesController extends Controller
         }
 
         $v = Validator::make(Request::all(), [
-            'blog_id'=>'required|numeric'
+            'project_id'=>'required|numeric'
         ]);
 
         if ($v->fails())
@@ -37,8 +36,8 @@ class BlogImagesController extends Controller
 
         if (Request::hasFile('file')) {
 
-            $item = new BlogImages();
-            $item->blog_id=Request::get('blog_id');
+            $item = new ProjectsImages();
+            $item->project_id=Request::get('project_id');
             $item->save();
 
 
@@ -65,7 +64,7 @@ class BlogImagesController extends Controller
             return abort(401);
         }
 
-        $item = BlogImages::find($id);
+        $item = ProjectsImages::find($id);
 
         if(isset($item->id)) {
             $dir= storage_path("/app/public".$this->dir);
@@ -88,7 +87,7 @@ class BlogImagesController extends Controller
 
 
         foreach($data as $key=>$value) {
-            $item = BlogImages::find($value['id']);
+            $item = ProjectsImages::find($value['id']);
             if(isset($item->id)) {
                 $item->order_by =  str_pad($key, 4, '0', STR_PAD_LEFT);
                 $item->save();
@@ -105,7 +104,7 @@ class BlogImagesController extends Controller
             return abort(401);
         }
 
-        $gi = BlogImages::find($id);
+        $gi = ProjectsImages::find($id);
         if($gi->id) {
 
             $dir = $this->dir;
@@ -128,6 +127,5 @@ class BlogImagesController extends Controller
         }
 
     }
-
 
 }

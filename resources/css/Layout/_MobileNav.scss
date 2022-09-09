@@ -11,7 +11,7 @@
     }
 
     .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
-        background-color: $pink;
+        background-color: $grey-dark;
         border-radius: unset;
     }
     .hamburger-inner:before {
@@ -33,14 +33,14 @@
         &.nav-open {
             max-height: 1500px;
             padding-top: 15px;
-            border-top:1px solid $pink-light;
+            border-top:1px solid $grey-light;
             margin-top:15px;
         }
         ul.navbar {
             margin:0px;
             padding:0px;
             display: block;
-            background-color: $pink-light;
+            background-color: $grey-light;
             li {
                 display: block;
                 a {
@@ -51,7 +51,7 @@
                     font-size: 1.2em;
                     border-bottom:1px solid #474646;
                     &:hover {
-                        background-color: $pink;
+                        background-color: $grey-dark;
                         color: $white;
                     }
                 }

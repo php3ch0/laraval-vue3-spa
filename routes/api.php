@@ -12,6 +12,12 @@ use App\Http\Controllers\Api\Galleries\GalleriesController;
 use App\Http\Controllers\Api\Galleries\GalleriesImagesController;
 use App\Http\Controllers\Api\Testimonials\TestimonialsController;
 
+use App\Http\Controllers\Api\Projects\ProjectsController;
+use App\Http\Controllers\Api\Projects\ProjectsImagesController;
+
+use App\Http\Controllers\Api\Opportunities\OpportunitiesController;
+use App\Http\Controllers\Api\Opportunities\OpportunitiesImagesController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -39,8 +45,32 @@ Route::namespace('\App\Http\Controllers\Api')
         Route::post('/blog/{id}',[BlogController::class,'edit']);
         Route::delete('/blog/{id}',[BlogController::class,'delete']);
 
-        Route::post('/blog/{bid}/images',[BlogImagesController::class,'add']);
-        Route::delete('/blog/{bid}/images/{id}',[BlogImagesController::class,'delete']);
+        Route::post('/blogimages',[BlogImagesController::class,'add']);
+        Route::post('/blogimages/order',[BlogImagesController::class,'order']);
+        Route::delete('/blogimages/{id}',[BlogImagesController::class,'delete']);
+        Route::post('/blogimages/{id}/rotate',[BlogImagesController::class,'rotate']);
+
+        /* Admin Projects */
+        Route::post('/projects',[ProjectsController::class,'add']);
+        Route::post('/projects/order',[ProjectsController::class,'order']);
+        Route::post('/projects/{id}',[ProjectsController::class,'edit']);
+        Route::delete('/projects/{id}',[ProjectsController::class,'delete']);
+
+        Route::post('/projectsimages',[ProjectsImagesController::class,'add']);
+        Route::post('/projectsimages/order',[ProjectsImagesController::class,'order']);
+        Route::delete('/projectsimages/{id}',[ProjectsImagesController::class,'delete']);
+        Route::post('/projectsimages/{id}/rotate',[ProjectsImagesController::class,'rotate']);
+
+        /* Admin Opportunities */
+        Route::post('/opportunities',[OpportunitiesController::class,'add']);
+        Route::post('/opportunities/order',[OpportunitiesController::class,'order']);
+        Route::post('/opportunities/{id}',[OpportunitiesController::class,'edit']);
+        Route::delete('/opportunities/{id}',[OpportunitiesController::class,'delete']);
+
+        Route::post('/opportunitiesimages',[OpportunitiesImagesController::class,'add']);
+        Route::post('/opportunitiesimages/order',[OpportunitiesImagesController::class,'order']);
+        Route::delete('/opportunitiesimages/{id}',[OpportunitiesImagesController::class,'delete']);
+        Route::post('/opportunitiesimages/{id}/rotate',[OpportunitiesImagesController::class,'rotate']);
 
         Route::get('/widgets', [WidgetsController::class,'index']);
         Route::post('/widgets', [WidgetsController::class,'add']);
@@ -76,6 +106,14 @@ Route::namespace('\App\Http\Controllers\Api')
         /* Public Blog */
         Route::get('/blog',[BlogController::class,'index']);
         Route::get('/blog/{id}',[BlogController::class,'get']);
+
+        /* Public projects */
+        Route::get('/projects',[ProjectsController::class,'index']);
+        Route::get('/projects/{id}',[ProjectsController::class,'get']);
+
+        /* Public opportunities */
+        Route::get('/opportunities',[OpportunitiesController::class,'index']);
+        Route::get('/opportunities/{id}',[OpportunitiesController::class,'get']);
 
         /* public Widgets */
         Route::get('/widgets/{id}', [WidgetsController::class,'get']);

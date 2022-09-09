@@ -12,8 +12,30 @@ html, body {
     width:unset;
     padding:0 20px;
 }
+
+#DonateButtonHeader {
+    position: absolute;
+    z-index: 99;
+    top:15px;
+    right:15px;
+    width:180px;
+    text-align: right;
+    .btn {
+        background-color: $blue !important;
+        color: $white;
+        &:hover {
+            background-color: $red !important;
+            color: $white;
+        }
+    }
+}
 @media screen and (max-width: 660px) {
     .container {
         margin:0 15px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .container {
+        padding-left: 110px;
     }
 }

@@ -1,11 +1,15 @@
 .card {
     .card-header {
         padding:0.5em 0.8em;
-        background-color:$blue-dark;
-        color:#FFF;
+        background: rgb(199,199,199);
+        background: linear-gradient(180deg, rgba(199,199,199,1) 0%, rgba(177,177,177,1) 100%);
+        color:$black;
         border-top-left-radius:8px;
         border-top-right-radius:8px;
         font-size: 1.2em;
+        border-top:1px solid $grey;
+        border-left:1px solid $grey;
+        border-right:1px solid $grey;
 
     }
     .card-body {
