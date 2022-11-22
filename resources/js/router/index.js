@@ -25,16 +25,9 @@ import Terms from "@/js/pages/legal/Terms";
 import Privacy from "@/js/pages/legal/Privacy";
 import About from "@/js/pages/about";
 
-import Projects from "@/js/pages/projects";
-import ProjectsView from "@/js/pages/projects/view";
 
 import Blog from "@/js/pages/blog";
 import BlogView from "@/js/pages/blog/view";
-
-import Founders from "@/js/pages/founders";
-
-import Opportunities from "@/js/pages/opportunities";
-import OpportunitiesView from "@/js/pages/opportunities/view";
 
 
 /*Admin */
@@ -49,16 +42,9 @@ import AdminWidgetsEdit from "@/js/pages/admin/widgets/Edit";
 import AdminGalleriesIndex from "@/js/pages/admin/galleries/index";
 import AdminGalleriesEdit from "@/js/pages/admin/galleries/edit";
 
-import AdminTestimonialsIndex from "@/js/pages/admin/testimonials/index";
-
-import AdminProjectsIndex from "@/js/pages/admin/projects/index";
-import AdminProjectsEdit from "@/js/pages/admin/projects/edit";
-
 import AdminBlogIndex from "@/js/pages/admin/blog/index";
 import AdminBlogEdit from "@/js/pages/admin/blog/edit";
-import AdminOpportunitiesIndex from "@/js/pages/admin/opportunities/index";
-import AdminOpportunitiesEdit from "@/js/pages/admin/opportunities/edit";
-import Donate from "@/js/pages/donate";
+
 
 
 
@@ -72,15 +58,6 @@ const router = createRouter({
         { path: "/contact", name: 'Contact', component: Contact },
 
         { path: "/about", name: 'About', component: About },
-
-        { path: "/founders", name: 'Founders', component: Founders },
-
-
-        { path: "/projects", name: 'ProjectsPage', component: Projects },
-        { path: "/projects/:slug", name: 'ProjectsView', component: ProjectsView },
-
-        { path: "/opportunities", name: 'OpportunitiesPage', component: Opportunities },
-        { path: "/opportunities/:slug", name: 'OpportunitiesView', component: OpportunitiesView },
 
         { path: "/blog", name: 'BlogPage', component: Blog },
         { path: "/blog/:slug", name: 'BlogView', component: BlogView },
@@ -112,13 +89,6 @@ const router = createRouter({
                 {path: '/admin/galleries', name: 'AdminGalleries', component: AdminGalleriesIndex},
                 {path: '/admin/galleries/:id', name: 'AdminGalleriesEdit', component: AdminGalleriesEdit},
 
-                {path: '/admin/testimonials', name: 'AdminTestimonials', component: AdminTestimonialsIndex},
-
-                {path: '/admin/projects', name: 'AdminProjects', component: AdminProjectsIndex},
-                {path: '/admin/projects/:id', name: 'AdminProjectsEdit', component: AdminProjectsEdit},
-
-                {path: '/admin/opportunities', name: 'AdminOpportunities', component: AdminOpportunitiesIndex},
-                {path: '/admin/opportunities/:id', name: 'AdminOpportunitiesEdit', component: AdminOpportunitiesEdit},
 
                 {path: '/admin/blog', name: 'AdminBlog', component: AdminBlogIndex},
                 {path: '/admin/blog/:id', name: 'AdminBlogEdit', component: AdminBlogEdit}
