@@ -1,16 +1,54 @@
 #AccountMenu {
-    ul {
-        li {
-            a {
-                display:block;
-                font-size:18px;
-                padding:6px 0;
-                color:#666;
-                transition: color 0.4s ease-in-out;
-                &:hover {
-                    color:#000;
+    .desktop {
+        ul {
+            li {
+                a {
+                    display:block;
+                    font-size:18px;
+                    padding:6px 0;
+                    color:#666;
+                    transition: color 0.4s ease-in-out;
+                    &:hover {
+                        color:#000;
+                    }
                 }
             }
         }
     }
+
+    .mobile {
+        .menu-title {
+            background-color: $blue-dark;
+            color: #FFF;
+            padding:10px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .menu-items {
+            background-color: #efefef;
+            max-height: 0;
+            overflow-y: hidden;
+            transition: max-height 0.1s ease-in-out;
+            &.nav-open {
+                max-height: 1500px;
+            }
+            ul {
+                li {
+                    a {
+                        display:block;
+                        font-size:14px;
+                        padding:5px 15px;
+                        color:#666;
+                        transition: color 0.4s ease-in-out;
+                        &:hover {
+                            color:#000;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
 }

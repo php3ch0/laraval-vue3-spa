@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
+  <div id="ConfirmPasswordPage" class="my-3">
 
     <teleport to="head">
       <title>Account | Confirm Password</title>

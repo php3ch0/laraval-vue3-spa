@@ -1,5 +1,5 @@
 .btn {
-    background-color: $grey-dark;
+    background-color: $blue-dark;
     padding: 10px 25px;
     color:#FFF;
     transition: background-color 0.4s ease-in-out;
@@ -10,7 +10,8 @@
     font-size: 22px;
     font-weight: bold;
     &:hover {
-        background-color: $grey-light !important;
+        background-color: $blue-light !important;
+        color: #FFF;
         cursor: pointer;
     }
 
@@ -69,7 +70,7 @@ input,select,textarea {
 }
 
 .form-error {
-    font-size: 0.9em;
+    font-size: 0.7em;
     color: #F00;
 }
 

@@ -1,12 +1,12 @@
 <template>
-  <div class=" flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
+  <div id="ResetPasswordPage" class="my-3">
 
     <teleport to="head">
       <title>Account | Reset Password</title>
       <meta name="description" content="Reset Your password" />
     </teleport>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4">
+    <div class="w-full">
       <Card title="Please Enter New Password">
       <div v-if="success">
         <div class="text-green-500 py-2 font-semibold mb-3">{{ success.message }}</div>

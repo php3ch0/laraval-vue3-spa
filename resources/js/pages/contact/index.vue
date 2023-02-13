@@ -3,12 +3,12 @@
   <div id="ContactPage">
 
     <teleport to="head">
-      <title>Peter Kifodu Foundation | Contact Us</title>
-      <meta name="description" content="Contact the The Peter Kifodu Foundation" />
+      <title>Portside Film and Media Recruitment | Contact Us</title>
+      <meta name="description" content="Contact us to find out how we can help you with your Film and Media Recruitment needs" />
     </teleport>
 
 
-    <HeaderImage widget="contacttitle" title="Contact The Picnic Hut" imageurl="/storage/images/headers/contact.webp" />
+    <HeaderImage widget="contacttitle" title="Contact The Portside Film and Media Recruitment" imageurl="/storage/images/headers/contact.jpg" />
 
 
     <div class="container">
@@ -16,9 +16,9 @@
       <div class="pt-6 pb-6">
 
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 content-center">
         <div>
-          <Widget name="ContactPage1" />
+          <Widget name="ContactText1" />
 
 
           <div class="pt-3 pb-3">
@@ -27,7 +27,7 @@
                 <i class="fa-solid fa-at fa-2x fa-fw"></i>
               </div>
               <div class="ml-2 text-2xl">
-                <a href="mailto:info@peterkifodufoundation.org">info@peterkifodufoundation.org</a>
+                <a  style="word-break: break-all;" href="mailto:enquiries@portsiderecruitment.com">enquiries@portsiderecruitment.com</a>
               </div>
             </div>
           </div>
@@ -38,61 +38,27 @@
                 <i class="fa-solid fa-envelope fa-2x fa-fw"></i>
               </div>
               <div class="ml-2">
-                <p>Peter Kifodu Foundation<br>
-                  Address 1<br>
-                  Address 2<br>
-                  Town<br>
-                  County<br>
-                  Postcode<br>
+                <p>Portside Recruitment<br>
+                  Floor 5/13<br>
+                  55 Broadway<br>
+                  London<br>
+                  SW1H OBH
                 </p>
+                <p>55 Broadway is immediately above St James’ Park underground station which is on the District & Circle lines, one minute from Victoria Station.</p>
               </div>
             </div>
           </div>
 
-          <div class="pt-3 pb-3">
-            <Widget name="ContactPage2" />
-          </div>
 
         </div>
         <div>
 
-          <Card title="Contact Us By Email">
+          <div class="mb-3">
+            <h2>Map To Our Offices</h2>
+          </div>
 
+          <iframe width="100%" height="350" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=55 Broadway,London&key=AIzaSyA4hrkNkdnsY75n4Y5yP2v2iS66JDwCyWc" allowfullscreen></iframe>
 
-            <Loading v-if="loading" />
-
-            <template v-else>
-              <div v-if="complete" class="mb-3 p-4 bg-green-500 text-white rounded">Your message was sent successfully</div>
-
-              <form @submit.prevent="contactSubmit">
-                <div class="mb-2">
-                  <label class="block mb-2 text-grey-800 ">Name:</label>
-                  <input v-model="form.name" class="block w-full" type="text" />
-                  <div class="text-red-500" v-if="formErrors.name" v-text="formErrors.name[0]" />
-                </div>
-
-                <div class="mb-2">
-                  <label class="block mb-2 text-grey-800 ">Telephone:</label>
-                  <input v-model="form.telephone" class="block w-full" type="text" />
-                  <div class="text-red-500" v-if="formErrors.telephone" v-text="formErrors.telephone[0]" />
-                </div>
-
-                <div class="mb-2">
-                  <label class="block mb-2 text-grey-800 ">Email:</label>
-                  <input v-model="form.email" class="block w-full" type="email" />
-                  <div class="text-red-500" v-if="formErrors.email" v-text="formErrors.email[0]" />
-                </div>
-
-                <div class="mb-4">
-                  <label class="block mb-2 text-grey-800 ">Message:</label>
-                  <textarea v-model="form.message" class="block w-full" style="height:150px" />
-                  <div class="text-red-500" v-if="formErrors.message" v-text="formErrors.message[0]" />
-                </div>
-
-                <button type="submit" class="btn">Send Message</button>
-              </form>
-            </template>
-          </Card>
 
 
 
@@ -110,36 +76,18 @@
 
 <script >
 
-import Card from "../../components/Card";
+
 export default {
   name: "ContactPage",
-  components: {Card},
+
   data: () => {
     return {
-        form:{},
-        formErrors:{},
         loading:false,
         complete:false,
     }
   },
   methods: {
-    contactSubmit() {
-      let self=this;
-      self.formErrors={};
-      self.loading=true;
-      self.complete=false;
-      axios.post('/api/contact',self.form).then(function(res) {
-        self.form={};
-        self.loading=false;
-        self.complete=true;
-        setTimeout(function() {
-          self.complete = false;
-        },3000)
-      }).catch(e=> {
-        self.loading=false;
-        self.formErrors=e.response.data;
-      });
-    }
+
   }
 }
 </script>

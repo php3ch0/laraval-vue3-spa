@@ -54,7 +54,7 @@ export default {
       loading:{},
       showLightbox:false,
       lbImage:null,
-      lbTitle:"Peter Kifodu Foundation News Blog Image",
+      lbTitle:"Portside Recruitment News Blog Image",
       galleryOptions: {
         navButtons: true,
         responsive: [

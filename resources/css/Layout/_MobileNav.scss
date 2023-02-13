@@ -1,7 +1,9 @@
 @import "~hamburgers/dist/hamburgers.min.css";
 #MobileNav {
-
+    position: relative;
+    z-index: 8;
     padding:10px;
+    background-color: #FFF;
     .logo {
         max-height: 75px;
         max-width: 100%;
@@ -11,7 +13,7 @@
     }
 
     .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
-        background-color: $grey-dark;
+        background-color: $blue;
         border-radius: unset;
     }
     .hamburger-inner:before {
@@ -33,14 +35,14 @@
         &.nav-open {
             max-height: 1500px;
             padding-top: 15px;
-            border-top:1px solid $grey-light;
+            border-top:1px solid $blue-light;
             margin-top:15px;
         }
         ul.navbar {
             margin:0px;
             padding:0px;
             display: block;
-            background-color: $grey-light;
+            background-color: $blue;
             li {
                 display: block;
                 a {
@@ -49,9 +51,9 @@
                     padding: 12px;
                     color: $white;
                     font-size: 1.2em;
-                    border-bottom:1px solid #474646;
+                    border-bottom:1px solid $blue-light;
                     &:hover {
-                        background-color: $grey-dark;
+                        background-color: $blue-light;
                         color: $white;
                     }
                 }

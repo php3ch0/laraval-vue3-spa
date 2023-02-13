@@ -1,7 +1,7 @@
 <template>
     <div id="PrivacyPage">
       <teleport to="head">
-        <title>Peter Kifodu Foundation | Privacy Policy</title>
+        <title>Portside Recruitment | Privacy Policy</title>
         <meta name="description" content="Information about how we collect data about your visit to our web site and how we use this data." />
       </teleport>
 

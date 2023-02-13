@@ -1,12 +1,13 @@
 <template>
-  <div class=" flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
+  <div id="EmailVerificationPage" class="my-3">
 
     <teleport to="head">
       <title>Account | Verify Email</title>
       <meta name="description" content="Please verify your email account" />
     </teleport>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded-lg">
+    <div class="w-full">
+      <Card title="Confirm Your Email Address">
       <h3 class="text-lg font-medium text-gray-900">Verify Email Address</h3>
 
       <p class="text-sm text-gray-600 py-2">Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.</p>
@@ -21,6 +22,7 @@
           </button>
         </div>
       </form>
+      </Card>
     </div>
   </div>
 </template>

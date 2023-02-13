@@ -17,7 +17,7 @@
             min-width:100%;
         }
     }
-    .item-name {
+    .item-text {
         padding:1em;
         min-height: 180px;
         text-align: center;
@@ -64,4 +64,23 @@
             max-width: 100%;
         }
     }
+
+    .w-full {
+        width:100%;
+    }
+
+
+    @media screen and (min-width: 760px) {
+        .w-full {
+            width:66% !important;
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        .w-full {
+            width:50% !important;
+        }
+    }
+
+
+
 }

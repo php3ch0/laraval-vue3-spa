@@ -5,18 +5,25 @@
         <div class="flex-auto self-center">
           <h1 class="text-2lg ">Manage Users</h1>
         </div>
+        <div class="flex-none self-center">
+          <form @submit.prevent="getUsers" class="flex form-inline">
+            <input v-model="search" class="form-control" />
+            <button type="submit" class="btn btn-secondary">Search</button>
+          </form>
+        </div>
         <div class="flex-none justify-end self-center">
-          <a @click="toggleAddUserModal" class="btn btn-secondary ml-2">Add User</a>
-          <router-link to="/admin" class="btn btn-secondary ml-2">Go Back</router-link>
+          <a @click="toggleAddUserModal" class="btn btn-secondary ml-2">Add</a>
+          <router-link to="/admin" class="btn btn-secondary ml-2">Back</router-link>
         </div>
       </div>
       <Card title="Manage Users">
         <loading v-if="loading" />
-        <table v-else class="table highlight">
+        <template v-else>
+        <table class="table highlight">
           <thead>
             <tr>
               <th>Name</th>
-              <th>Access Level</th>
+              <th>Skills</th>
               <th></th>
             </tr>
           </thead>
@@ -27,7 +34,7 @@
               <small>{{ u.email }}</small>
             </td>
             <td>
-              {{ u.role }}
+              <small v-if="u.skills">{{ u.skills.substr(0, 80) }}...</small>
             </td>
             <td class="text-right">
               <router-link :to="'/admin/users/'+u.id" class="btn">View</router-link>
@@ -35,7 +42,15 @@
           </tr>
           </tbody>
         </table>
+
+          <div v-if="users && users.length" class="mt-3 justify-content-center d-flex text-center">
+            <pagination v-model="currentPage" :records="totalRows" :per-page="perPage" @paginate="getUsers"/>
+          </div>
+
+        </template>
       </Card>
+
+
 
       <Modal :show="addUserModal" @close="toggleAddUserModal" width="lg" title="Add User">
         <template #body>
@@ -108,6 +123,10 @@ export default {
     return {
       loading:false,
       users:{},
+      totalRows:50,
+      currentPage:1,
+      perPage:25,
+      search:null,
       addUserModal:false,
       addUser: {
         firstname:'',
@@ -130,8 +149,9 @@ export default {
     getUsers() {
       let self=this;
       self.loading=true;
-      axios.get('/api/users').then(function(res) {
-        self.users = res.data;
+      axios.get('/api/users?search='+self.search+'&page='+self.currentPage).then(function(res) {
+        self.users = res.data.data;
+        self.totalRows=res.data.total;
         self.loading = false;
       })
     },

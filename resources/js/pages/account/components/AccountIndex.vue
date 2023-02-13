@@ -1,8 +1,8 @@
 <template>
 
   <div id="AccountIndex">
-    <h1>Account Dashboard</h1>
-    <p>Please use the menu to your left to make changes to your account or click on the admin button to manage your website</p>
+    <h3>Account Dashboard</h3>
+    <p>Please use the menu to your left to make changes to your account. More information and services will be added here shortly.</p>
   </div>
 
 </template>

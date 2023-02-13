@@ -1,7 +1,7 @@
 <template>
     <div id="TermsPage">
       <teleport to="head">
-        <title>Peter Kifodu Foundation | Terms and Conditions</title>
+        <title>Portside Recruitment | Terms and Conditions</title>
         <meta name="description" content="Terms and conditions about the use of this web site" />
       </teleport>
 

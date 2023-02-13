@@ -1,6 +1,10 @@
 @import "Account";
 @import "Home/Home";
 @import "Blog/Blog";
+@import "Clients/Clients";
+@import "Candidates/Candidates";
+@import "Membership/Membership";
+@import "Accreditation/Accreditation";
 
 .white-box {
     background-color: #FFF;
@@ -14,5 +18,72 @@
     img {
         border-radius: 10px;
         overflow: hidden;
+    }
+}
+
+.page-bg {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    background-size: cover;
+    background-image: url("/storage/images/backgrounds/home.jpg");
+    overflow: scroll;
+    flex-direction: row;
+    .content-center {
+
+        align-self: center;
+        justify-self: center;
+    }
+    &:before {
+        content: ' ';
+        position: fixed;
+        top:0; left:0; right:0; bottom:0;
+        background-color: rgba(0,0,0,0.6);
+        z-index: 2;
+    }
+    video {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        z-index: 1;
+    }
+    .container {
+        padding-top:30px !important;
+        padding-bottom: 30px !important;
+        z-index: 3;
+        display: table;
+
+
+        .home-logo {
+            justify-content: center;
+            text-align: center;
+            margin:25px 0;
+            img {
+                margin:0 auto;
+                max-width: 780px;
+                width:100%;
+            }
+        }
+        .home-text {
+            margin:25px 0;
+            h1 {
+                font-size: 24px;
+                color: #FFF;
+                text-align: center;
+            }
+
+        }
+        .page-logo {
+            justify-content: center;
+            text-align: center;
+            margin:25px 0;
+            img {
+                margin:0 auto;
+                max-width: 450px;
+                width:100%;
+            }
+        }
     }
 }

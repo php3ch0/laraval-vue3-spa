@@ -13,7 +13,10 @@
                </a>
              </template>
              <template v-else>
-               <div class="lb-link" @click.prevent="toggleLightbox(image.image_url)">
+               <div v-if="lightbox" class="lb-link" @click.prevent="toggleLightbox(image.image_url)">
+                 <img :src="image.image_url" :alt="image.alt" />
+               </div>
+               <div v-else>
                  <img :src="image.image_url" :alt="image.alt" />
                </div>
 
@@ -32,7 +35,7 @@
 
     </template>
 
-    <div id="lightbox" v-if="showLightbox">
+    <div v-if="lightbox && showLightbox" id="lightbox">
       <div class="lb-close" @click.prevent="toggleLightbox"><i class="fa-solid fa-xmark"></i></div>
       <div class="lb-image">
         <img :src="lbImage" :alt="lbTitle" />
@@ -56,7 +59,11 @@ export default {
   },
 
   props: {
-    id: Number
+    id: Number,
+    lightbox: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {

@@ -24,10 +24,15 @@ import Cookies from "@/js/pages/legal/Cookies";
 import Terms from "@/js/pages/legal/Terms";
 import Privacy from "@/js/pages/legal/Privacy";
 import About from "@/js/pages/about";
+import Clients from "@/js/pages/clients";
+import Candidates from "@/js/pages/candidates";
+import Membership from "@/js/pages/membership";
+import Accreditation from "@/js/pages/accreditation";
 
 
 import Blog from "@/js/pages/blog";
 import BlogView from "@/js/pages/blog/view";
+import Auth from "@/js/pages/auth/index";
 
 
 /*Admin */
@@ -59,11 +64,13 @@ const router = createRouter({
 
         { path: "/about", name: 'About', component: About },
 
+        { path: "/clients", name: 'Clients', component: Clients },
+        { path: "/candidates", name: 'Candidates', component: Candidates },
+        { path: "/membership", name:  'Membership', component: Membership },
+        { path: "/accreditation", name:  'Accreditation', component: Accreditation },
+
         { path: "/blog", name: 'BlogPage', component: Blog },
         { path: "/blog/:slug", name: 'BlogView', component: BlogView },
-
-        { path: "/donate", name: 'Donate', component: Donate },
-
 
 
 
@@ -76,6 +83,8 @@ const router = createRouter({
                 {path:"2fa", name: 'TwoFactor', component: TwoFactorAuth}
             ]
         },
+
+
 
         { path: '/admin', meta: {auth:['admin'] }, name: 'AdminIndex', component: AdminIndex,
             children: [
@@ -96,17 +105,22 @@ const router = createRouter({
         },
 
 
+        { path: "/", name: 'Auth', component: Auth,
+            children: [
+                { path: "/register", name: 'Register', component: Register },
+                { path: "/confirm-password", meta: {auth:['user','admin'] }, name: 'ConfirmPassword', component: ConfirmPassword },
+                { path: "/login", name: 'Login', component: Login },
+                { path: "/verify-email", name: 'VerifyEmail', component: VerifyEmail },
+                { path: "/two-factor-challenge", name: 'TwoFactorChallenge', component: TwoFactorChallenge },
+                { path: "/forgot-password", name: 'ForgotPassword', component: ForgotPassword },
+                { path: "/reset-password/:token", name: 'ResetPassword', component: ResetPassword },
+            ]
+        },
 
 
-        { path: "/confirm-password", meta: {auth:['user','admin'] }, name: 'ConfirmPassword', component: ConfirmPassword },
-        { path: "/register", name: 'Register', component: Register },
 
 
-        { path: "/login", name: 'Login', component: Login },
-        { path: "/verify-email", name: 'VerifyEmail', component: VerifyEmail },
-        { path: "/two-factor-challenge", name: 'TwoFactorChallenge', component: TwoFactorChallenge },
-        { path: "/forgot-password", name: 'ForgotPassword', component: ForgotPassword },
-        { path: "/reset-password/:token", name: 'ResetPassword', component: ResetPassword },
+
 
         { path: "/legal/cookies", name: 'Warranties', component: Cookies },
         { path: "/legal/terms", name: 'Terms', component: Terms },

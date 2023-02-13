@@ -44,6 +44,8 @@ class Blog extends Model
     public function getPreviewTextAttribute() {
 
         $text = strip_tags(html_entity_decode($this->article));
+        $re = '/\[{2}(.*?)\]{2}/m';
+        $text = preg_filter($re,'',$text);
 
         return substr($text,0,180);
 
@@ -65,8 +67,8 @@ class Blog extends Model
 
             $find = "[[image50=".$image->id."]]";
             $replace = '
-                <div class="flex justify-center">
-                    <div class="w-full lg:w-2/3 xl:w-1/2 mx-auto ">
+                <div class="flex flex-row justify-center shrink-0">
+                    <div class="w-full lg:w-2/3 xl:w-1/2 mx-auto">
                         <div class="blog-image"><img src="'.$image->image_url.'" alt="'.$this->title.'" /></div>
                     </div>
                 </div>
@@ -76,7 +78,7 @@ class Blog extends Model
 
             $find = "[[image66=".$image->id."]]";
             $replace = '
-                <div class="flex justify-center">
+                <div class="flex flex-row justify-center shrink-0">
                     <div class="w-full lg:w-2/3 xl:w-2/3 mx-auto ">
                         <div class="blog-image"><img src="'.$image->image_url.'" alt="'.$this->title.'" /></div>
                     </div>
@@ -87,7 +89,7 @@ class Blog extends Model
 
             $find = "[[image33=".$image->id."]]";
             $replace = '
-                <div class="flex justify-center">
+                <div class="flex flex-row justify-center shrink-0">
                     <div class="w-full lg:w-2/3 xl:w-1/3 mx-auto ">
                         <div class="blog-image"><img src="'.$image->image_url.'" alt="'.$this->title.'" /></div>
                     </div>
@@ -98,7 +100,7 @@ class Blog extends Model
 
             $find = "[[image80=".$image->id."]]";
             $replace = '
-                <div class="flex justify-center">
+                <div class="flex flex-row justify-center shrink-0">
                     <div class="w-full lg:w-3/4 xl:w-3/4 mx-auto ">
                         <div class="blog-image"><img src="'.$image->image_url.'" alt="'.$this->title.'" /></div>
                     </div>

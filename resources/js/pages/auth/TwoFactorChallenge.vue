@@ -1,12 +1,13 @@
 <template>
-  <div class=" flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
+  <div id="TwoFactorChallengePage" class="my-3">
 
     <teleport to="head">
       <title>Account | Login</title>
       <meta name="description" content="Please confirm your login" />
     </teleport>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded-lg">
+    <div class="w-full">
+      <Card title="2FA Authentication">
       <form @submit.prevent="login">
         <div>
           <label class="block font-medium text-sm text-gray-500" for="code">
@@ -23,6 +24,7 @@
           </button>
         </div>
       </form>
+      </Card>
     </div>
   </div>
 </template>

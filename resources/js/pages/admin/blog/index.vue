@@ -5,7 +5,7 @@
         <h1>Manage Blogs</h1>
       </div>
       <div class="flex-none justify-end">
-        <a hre="#" @click.prevent="toggleAddBlogModal" class="btn btn-primary">Add Item</a>
+        <a href="#" @click.prevent="toggleAddBlogModal" class="btn btn-primary">Add Item</a>
         <router-link to="/admin" class="btn btn-secondary ml-3">Go Back</router-link>
       </div>
     </div>
@@ -23,8 +23,8 @@
 
       </div>
     </div>
-    <div class="mt-3 justify-content-center d-flex text-center">
-      <pagination v-model="page" :records="totalRows" :per-page="perPage" @paginate="getItems"/>
+    <div v-if="Items && Items.length" class="mt-3 justify-content-center d-flex text-center">
+      <pagination v-model="currentPage" :records="totalRows" :per-page="perPage" @paginate="getItems"/>
     </div>
 
 
@@ -69,8 +69,8 @@
         addBlogModal:false,
         addBlog:{},
         addBlogErrors:{},
-        Page:1,
-        perPage: 24,
+        currentPage:1,
+        perPage: 12,
         totalRows:100,
       }
     },
@@ -81,8 +81,8 @@
       getItems() {
         let self=this;
         self.Items={};
-        axios.get('/api/blog?page='+(parseInt(self.Page)-1)).then(function (res) {
-          self.Items=res.data.results;
+        axios.get('/api/blog?page='+self.currentPage+'&limit='+self.perPage).then(function (res) {
+          self.Items=res.data.data;
           self.totalRows=res.data.total;
         })
       },

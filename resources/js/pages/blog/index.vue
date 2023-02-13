@@ -2,39 +2,48 @@
     <div id="BlogPage">
 
       <teleport to="head">
-        <title>Peter Kifodu Foundation | news and Updates</title>
-        <meta name="description" content="The latest news, blogs and project updates from the Peter Kifodu Foundation" />
+        <title>Portside Film and Media Recruitment | News and Updates</title>
+        <meta name="description" content="The latest news, blogs and project updates from Portside Film and Media Recruitment" />
       </teleport>
 
-      <HeaderImage widget="blogtitle" title="Blog News and Updates from the Peter Kifodu Foundation projects" imageurl="/storage/images/headers/news.webp" />
+      <HeaderImage widget="blogtitle" title="Blog News and Updates from Portside Film and Media Recruitment" imageurl="/storage/images/headers/news.jpg" />
 
 
       <div class="container">
 
-        <div class="pt-4 pb-4 grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <Loading v-if="loading" />
 
-          <div v-for="item in Items" class="project-item">
+        <template v-else>
+
+        <div class="py-5 grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <div v-for="item in Items" class="blog-item">
 
             <div class="item-image">
               <router-link :to="item.url">
               <img :src="item.image_url" :alt="item.title" />
               </router-link>
             </div>
-            <div class="title">
-              <router-link :to="item.url">
-              <h4>{{ item.title }}</h4>
-              </router-link>
+            <div class="item-text">
+              <div class="title">
+                <router-link :to="item.url">
+                  <h4>{{ item.title }}</h4>
+                </router-link>
+              </div>
+              <div class="preview">
+                {{ item.preview_text }}
+              </div>
             </div>
-            <div class="preview">
-              {{ item.preview_text }}
-            </div>
+
           </div>
 
         </div>
 
-        <div class="mt-3 justify-content-center d-flex text-center">
-          <pagination v-model="page" :records="totalRows" :per-page="perPage" @paginate="getItems" :options="{chunksNavigation:false}"/>
+        <div  class="mt-3 justify-content-center d-flex text-center">
+          <pagination v-model="currentPage" :records="totalRows" :per-page="perPage" @paginate="getItems" :options="{chunksNavigation:false}"/>
         </div>
+
+        </template>
 
 
        </div>
@@ -44,15 +53,16 @@
 <script>
 
 
+import Loading from "../../components/Loading";
 export default {
     name: "BlogPage",
-
-    data() {
+  components: {Loading},
+  data() {
       return {
         Items: null,
-        loading:false,
-        page:1,
-        perPage: 24,
+        loading:true,
+        currentPage:1,
+        perPage: 12,
         totalRows:100,
       }
     },
@@ -63,10 +73,12 @@ export default {
     methods: {
       getItems() {
         let self = this;
+        self.loading=true;
         self.Items = null;
-        axios.get('/api/blog?page=' + (parseInt(self.page) - 1)).then(function (res) {
-          self.Items = res.data.results;
+        axios.get('/api/blog?page='+self.currentPage+'&limit='+self.perPage).then(function (res) {
+          self.Items = res.data.data;
           self.totalRows = res.data.total;
+          self.loading=false;
         })
       },
     }

@@ -3,59 +3,42 @@
     left:0;
     top:0;
     z-index: 999;
-    width:110px;
+    width:105px;
     height:100vh;
-    background-color: #FFF;
+    background-color: $blue;
     border-right:1px solid #000;
     overflow: hidden;
     transition: width 0.4s ease-in-out;
 
     .logo-wrap,{
-        width:280px;
+       justify-content: center;
+    }
+
+    .hamburger {
+        .hamburger-inner {
+            background-color: #FFF;
+            &:before,&:after {
+                background-color: #FFF;
+            }
+        }
     }
 
     .menu {
         width:280px;
         opacity: 0;
         transition: all 0.4s ease-in-out;
-        .dd-dropdown {
-            overflow: hidden;
-            height:0;
-        }
     }
 
     .divider {
         padding-bottom:15px;
         margin-bottom:15px;
-        border-bottom:1px solid #000;
+        border-bottom:1px solid $blue-light;
     }
 
-    .logo {
-        position: relative;
-        height:80px;
-        width:80px;
-    }
-    .logo-text {
-        overflow: hidden;
-        opacity: 0;
-        max-height:80px;
-        width:280px;
-        position: relative;
-        transition: all 0.4s ease-in-out;
-        h3 {
-            color: $grey;
-            margin:0px;
-        }
-        p {
-            margin:0;
-        }
-    }
 
-    &:hover {
+
+    &.active {
         width:280px;
-        .logo-text {
-            opacity: 1;
-        }
         .menu {
             width:250px;
             opacity: 1;
@@ -70,44 +53,19 @@
                 background-color: none;
                 a  {
                     display: block;
-                    transition: background-color 0.4s ease-in-out;
+                    transition: color 0.4s ease-in-out;
                     padding: 8px 14px;
                     font-size: 19px;
-                    font-weight: bold;
-                    color: black;
-                    &:active, &:focus {
+                    font-weight: 300;
+                    color: $blue-light;
+                    &:active, &:focus,  &:hover {
                         padding: 8px 14px;
                         font-size: 19px;
-                        font-weight: bold;
-                        color: black;
+                        color: #FFF;
                     }
 
-                    &:hover {
-                        color: black;
-                        background-color: $grey-light;
-                    }
 
-                }
-                .dd-dropdown {
-                    max-height:0;
-                    overflow: hidden;
-                    transition: all 0.4s ease-in-out;
-                    &.active {
-                        height:auto;
-                        max-height:500px;
-                        border-top:1px solid black;
-                        border-bottom:1px solid black;
-                    }
-                    a {
-                        font-weight: normal;
-                        font-size: 0.8em;
-                        padding-left:30px;
-                        padding-top: 6px;
-                        padding-bottom: 6px;
-                        &:hover {
-                            background-color: $grey-light;
-                        }
-                    }
+
                 }
             }
         }

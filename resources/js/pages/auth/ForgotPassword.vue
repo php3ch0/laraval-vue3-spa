@@ -1,12 +1,12 @@
 <template>
-  <div class=" flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
+  <div id="ForgotPasswordPage" class="my-3">
 
     <teleport to="head">
       <title>Account | Forgotten Password</title>
       <meta name="description" content="Reset your password" />
     </teleport>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4">
+    <div class="w-full">
       <Card title="Forgotten Password">
         <form @submit.prevent="resetPassword">
           <div>

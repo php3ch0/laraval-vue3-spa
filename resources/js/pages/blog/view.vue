@@ -62,8 +62,8 @@ import BlogGallerySlide from "./components/BlogGallerySlide";
       return {
         thisItem:{},
         seo: {
-          title: "Peter Kifodu Foundation | News Blog",
-          description:"News from the Peter Kifodu Foundation",
+          title: "Portside Film and Media Recruitment | News Blog",
+          description:"News from Portside Film and Media Recruitment",
           image:null,
           url:null,
         }

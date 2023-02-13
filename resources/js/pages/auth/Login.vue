@@ -1,14 +1,14 @@
 <template>
-  <div class="flex flex-col justify-center items-center pt-6 sm:pt-0 p-4">
+  <div id="LoginPage" class="my-3">
 
     <teleport to="head">
-      <title>The Peter Kifodu Foundation | Login</title>
-      <meta name="description" content="Login to your peter Kifodu Foundation Account" />
+      <title>The Portside Recruitment | Login</title>
+      <meta name="description" content="Login to your Portside Film and Media Recruitment Account" />
     </teleport>
 
 
-    <div class="w-full sm:max-w-md mt-6 px-4 py-4">
-      <Card title="Please Login Or Create An Account">
+    <div class="w-full">
+      <Card title="Please Login">
       <form @submit.prevent="login">
         <div>
           <label class="block font-medium text-sm text-gray-500" for="email">

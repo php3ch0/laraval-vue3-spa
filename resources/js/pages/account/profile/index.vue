@@ -1,58 +1,159 @@
 <template>
-  <form @submit.prevent="update" class="space-y-6">
-    <div>
-      <label class="block font-medium text-sm text-gray-500" for="name">
-        First Name
-      </label>
-      <input v-model="data.firstname" class="p-2 rounded-md shadow-sm bg-white border border-gray-300 text-gray-400 block mt-1 w-full" type="text" id="firstname" name="firstname" required="required">
-    </div>
-    <div>
-      <label class="block font-medium text-sm text-gray-500" for="name">
-        Last Name
-      </label>
-      <input v-model="data.lastname" class="p-2 rounded-md shadow-sm bg-white border border-gray-300 text-gray-400 block mt-1 w-full" type="text" id="lastname" name="lastname" required="required">
-    </div>
-    <div>
-      <label class="block font-medium text-sm text-gray-500" for="email">
-        Email
-      </label>
-      <input v-model="data.email" class="p-2 rounded-md shadow-sm bg-white border border-gray-300 text-gray-400 block mt-1 w-full" type="email" id="email" name="email" required="required">
-    </div>
-    <div v-if="errors" class="text-red-500 py-2 font-semibold">
-      <span>{{ errors.message }}</span>
-    </div>
-    <div class="flex items-center justify-end mt-4">
-      <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 ml-3">
-        Update
-      </button>
-    </div>
-  </form>
+
+  <div id="ProfilePage">
+
+    <teleport to="head">
+      <title>Portside Film and Media Recruitment | Account</title>
+      <meta name="description" content="Manage Your Account" />
+    </teleport>
+
+    <div v-if="success" class="mt-3 mb-3 alert alert-success">Your changes have been saved</div>
+
+      <Loading v-if="loading" />
+
+      <form v-else @submit.prevent="update" class=" grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+        <div class="col">
+          <div class="form-group mb-2">
+            <label>First name</label>
+            <input v-model="data.firstname" class="form-control" type="text" name="firstname" />
+            <div v-if="errors && errors.firstname" class="form-error">{{ errors.firstname[0]}}</div>
+          </div>
+          <div class="form-group mb-2">
+            <label>Last name</label>
+            <input v-model="data.lastname" class="form-control" type="text" name="lastname" />
+            <div v-if="errors && errors.lastname" class="form-error">{{ errors.lastname[0]}}</div>
+          </div>
+          <div class="form-group mb-2">
+            <label>Email Address</label>
+            <input v-model="data.email" class="form-control" type="text" name="email" />
+            <div v-if="errors && errors.email" class="form-error">{{ errors.email[0]}}</div>
+          </div>
+          <div class="form-group mb-2">
+            <label>Telephone</label>
+            <input v-model="data.telephone" class="form-control" type="text" name="telephone" />
+            <div v-if="errors && errors.telephone" class="form-error">{{ errors.telephone[0]}}</div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group mb-2">
+            <label>Key Skills</label>
+            <textarea v-model="data.skills" class="form-control" style="height:90px">
+                        </textarea>
+            <small>e.g Lighting, Production, VFX, Camera, Post Production</small>
+            <div v-if="errors && errors.skills" class="form-error">{{ errors.skills[0]}}</div>
+          </div>
+          <div class="form-group mb-2">
+            <label>Date Of Birth</label>
+            <div class="flex gap-4">
+              <div>
+                <input v-model="data.day" class="form-control" type="number" min="1" max="31" />
+              </div>
+              <div>
+                <select v-model="data.month" class="form-control">
+                  <option value="1">Jan</option>
+                  <option value="2">Feb</option>
+                  <option value="3">Mar</option>
+                  <option value="4">Apr</option>
+                  <option value="5">May</option>
+                  <option value="6">Jun</option>
+                  <option value="7">Jul</option>
+                  <option value="8">Aug</option>
+                  <option value="9">Sep</option>
+                  <option value="10">Oct</option>
+                  <option value="11">Nov</option>
+                  <option value="12">Dec</option>
+                </select>
+              </div>
+              <div>
+                <input v-model="data.year" class="form-control" type="number" min="1940" :max="new Date().getFullYear()" />
+              </div>
+
+            </div>
+
+            <div v-if="errors && errors.dob" class="form-error">{{ errors.dob[0]}}</div>
+          </div>
+          <div class="form-group mb-2">
+            <label>Upload CV</label>
+            <input  class="form-control" type="file" ref="file" @change="addFile" accept=".pdf,.doc,.docx" />
+            <small>Word Document or PDF File. Max 12MB</small>
+            <div v-if="errors && errors.cvfile" class="form-error">{{ errors.cvfile[0]}}</div>
+          </div>
+        </div>
+        <div class="mt-3 mb-3">
+          <button type="submit" class="btn btn-primary">
+            Save Changes
+          </button>
+        </div>
+      </form>
+  </div>
 </template>
 
 <script>
+import Loading from "../../../components/Loading";
 export default {
+  components: {Loading},
   data() {
     return {
-      errors: null,
-      data: {}
+      loading:false,
+      errors: {},
+      data: {},
+      success:false,
     }
   },
   mounted() {
-    this.data = this.user
+    this.getUser();
   },
-  computed: {
-    user() {
-      return this.$store.getters.user
-    },
-  },
+
   methods: {
+    getUser() {
+      let self=this;
+      axios.get('/api/user').then(function(res) {
+        self.data=res.data.data;
+      })
+    },
+    addFile() {
+      let self=this;
+      self.data.cvfile=self.$refs.file.files[0];
+    },
     update() {
-      axios.put('/user/profile-information', this.data)
+      let self=this;
+      self.loading=true;
+      self.errors = {};
+      self.success=false;
+
+      let formData = new FormData();
+      let arr = self.data;
+
+      for (let key in arr) {
+        Array.isArray(arr[key])
+          ? arr[key].forEach(value => formData.append(key + '[]', value))
+          : formData.append(key, arr[key]) ;
+      }
+
+      formData.append('file',self.data.cvfile);
+
+      axios.post('/api/user', formData,
+        { headers: {'Content-Type': 'multipart/form-data'}})
         .then((response) => {
-          this.$store.dispatch('attempt_user')
+          this.$store.dispatch('attempt_user');
+          self.loading=false;
+          self.success=true;
+          setTimeout(function() {
+            self.success=false;
+          },4000);
         })
         .catch((error) => {
-          this.errors = error.response.data
+          if(error.response.status===413) {
+            self.errors.cvfile=['The file you have uploaded is too large. Max 12MB'];
+          } else {
+            self.errors = error.response.data;
+            if(self.errors.day || self.errors.month || self.errors.year) {
+              self.errors.dob=['You have not entered your date of birth'];
+            }
+          }
+          self.loading=false;
         })
     },
   }

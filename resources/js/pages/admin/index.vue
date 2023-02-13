@@ -6,6 +6,8 @@
       <meta name="description" content="Manage Your Website" />
     </teleport>
 
+    <HeaderImage title="Admin" imageurl="/storage/images/headers/account.jpg" />
+
     <div class="mt-4 mb-4 pt-4 pb-4">
 
       <div class="container mx-auto">

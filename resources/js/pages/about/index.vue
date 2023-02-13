@@ -1,35 +1,37 @@
 <template>
-    <div id="AboutPage">
+  <div id="AboutPage">
 
-      <teleport to="head">
-        <title>Peter Kifodu Foundation | About The Peter Kifodu Foundation</title>
-        <meta name="description" content="Information about the Peter Kifodu Foundation, how we work, who we support and what we do to promote health, well-being and prosperity" />
-      </teleport>
+    <teleport to="head">
+      <title>Portside Film and Media Recruitment | About Us</title>
+      <meta name="description" content="Portside Film & Media Recruitment Ltd is organised to provide clients, candidates and freelancers with an industry-leading service dedicated to all sectors within the industry. " />
+    </teleport>
 
-      <HeaderImage widget="abouttitle" title="About the Peter Kifodu Foundation" imageurl="/storage/images/headers/about.webp" />
+    <HeaderImage widget="abouttitle" title="About Portside Recruitment" imageurl="/storage/images/headers/about.jpg" />
 
 
-      <div class="container">
-           <div class="mb-4 mt-4 text-center">
-              <Widget name="AboutText1" />
-           </div>
-           <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-               <div class="white-box">
-                 <Widget name="AboutText2" />
-               </div>
-               <div class="white-box">
-                 <Widget name="AboutText3" />
-               </div>
-           </div>
-       </div>
+    <div class="container">
+      <div class="mb-4 mt-4 text-center">
+        <Widget name="AboutText1" />
+      </div>
+
     </div>
+  </div>
+
+  <div class="container text-center">
+    <h2>Companies and Sponsors We Work With</h2>
+  </div>
+
+  <div class="container">
+    <GallerySlide :id="1" />
+  </div>
 </template>
 
 <script>
 
 
+import GallerySlide from "../../components/GallerySlide";
 export default {
-    name: "AboutPage",
-
+  name: "AboutPage",
+  components: {GallerySlide},
 }
 </script>

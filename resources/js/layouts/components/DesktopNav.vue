@@ -1,13 +1,14 @@
 <template>
-  <div id="DesktopNav" class="p-4 hidden lg:block xl:block">
+  <div id="DesktopNav" class="p-4 hidden lg:block xl:block" :class="{'active': menu_active }" @mouseleave="closeMenu">
 
     <div class="logo-wrap">
-      <router-link to="/" class="flex gap-4">
-        <img src="/storage/images/logo_icon.png" class="logo self-center" alt="Peter Kifodu Foundation" />
-        <div class="self-center logo-text">
-          <h3>Peter Kifodu</h3>
-          <p>Foundation</p>
-        </div>
+      <router-link to="/" class="flex content-center">
+        <button class="hamburger hamburger--elastic p-0" :class="{ 'is-active':  menu_active }" @click.prevent="toggleMenu" type="button"
+                aria-label="Menu">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+        </button>
       </router-link>
     </div>
 
@@ -15,30 +16,16 @@
 
     <nav class="menu">
       <ul class="menutop">
-        <li><router-link @click="toggleMenu" to="/" class="">Home</router-link></li>
-        <li>
-          <a href="#" @click.prevent="toggleMenu('menu_mission')">Our Mission</a>
-          <div ref="menu_mission" class="dd-dropdown">
-            <ul>
-              <li><router-link to="/about" class="">About The Foundation</router-link></li>
-              <li><router-link to="/projects" class="">Our Projects</router-link></li>
-              <li><router-link to="/founders" class="">Our Founders</router-link></li>
-              <li><router-link to="/blog" class="">News and Updates</router-link></li>
-            </ul>
-          </div>
-        </li>
-        <li> <a href="#" @click.prevent="toggleMenu('menu_involved')">Get Involved</a>
-          <div ref="menu_involved" class="dd-dropdown">
-            <ul>
-              <li><router-link @click="toggleMenu" to="/contact" class="">Your Voice</router-link></li>
-              <li><router-link @click="toggleMenu" to="/contact" class="">Opportunities</router-link></li>
-              <li><router-link @click="toggleMenu" to="/contact" class="">Ways To Donate</router-link></li>
-            </ul>
-          </div>
-        </li>
-        <li><router-link @click="toggleMenu" to="/donate" class="">Donate</router-link></li>
-        <li><router-link @click="toggleMenu" to="/contact" class="">Contact Us</router-link></li>
-        <li v-if="user.id && user.role==='admin'"><router-link @click="toggleMenu" to="/admin" class="">Admin</router-link></li>
+        <li><router-link @click="closeMenu" to="/" class="">Home</router-link></li>
+        <li><router-link @click="closeMenu" to="/about" class="">About Us</router-link></li>
+        <li><router-link @click="closeMenu" to="/clients" class="">Clients</router-link></li>
+        <li><router-link @click="closeMenu" to="/candidates" class="">Candidates</router-link></li>
+        <li><router-link @click="closeMenu" to="/membership" class="">Membership</router-link></li>
+        <li><router-link @click="closeMenu" to="/accreditation" class="">Accreditation</router-link></li>
+        <li><router-link @click="closeMenu" to="/blog" class="">News / Blog</router-link></li>
+        <li><router-link @click="closeMenu" to="/contact" class="">Contact Us</router-link></li>
+        <li><router-link @click="closeMenu" to="/account" class="">Account</router-link></li>
+        <li v-if="user && user.role==='admin'"><router-link @click="closeMenu" to="/admin" class="">Admin</router-link></li>
       </ul>
     </nav>
 
@@ -67,14 +54,14 @@ export default {
           this.$router.push({name: 'Login'})
         })
     },
-    toggleMenu(menu) {
+    toggleMenu() {
         let self=this;
-        self.$refs['menu_mission'].classList.remove('active');
-        self.$refs['menu_involved'].classList.remove('active');
-        if(menu) {
-          self.$refs[menu].classList.add('active');
-        }
+        self.menu_active=!self.menu_active;
 
+    },
+    closeMenu() {
+      let self=this;
+      self.menu_active=false;
     }
   }
 }

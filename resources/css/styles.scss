@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 :root {
     --fontcolor:#677279;
@@ -13,9 +12,9 @@
     --red:#F00;
 }
 
-$blue-light: #87d1f8;
-$blue: #0e65be;
-$blue-dark: #4285ec;
+$blue-light: #20b3d6;
+$blue: #005274;
+$blue-dark: #005274;
 
 $red: #FF0000;
 
@@ -33,8 +32,8 @@ $grey-light:#d7d7d7;
 $grey:#6a686b;
 $grey-dark:#333;
 
-$font-title:'Sarabun', sans-serif;
-$font-body:'Sarabun', sans-serif;
+$font-title:'Poppins', sans-serif;
+$font-body:'Poppins', sans-serif;
 
 @import "Fonts";
 @import "Components";

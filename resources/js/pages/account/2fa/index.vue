@@ -1,6 +1,11 @@
 <template>
   <div>
 
+    <teleport to="head">
+      <title>Portside Film and Media Recruitment | Account</title>
+      <meta name="description" content="Manage Your Account" />
+    </teleport>
+
 
     <h3 v-if="active" class="text-lg font-medium text-gray-900">You have enabled two factor authentication.</h3>
     <h3 v-else class="text-lg font-medium text-gray-900">You have not enabled two factor authentication.</h3>

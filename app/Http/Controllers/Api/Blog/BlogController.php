@@ -22,38 +22,18 @@ class BlogController extends Controller
 
     public function index() {
 
-        $page=0;
-        $limit=12;
 
-        if(Request::get('page')) {
-            $page=Request::get('page');
-        }
+        $limit=Request::get('limit');
+
         if(Request::get('limit')) {
             $limit=Request::get('limit');
         }
 
-
-
-        $start = $page*$limit;
-
-        $data = Blog::whereRaw('1=1');
-
-        $all = $data->count();
-        $results = $data->orderby('created_at','DESC')->offset($start)->limit($limit)->get();
+        $data = Blog::orderby('created_at','DESC')->paginate($limit);
 
 
 
-        if($results->count()) {
-
-            $data=[];
-            $data['results']=$results;
-            $data['total'] = $all;
-            $data['page'] = $page;
-
-
-            return response()->json($data,200);
-        }
-        return response()->json([],200);
+        return response()->json($data,200);
 
     }
 
