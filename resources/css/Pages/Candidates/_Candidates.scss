@@ -1,0 +1,37 @@
+#CandidatesPage {
+    .process-item {
+        text-align: center;
+        padding:25px;
+        @media screen and (max-width: 899px) {
+            &.arrow:after {
+                font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f063";
+                font-size: 40px;
+                color: $blue-light;
+            }
+        }
+        @media screen and (min-width: 900px) {
+            &.arrow .image:after {
+                font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f138";
+                position: absolute;
+                top:35%;
+                right:-50px;
+                font-size: 40px;
+                color: $blue-light;
+            }
+        }
+
+        .image {
+            margin-bottom:30px;
+            position: relative;
+
+            img {
+                max-height: 160px;
+                margin:0 auto;
+            }
+        }
+        .text {
+            font-size: 1.1em;
+            color: $blue;
+        }
+    }
+}

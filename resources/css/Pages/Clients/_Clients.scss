@@ -1,0 +1,10 @@
+#ClientsPage {
+    .client-item {
+        border-radius: 15px;
+        overflow: hidden;
+        background-color: #f3f3f3;
+        .text {
+            padding:15px;
+        }
+    }
+}
