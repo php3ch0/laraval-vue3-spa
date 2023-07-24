@@ -10,6 +10,10 @@ import ConfirmButton from "./components/ConfirmButton";
 import HeaderImage from "./components/HeaderImage";
 import Widget from "./components/Widget";
 import Pagination from 'v-pagination-3';
+import HeaderImageSmall from "./components/HeaderImageSmall.vue";
+import VueObserveVisibility from 'vue-observe-visibility';
+import moment from 'moment';
+import Separator from "./components/Separator.vue";
 
 
 window.axios = require('axios');
@@ -23,15 +27,19 @@ store.dispatch('attempt_user')
     const app = createApp(App)
         .use(store)
         .use(router)
+        .use(VueObserveVisibility)
         .component("DefaultTemplate",DefaultTemplate)
         .component("Card", Card)
         .component("Modal",Modal)
+        .component("Separator",Separator)
         .component("ConfirmButton",ConfirmButton)
         .component("HeaderImage",HeaderImage)
+        .component("HeaderImageSmall",HeaderImageSmall)
         .component("Loading", Loading)
         .component("pagination", Pagination)
         .component("Widget",Widget);
 
+    app.config.globalProperties.$moment = moment;
 
     app.mount('#app');
   });

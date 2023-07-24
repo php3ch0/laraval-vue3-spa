@@ -6,7 +6,7 @@
     <div class="flex gap-4">
       <div class="flex-auto self-center">
         <a href="/">
-          <img src="/storage/images/logo.png" class="logo" alt="Portside Recruitment" />
+          <img src="/storage/images/logo_text.png" class="logo" alt="Whichcote Arms" />
         </a>
       </div>
       <div class="flex-none self-center">
@@ -24,16 +24,13 @@
   </div>
   <div class="mobileNav" :class="{ 'nav-open': navOpen }">
     <ul class="navbar">
-      <li><router-link @click="closeMenu" to="/" class="">Home</router-link></li>
-      <li><router-link @click="closeMenu" to="/about" class="">About Us</router-link></li>
-      <li><router-link @click="closeMenu" to="/clients" class="">Clients</router-link></li>
-      <li><router-link @click="closeMenu" to="/candidates" class="">Candidates</router-link></li>
-      <li><router-link @click="closeMenu" to="/membership" class="">Membership</router-link></li>
-      <li><router-link @click="closeMenu" to="/accreditation" class="">Accreditation</router-link></li>
-      <li><router-link @click="closeMenu" to="/blog" class="">News / Blog</router-link></li>
-      <li><router-link @click="closeMenu" to="/contact" class="">Contact Us</router-link></li>
-      <li><router-link @click="closeMenu" to="/account" class="">Account</router-link></li>
-      <li v-if="user && user.role==='admin'"><router-link @click="closeMenu" to="/admin" class="">Admin</router-link></li>
+      <li><router-link @click="closeMenu"  to="/" class="">Home</router-link></li>
+      <li><router-link @click="closeMenu"  to="/restaurant" class="">Restaurant</router-link></li>
+      <li><router-link @click="closeMenu"  to="/rooms" class="">Rooms</router-link></li>
+      <li><router-link @click="closeMenu"  to="/garden" class=""> Bar & Garden</router-link></li>
+      <li><router-link @click="closeMenu"  to="/farmshop" class="">Farm Shop</router-link></li>
+      <li><router-link @click="closeMenu"  to="/cafe" class="">Cafe</router-link></li>
+      <li><router-link @click="closeMenu"  to="/contact" class="">Contact Us</router-link></li>
     </ul>
   </div>
 

@@ -8,6 +8,8 @@
     background-color: rgba(0,0,0,0.8);
     width:100vw;
     height:100vh;
+    display: flex;
+    flex-direction: column;
     .lb-close {
         position: fixed;
         display: flex;
@@ -32,6 +34,7 @@
         z-index: 9998;
         display: flex;
         margin:60px;
+        flex-basis: fit-content;
     }
 }
 

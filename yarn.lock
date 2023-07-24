@@ -2233,6 +2233,11 @@
   dependencies:
     "browserslist" "^4.21.4"
 
+"core-js@^3.6.5":
+  "integrity" "sha512-VG23vuEisJNkGl6XQmFJd3rEG/so/CNatqeE+7uZAwTSwFeB/qaO0be8xZYUNWprJ/GIwL8aMt9cj1kvbpTZhg=="
+  "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.29.0.tgz"
+  "version" "3.29.0"
+
 "core-util-is@~1.0.0":
   "integrity" "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ=="
   "resolved" "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz"
@@ -5375,6 +5380,11 @@
     "lodash.orderby" "^4.6.0"
     "lodash.throttle" "^4.1.1"
 
+"vue-class-component@^7.1.0", "vue-class-component@^7.2.3":
+  "integrity" "sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w=="
+  "resolved" "https://registry.npmjs.org/vue-class-component/-/vue-class-component-7.2.6.tgz"
+  "version" "7.2.6"
+
 "vue-loader@^17.0.0":
   "integrity" "sha512-/OOyugJnImKCkAKrAvdsWMuwoCqGxWT5USLsjohzWbMgOwpA5wQmzQiLMzZd7DjhIfunzAGIApTOgIylz/kwcg=="
   "resolved" "https://registry.npmjs.org/vue-loader/-/vue-loader-17.0.1.tgz"
@@ -5383,6 +5393,18 @@
     "chalk" "^4.1.0"
     "hash-sum" "^2.0.0"
     "loader-utils" "^2.0.0"
+
+"vue-observe-visibility@^2.0.0-alpha.1":
+  "integrity" "sha512-flFbp/gs9pZniXR6fans8smv1kDScJ8RS7rEpMjhVabiKeq7Qz3D9+eGsypncjfIyyU84saU88XZ0zjbD6Gq/g=="
+  "resolved" "https://registry.npmjs.org/vue-observe-visibility/-/vue-observe-visibility-2.0.0-alpha.1.tgz"
+  "version" "2.0.0-alpha.1"
+
+"vue-property-decorator@^8.4.2":
+  "integrity" "sha512-O6OUN2OMsYTGPvgFtXeBU3jPnX5ffQ9V4I1WfxFQ6dqz6cOUbR3Usou7kgFpfiXDvV7dJQSFcJ5yUPgOtPPm1Q=="
+  "resolved" "https://registry.npmjs.org/vue-property-decorator/-/vue-property-decorator-8.5.1.tgz"
+  "version" "8.5.1"
+  dependencies:
+    "vue-class-component" "^7.1.0"
 
 "vue-router@^4.0.14":
   "integrity" "sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ=="
@@ -5406,7 +5428,7 @@
     "hash-sum" "^1.0.2"
     "loader-utils" "^1.0.2"
 
-"vue@^3.0.0", "vue@^3.0.1", "vue@^3.2.0", "vue@^3.2.31", "vue@>=3.0.0", "vue@>=3.2.0", "vue@3.2.45":
+"vue@*", "vue@^2.0.0", "vue@^3.0.0", "vue@^3.0.0-beta.1", "vue@^3.0.1", "vue@^3.2.0", "vue@^3.2.31", "vue@>=3.0.0", "vue@>=3.2.0", "vue@3.2.45":
   "integrity" "sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.45.tgz"
   "version" "3.2.45"
@@ -5423,6 +5445,16 @@
   "version" "1.0.6"
   dependencies:
     "vue" "^3.0.0"
+
+"vue3-observe-visibility@^0.1.2":
+  "integrity" "sha512-Uh/PQin+E2aH2YsMxtTkFlI0gRxEP1pDJEKGKcvuxPDlqh+ZL0w0Xmu2a8+gQIdTmN15vRj8geHr/cU58tZVig=="
+  "resolved" "https://registry.npmjs.org/vue3-observe-visibility/-/vue3-observe-visibility-0.1.2.tgz"
+  "version" "0.1.2"
+  dependencies:
+    "core-js" "^3.6.5"
+    "vue" "^3.0.0-beta.1"
+    "vue-class-component" "^7.2.3"
+    "vue-property-decorator" "^8.4.2"
 
 "vuedraggable@^4.1.0":
   "integrity" "sha512-FU5HCWBmsf20GpP3eudURW3WdWTKIbEIQxh9/8GE806hydR9qZqRRxRE3RjqX7PkuLuMQG/A7n3cfj9rCEchww=="

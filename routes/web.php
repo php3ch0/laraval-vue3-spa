@@ -19,4 +19,6 @@ Route::get('/reset-password/{token}', fn () => view('app'))
     ->middleware(['guest:' . config('fortify.guard')])
     ->name('password.reset');
 
+Route::get('/auth/login', fn () => Redirect::to('/login'))->name('login');
+
 Route::get('{any}', fn () => view('app'))->where('any', '^((?!api).)*');

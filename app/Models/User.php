@@ -27,8 +27,7 @@ class User extends Authenticatable
         'address1',
         'address2',
         'town',
-        'postcode',
-        'skills'
+        'postcode'
     ];
 
     protected $searchable = [
@@ -36,8 +35,7 @@ class User extends Authenticatable
         'columns' => [
             'firstname'=>'6',
             'lastname' => 10,
-            'email' => 10,
-            'skills'=>6
+            'email' => 10
         ]
     ];
 
@@ -59,7 +57,7 @@ class User extends Authenticatable
     ];
 
     protected $appends = [
-      'two_factor','day','month','year'
+      'two_factor'
     ];
     protected $casts = [
         'email_verified_at' => 'datetime',
@@ -68,14 +66,5 @@ class User extends Authenticatable
     public function getTwoFactorAttribute() {
        return $this->hasEnabledTwoFactorAuthentication();
     }
-
-    public function getDayAttribute() {
-        return date('d',strtotime($this->dob));
-    }
-    public function getMonthAttribute() {
-        return date('n',strtotime($this->dob));
-    }
-    public function getYearAttribute() {
-        return date('Y',strtotime($this->dob));
-    }
+    
 }

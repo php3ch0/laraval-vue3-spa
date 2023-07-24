@@ -3,7 +3,7 @@
   <div id="ProfilePage">
 
     <teleport to="head">
-      <title>Portside Film and Media Recruitment | Account</title>
+      <title>Whichcote Arms | Account</title>
       <meta name="description" content="Manage Your Account" />
     </teleport>
 
@@ -11,76 +11,44 @@
 
       <Loading v-if="loading" />
 
-      <form v-else @submit.prevent="update" class=" grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <form v-else @submit.prevent="update">
 
-        <div class="col">
-          <div class="form-group mb-2">
-            <label>First name</label>
-            <input v-model="data.firstname" class="form-control" type="text" name="firstname" />
-            <div v-if="errors && errors.firstname" class="form-error">{{ errors.firstname[0]}}</div>
-          </div>
-          <div class="form-group mb-2">
-            <label>Last name</label>
-            <input v-model="data.lastname" class="form-control" type="text" name="lastname" />
-            <div v-if="errors && errors.lastname" class="form-error">{{ errors.lastname[0]}}</div>
-          </div>
-          <div class="form-group mb-2">
-            <label>Email Address</label>
-            <input v-model="data.email" class="form-control" type="text" name="email" />
-            <div v-if="errors && errors.email" class="form-error">{{ errors.email[0]}}</div>
-          </div>
-          <div class="form-group mb-2">
-            <label>Telephone</label>
-            <input v-model="data.telephone" class="form-control" type="text" name="telephone" />
-            <div v-if="errors && errors.telephone" class="form-error">{{ errors.telephone[0]}}</div>
-          </div>
-        </div>
+        <h3>Update Contact Details</h3>
 
-        <div class="col">
-          <div class="form-group mb-2">
-            <label>Key Skills</label>
-            <textarea v-model="data.skills" class="form-control" style="height:90px">
-                        </textarea>
-            <small>e.g Lighting, Production, VFX, Camera, Post Production</small>
-            <div v-if="errors && errors.skills" class="form-error">{{ errors.skills[0]}}</div>
-          </div>
-          <div class="form-group mb-2">
-            <label>Date Of Birth</label>
-            <div class="flex gap-4">
-              <div>
-                <input v-model="data.day" class="form-control" type="number" min="1" max="31" />
-              </div>
-              <div>
-                <select v-model="data.month" class="form-control">
-                  <option value="1">Jan</option>
-                  <option value="2">Feb</option>
-                  <option value="3">Mar</option>
-                  <option value="4">Apr</option>
-                  <option value="5">May</option>
-                  <option value="6">Jun</option>
-                  <option value="7">Jul</option>
-                  <option value="8">Aug</option>
-                  <option value="9">Sep</option>
-                  <option value="10">Oct</option>
-                  <option value="11">Nov</option>
-                  <option value="12">Dec</option>
-                </select>
-              </div>
-              <div>
-                <input v-model="data.year" class="form-control" type="number" min="1940" :max="new Date().getFullYear()" />
-              </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
+          <div class="col">
+            <div class="form-group mb-2">
+              <label>First name</label>
+              <input v-model="data.firstname" class="form-control" type="text" name="firstname" />
+              <div v-if="errors && errors.firstname" class="form-error">{{ errors.firstname[0]}}</div>
+            </div>
+            <div class="form-group mb-2">
+              <label>Last name</label>
+              <input v-model="data.lastname" class="form-control" type="text" name="lastname" />
+              <div v-if="errors && errors.lastname" class="form-error">{{ errors.lastname[0]}}</div>
             </div>
 
-            <div v-if="errors && errors.dob" class="form-error">{{ errors.dob[0]}}</div>
           </div>
-          <div class="form-group mb-2">
-            <label>Upload CV</label>
-            <input  class="form-control" type="file" ref="file" @change="addFile" accept=".pdf,.doc,.docx" />
-            <small>Word Document or PDF File. Max 12MB</small>
-            <div v-if="errors && errors.cvfile" class="form-error">{{ errors.cvfile[0]}}</div>
+
+          <div class="col">
+            <div class="form-group mb-2">
+              <label>Email Address</label>
+              <input v-model="data.email" class="form-control" type="text" name="email" />
+              <div v-if="errors && errors.email" class="form-error">{{ errors.email[0]}}</div>
+            </div>
+            <div class="form-group mb-2">
+              <label>Telephone</label>
+              <input v-model="data.telephone" class="form-control" type="text" name="telephone" />
+              <div v-if="errors && errors.telephone" class="form-error">{{ errors.telephone[0]}}</div>
+            </div>
+
+
           </div>
+
         </div>
+
+
         <div class="mt-3 mb-3">
           <button type="submit" class="btn btn-primary">
             Save Changes

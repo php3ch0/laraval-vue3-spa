@@ -51,8 +51,11 @@ class generateSiteMap extends Command
         $pages = [];
         //static pages
         $pages[] = ['/',1];
-        $pages[] = ['/catering',0.9];
-        $pages[] = ['/mobile-catering',0.9];
+        $pages[] = ['/restaurant',0.9];
+        $pages[] = ['/cafe',0.9];
+        $pages[] = ['/rooms',0.9];
+        $pages[] = ['/garden',0.9];
+        $pages[] = ['/farmshop',0.9];
         $pages[] = ['/contact',0.9];
         $pages[] = ['/legal/terms',0.2];
         $pages[] = ['/legal/privacy',0.2];

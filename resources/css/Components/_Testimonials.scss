@@ -1,9 +1,11 @@
 #TestimonialsSlide {
-    background-color: #f4f4f4;
+    background-color: #FFF;
     padding:25px;
+
+    Copy Text
     .title {
         padding-bottom:15px;
-        border-bottom:3px solid #000;
+        border-bottom:3px solid $gold;
     }
     .google-logo {
         max-height: 45px;
@@ -16,12 +18,14 @@
     .testimonial-wrap {
         padding:25px;
         .text {
-            font-size: 0.85em;
             font-style: italic;
         }
         .name {
             font-weight: bold;
         }
+    }
+    .agile__slides {
+        align-items: normal !important;
     }
 
     .agile__nav-button--prev, .agile__nav-button--next {

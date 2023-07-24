@@ -3,7 +3,7 @@
 
     <teleport to="head">
       <title>The Portside Recruitment | Login</title>
-      <meta name="description" content="Login to your Portside Film and Media Recruitment Account" />
+      <meta name="description" content="Login to your Whichcote Arms Account" />
     </teleport>
 
 

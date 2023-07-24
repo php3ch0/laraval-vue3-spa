@@ -82,7 +82,7 @@ export default {
               navButtons: true,
               dots: false,
               infinite: true,
-              slidesToShow:2
+              slidesToShow:1
             }
           },
           {
@@ -91,7 +91,7 @@ export default {
               navButtons: true,
               dots: false,
               infinite: true,
-              slidesToShow:3
+              slidesToShow:2
             }
           },
 
@@ -101,7 +101,7 @@ export default {
               navButtons: true,
               dots: false,
               infinite: true,
-              slidesToShow:4
+              slidesToShow:3
             }
           }
         ]

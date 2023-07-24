@@ -1,0 +1,15 @@
+.separator {
+    width:auto;
+    margin:50px auto;
+    max-width: 400px;
+    .left, .right {
+        background-color: $gold;
+        height:3px;
+    }
+    .star {
+        text-align: center;
+        width:60px;
+        color: $gold;
+        font-size: 18px;
+    }
+}

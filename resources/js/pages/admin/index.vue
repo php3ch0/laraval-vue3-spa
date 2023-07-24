@@ -1,12 +1,12 @@
 <template>
-  <div id="AdminPage">
+  <div id="AdminPage" class="page-pad">
 
     <teleport to="head">
       <title>Admin | Manage Your Website</title>
       <meta name="description" content="Manage Your Website" />
     </teleport>
 
-    <HeaderImage title="Admin" imageurl="/storage/images/headers/account.jpg" />
+    <HeaderImageSmall title="Admin" />
 
     <div class="mt-4 mb-4 pt-4 pb-4">
 

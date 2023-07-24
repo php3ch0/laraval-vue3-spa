@@ -4,14 +4,12 @@
     <div class="container">
       <div class="pt-4 pb-4 lg:flex title">
         <div class="flex-auto">
-          <h4>What People Say About Us</h4>
+          <h2 class="cursive">
+            <span class="inline xl:hidden">Testimonials</span>
+            <span class="hidden xl:inline">What People Say About Us</span>
+          </h2>
         </div>
-        <div class="flex-none">
-          <a href="https://g.page/r/CT5_03Q0s1PmEB0/review" target="_blank">
-            <img src="/storage/images/logos/google-reviews.png" alt="Google Places Verified Reviews" class="google-logo" />
-          </a>
 
-        </div>
 
       </div>
       <div class="pb-4">
@@ -22,12 +20,12 @@
           <agile :autoplay-speed="5000" :options="galleryOptions">
             <template v-slot:default>
               <div v-for="testimonial in testimonials" class="slide">
-                <div class="testimonial-wrap">
-                  <div class="text" v-html="testimonial.review"></div>
+                <div class="testimonial-wrap self-start">
                   <div class="name">{{testimonial.name}}</div>
                   <div class="rating">
                     <star-rating v-model:rating="testimonial.score" :show-rating="false" :star-size="25" :read-only="true"></star-rating>
                   </div>
+                  <div class="text my-3" v-html="testimonial.review"></div>
 
                 </div>
               </div>
@@ -84,12 +82,21 @@ export default {
               navButtons: true,
               dots: false,
               infinite: true,
-              slidesToShow:3
+              slidesToShow:2
             }
           },
 
           {
-            breakpoint: 1100,
+            breakpoint: 1300,
+            settings: {
+              navButtons: true,
+              dots: false,
+              infinite: true,
+              slidesToShow:3
+            }
+          },
+          {
+            breakpoint: 1600,
             settings: {
               navButtons: true,
               dots: false,

@@ -20,18 +20,17 @@ import AccountIndex from "@/js/pages/account/components/AccountIndex";
 
 /* Pages */
 import Contact from '@/js/pages/contact/index';
-import Cookies from "@/js/pages/legal/Cookies";
 import Terms from "@/js/pages/legal/Terms";
 import Privacy from "@/js/pages/legal/Privacy";
-import About from "@/js/pages/about";
-import Clients from "@/js/pages/clients";
-import Candidates from "@/js/pages/candidates";
-import Membership from "@/js/pages/membership";
-import Accreditation from "@/js/pages/accreditation";
+
+import Farmshop from "@/js/pages/farmshop/index.vue";
+import BeerGarden from "@/js/pages/beergarden/index.vue";
+import Rooms from "@/js/pages/rooms/index.vue";
+import Cafe from "@/js/pages/cafe/index.vue";
+import Restaurant from "@/js/pages/restaurant/index.vue";
+import ComingSoon from "@/js/pages/soon/index.vue";
 
 
-import Blog from "@/js/pages/blog";
-import BlogView from "@/js/pages/blog/view";
 import Auth from "@/js/pages/auth/index";
 
 
@@ -47,8 +46,7 @@ import AdminWidgetsEdit from "@/js/pages/admin/widgets/Edit";
 import AdminGalleriesIndex from "@/js/pages/admin/galleries/index";
 import AdminGalleriesEdit from "@/js/pages/admin/galleries/edit";
 
-import AdminBlogIndex from "@/js/pages/admin/blog/index";
-import AdminBlogEdit from "@/js/pages/admin/blog/edit";
+import AdminTestimonialsIndex from "@/js/pages/admin/testimonials/index";
 
 
 
@@ -61,16 +59,13 @@ const router = createRouter({
         { path: "/", name: 'Home', component: Home },
 
         { path: "/contact", name: 'Contact', component: Contact },
+        { path: "/farmshop", name: 'FarmShop', component: ComingSoon },
+        { path: "/garden", name: 'BeerGarden', component: BeerGarden },
+        { path: "/rooms", name: 'Rooms', component: Rooms },
+        { path: "/cafe", name: 'Cafe', component: ComingSoon },
+        { path: "/restaurant", name: 'Restaurant', component: Restaurant },
 
-        { path: "/about", name: 'About', component: About },
 
-        { path: "/clients", name: 'Clients', component: Clients },
-        { path: "/candidates", name: 'Candidates', component: Candidates },
-        { path: "/membership", name:  'Membership', component: Membership },
-        { path: "/accreditation", name:  'Accreditation', component: Accreditation },
-
-        { path: "/blog", name: 'BlogPage', component: Blog },
-        { path: "/blog/:slug", name: 'BlogView', component: BlogView },
 
 
 
@@ -98,9 +93,7 @@ const router = createRouter({
                 {path: '/admin/galleries', name: 'AdminGalleries', component: AdminGalleriesIndex},
                 {path: '/admin/galleries/:id', name: 'AdminGalleriesEdit', component: AdminGalleriesEdit},
 
-
-                {path: '/admin/blog', name: 'AdminBlog', component: AdminBlogIndex},
-                {path: '/admin/blog/:id', name: 'AdminBlogEdit', component: AdminBlogEdit}
+                {path: '/admin/testimonials', name: 'AdminTestimonials', component: AdminTestimonialsIndex}
             ]
         },
 
@@ -118,11 +111,6 @@ const router = createRouter({
         },
 
 
-
-
-
-
-        { path: "/legal/cookies", name: 'Warranties', component: Cookies },
         { path: "/legal/terms", name: 'Terms', component: Terms },
         { path: "/legal/privacy", name: 'Privacy', component: Privacy },
 

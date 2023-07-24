@@ -1,4 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 :root {
     --fontcolor:#677279;
     --bg-color:#f0f3f4;
@@ -11,6 +12,10 @@
     --black:#FFF;
     --red:#F00;
 }
+
+$green:#4d766b;
+$gold:#b1b179;
+$gold-light:#f3f5c2;
 
 $blue-light: #20b3d6;
 $blue: #005274;
@@ -32,8 +37,9 @@ $grey-light:#d7d7d7;
 $grey:#6a686b;
 $grey-dark:#333;
 
-$font-title:'Poppins', sans-serif;
-$font-body:'Poppins', sans-serif;
+$font-title:'Cabin', sans-serif;
+$font-body:'Noto Sans', sans-serif;
+$font-cursive:'Allison', cursive;
 
 @import "Fonts";
 @import "Components";

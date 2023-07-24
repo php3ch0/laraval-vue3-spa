@@ -130,11 +130,6 @@ class UsersController extends  Controller
         $v = Validator::make(Request::all(), [
             'firstname' => 'required',
             'lastname'=>'required',
-            'skills'=>'required',
-            'day'=>'required|numeric',
-            'month'=>'required|numeric',
-            'year'=>'required|numeric',
-            'telephone'=>'required',
             'email' => 'required|email|max:255|unique:users,email',
             'password'=>'required|confirmed'
         ]);
@@ -146,17 +141,9 @@ class UsersController extends  Controller
         $user = new User();
         $user->fill(Request::all());
         $user->role='user';
-        $user->dob = date('Y-m-d',strtotime(Request::get('day').'/'.Request::Get('month').'/'.Request::get('year')));
         $user->password = bcrypt(Request::get('password'));
         $user->save();
 
-        if(Request::hasFile('file')) {
-            $ext = Request::file('file')->getClientOriginalExtension();
-            $value=$user->id.date('YmdHis').'.'.$ext;
-            Storage::disk('private')->putFileAs('cvfiles/'.$user->id,Request::file('file'), $value);
-            $user->cvfile = $value;
-            $user->save();
-        }
 
         Auth::loginUsingId($user->id);
 

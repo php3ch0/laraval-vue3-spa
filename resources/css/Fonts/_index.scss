@@ -4,16 +4,59 @@ body {
     font-size: 1.2em;
     color: #8d8d8d;
 }
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 1em;
+    }
+}
 h1,h2,h3,h4,h5 {
     margin-bottom:15px;
     color: $grey-dark;
     font-weight: 600;
 }
 h1 {
+    font-family: $font-title;
     font-size: 2em;
+    &.cursive {
+        font-size: 5em;
+        font-weight: normal;
+        margin-bottom: 0;
+        color: $gold;
+        font-family: $font-cursive;
+        line-height: normal;
+
+        &::first-letter {
+            font-size: 1.5em;
+            display: inline;
+            margin-top: -20%;
+            margin-right: -3px;
+        }
+    }
 }
 h2 {
     font-size: 1.6em;
+    &.cursive {
+        display: inline;
+        font-size: 4em;
+        font-weight: bold;
+        margin-bottom: 0;
+        color: $gold;
+        font-family: $font-cursive;
+        line-height: normal;
+
+        &::first-letter {
+            font-size: 1.5em;
+            display: inline;
+            margin-top: -20px;
+            margin-right: -3px;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .cursive {
+            font-size: 3em;
+        }
+
+    }
 }
 h3 {
     font-size: 1.2em;
@@ -23,6 +66,43 @@ h4 {
 }
 p {
     margin-bottom:1.2em;
+}
+
+.header-text-cursive {
+    h1,h2,h3 {
+        display: inline;
+        font-size: 4em;
+        font-weight: bold;
+        margin-bottom: 0;
+        color: $gold;
+        font-family: $font-cursive !important;
+        line-height: normal;
+
+        &::first-letter {
+            font-size: 1.5em;
+            display: inline;
+            margin-top: -20px;
+            margin-right: -3px;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        h1,h2 {
+            font-size: 4em;
+        }
+        h3 {
+            font-size: 3.5em;
+        }
+
+    }
+    @media screen and (max-width: 1600px) {
+        h1,h2 {
+            font-size: 4em;
+        }
+        h3 {
+            font-size: 3.5em;
+        }
+
+    }
 }
 
 strong {

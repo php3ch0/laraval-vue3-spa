@@ -1,17 +1,30 @@
 #HeaderImage {
     overflow: hidden;
-    border-bottom:4px solid $blue-light;
-    min-height:450px;
+    border-bottom:4px solid $gold-light;
+    min-height:550px;
     h1 {
-        font-size: 2.8em;
-        font-weight: 600;
-        margin-bottom: 0;
-        color: $white;
+        font-size: 5em;
+        font-weight: normal;
+        margin-bottom: 25px;
+        color: $gold;
+        font-family: $font-cursive;
+        line-height: normal;
+        &::first-letter {
+            font-size: 1.5em;
+            display: inline;
+            margin-top:-20%;
+            margin-right:-3px;
+
+        }
     }
-    p {
-        font-size: 1.1em;
-        color: $white;
+    h4 {
+        margin-top:15px;
+        font-size: 1.2em;
+        color: $gold-light;
         font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+        top:-15px;
     }
     .header-image {
         position: absolute;
@@ -19,6 +32,8 @@
         left:0;
         right:0;
         bottom:0;
+        overflow: hidden;
+        z-index: 7;
         &:before {
             content: ' ';
             top:0;
@@ -26,23 +41,18 @@
             right:0;
             bottom:0;
             position: absolute;
-            background: linear-gradient(90deg, rgba(0,0,0,0.9) 29%, rgba(0,0,0,0.4) 100%);
+            //background: linear-gradient(90deg, rgba(0,0,0,0.9) 29%, rgba(0,0,0,0.4) 100%);
+            background: radial-gradient(circle, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 74%);
             z-index: 8;
             display: flex;
         }
         img {
             position: absolute;
-            bottom: 0;
-            right:0;
             object-fit: cover;
-            min-height: 120%;
-            min-width: 120%;
-            animation: bottomleft 24s ease 0s 1 normal forwards;
-            animation-delay: 1s;
-            -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
-            animation-fill-mode: forwards;
-            z-index: 7;
-            align-self: end;
+            min-height: 100%;
+            min-width: 100%;
+            align-self: center;
+            justify-self: center;
         }
         min-width: 100%;
         min-height: 350px;
@@ -52,15 +62,13 @@
             position: relative;
             z-index: 9;
             width:100%;
-            opacity: 0;
-            animation: fadeinleft 1s ease 0s 1 normal forwards;
-            animation-delay: 1s;
-            -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
-            animation-fill-mode: forwards;
-           h1,h2,h3 {
-               text-shadow: 0px 0px 3px rgba(206,188,188,0.8);
-           }
+
         }
+    }
+
+    .separator {
+        margin-top:-50px;
+        margin-bottom:20px;
     }
 
     @media screen and (max-width:360px) {
@@ -76,7 +84,7 @@
         min-height:350px;
         .header-image {
             &:before {
-                background: rgba(0,0,0,0.7);
+
             }
 
             img {
@@ -101,16 +109,4 @@
             background-color: rgba(0,0,0,0.8);
         }
     }
-}
-
-
-
-@keyframes bottomleft {
-    0%   {bottom: 0; right:0;}
-    100%  {bottom:-10%; right:-10%;}
-}
-
-@keyframes fadeinleft {
-    0%   {left: 10%; opacity: 0;}
-    100%  {left:0%; opacity: 1 }
 }

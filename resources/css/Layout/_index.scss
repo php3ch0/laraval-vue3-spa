@@ -6,21 +6,27 @@
 html, body {
     overflow-x: hidden;
     background-color: #FFF;
+    background-image: url('/storage/images/backgrounds/texture.jpg');
+    background-size: cover;
+
 }
 .container {
     margin:0 auto;
     padding:0 20px;
 }
 
+.content {
+
+}
 
 @media screen and (max-width: 660px) {
-    .container {
-
+    .content {
+        padding-top: 0px;
     }
 }
 @media screen and (min-width: 1024px) {
-    .container {
-        padding-left: 110px;
+    .content {
+        //padding-top: 110px;
     }
 }
 
@@ -30,4 +36,26 @@ html, body {
     background-attachment: fixed;
     overflow: scroll;
     background-size: cover;
+}
+
+.page-pad {
+    padding-top: 112px;
+
+}
+
+.py-5 {
+    padding:60px 0;
+}
+.animate__delay-0-5s {
+
+    --animate-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+.animate__delay-1-5s {
+    --animate-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+.animate__delay-2-5s {
+    --animate-delay: 2.5s;
+    animation-delay: 2.5s;
 }

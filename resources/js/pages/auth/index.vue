@@ -1,18 +1,18 @@
 <template>
 
-  <div id="AuthPage" class="page-bg">
+  <div id="AuthPage" class="page-pad">
 
     <teleport to="head">
-      <title>Portside Film and Media Recruitment | Create Account</title>
-      <meta name="description" content="Register an account on Portside Film and Media Recruitment" />
+      <title>Whichcote Arms | Create Account</title>
+      <meta name="description" content="Register an account on Whichcote Arms" />
     </teleport>
 
 
 
     <div class="container">
       <div class="max-w-2xl mx-auto">
-        <div class="page-logo hidden lg:block">
-          <img src="/storage/images/logo_border.png" class="mt-4 mb-4" alt="Portside Film and Media Recruitment" />
+        <div class="page-logo hidden lg:flex justify-center">
+          <img src="/storage/images/logo_trans.png" class="mt-4 mb-4 max-h-[90px]" alt="Whichcote Arms" />
         </div>
 
         <router-view></router-view>

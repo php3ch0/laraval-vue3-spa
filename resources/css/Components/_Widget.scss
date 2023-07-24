@@ -1,8 +1,9 @@
 .widget {
     position: relative;
-    img {
-        max-width: 100%;
+    img.img-fluid {
+        width: 100%;
     }
+
 
     &.admin-widget {
         border:1px solid transparent;

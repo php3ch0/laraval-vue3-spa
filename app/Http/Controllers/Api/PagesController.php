@@ -37,7 +37,7 @@ class PagesController extends  Controller
                     $message->from(getenv('MAIL_FROM_ADDRESS'));
                     $message->replyTo($data['email']);
                     $message->to(getenv('MAIL_TO_ADDRESS'));
-                    $message->subject('New Message From Shepway Computers');
+                    $message->subject('New Message From The Whichcote Arms');
                 });
 
             }

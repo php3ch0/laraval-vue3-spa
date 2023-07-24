@@ -2,13 +2,13 @@
   <div>
 
     <teleport to="head">
-      <title>Portside Film and Media Recruitment | Account</title>
+      <title>Whichcote Arms | Account</title>
       <meta name="description" content="Manage Your Account" />
     </teleport>
 
 
-    <h3 v-if="active" class="text-lg font-medium text-gray-900">You have enabled two factor authentication.</h3>
-    <h3 v-else class="text-lg font-medium text-gray-900">You have not enabled two factor authentication.</h3>
+    <h3 v-if="active">You have enabled two factor authentication.</h3>
+    <h3 v-else>You have not enabled two factor authentication.</h3>
 
     <p class="mt-3 text-sm text-gray-600">
       When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.

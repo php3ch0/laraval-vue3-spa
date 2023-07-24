@@ -42,7 +42,13 @@ class WidgetsController extends Controller
 
 
         if(!isset($item->id)) {
-            return response()->json(['error'=>'Widget not found by ID'],404);
+            $item = new Widgets();
+            if(!is_int($id)) {
+                $item->name=$id;
+                $item->type="TEXT";
+                $item->data="Information Coming Soon";
+                $item->save();
+            }
         }
 
         return response()->json($item,200);

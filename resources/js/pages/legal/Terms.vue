@@ -1,11 +1,13 @@
 <template>
-    <div id="TermsPage">
+    <div id="TermsPage" class="page-pad">
       <teleport to="head">
-        <title>Portside Recruitment | Terms and Conditions</title>
+        <title>Whichcote Arms | Terms and Conditions</title>
         <meta name="description" content="Terms and conditions about the use of this web site" />
       </teleport>
 
-      <div class="container">
+      <HeaderImageSmall title="Terms And Conditions" />
+
+      <div class="container my-5">
         <div class="mt-3 mb-3">
           <Widget name="Terms" />
         </div>

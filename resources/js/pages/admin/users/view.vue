@@ -40,51 +40,11 @@
                 <div class="form-error" v-if="editUserErrors.telephone">{{ editUserErrors.telephone[0] }}</div>
               </div>
 
-              <div class="form-group mb-2">
-                <label>Date Of Birth</label>
-                <div class="flex gap-4">
-                  <div>
-                    <input v-model="editUser.day" class="form-control" type="number" min="1" max="31" />
-                  </div>
-                  <div>
-                    <select v-model="editUser.month" class="form-control">
-                      <option value="1">Jan</option>
-                      <option value="2">Feb</option>
-                      <option value="3">Mar</option>
-                      <option value="4">Apr</option>
-                      <option value="5">May</option>
-                      <option value="6">Jun</option>
-                      <option value="7">Jul</option>
-                      <option value="8">Aug</option>
-                      <option value="9">Sep</option>
-                      <option value="10">Oct</option>
-                      <option value="11">Nov</option>
-                      <option value="12">Dec</option>
-                    </select>
-                  </div>
-                  <div>
-                    <input v-model="editUser.year" class="form-control" type="number" min="1940" :max="new Date().getFullYear()" />
-                  </div>
 
-                </div>
 
-                <div v-if="editUserErrors && editUserErrors.dob" class="form-error">{{ editUserErrors.dob[0]}}</div>
-              </div>
-              <div class="form-group mb-2">
-                <label>Upload CV</label>
-                <input  class="form-control" type="file" ref="file" @change="addFile" accept=".pdf,.doc,.docx" />
-                <small>Word Document or PDF File. Max 12MB</small>
-                <div v-if="editUserErrors && editUserErrors.cvfile" class="form-error">{{ editUserErrors.cvfile[0]}}</div>
-              </div>
             </div>
             <div>
-              <div class="form-group mb-2">
-                <label>Key Skills</label>
-                <textarea v-model="editUser.skills" class="form-control" style="height:90px">
-                        </textarea>
-                <small>e.g Lighting, Production, VFX, Camera, Post Production</small>
-                <div v-if="editUserErrors && editUserErrors.skills" class="form-error">{{ editUserErrors.skills[0]}}</div>
-              </div>
+
               <div class="mb-2">
                 <label>Access Level</label>
                 <select v-model="editUser.role" :class="{'error':editUserErrors.role}">

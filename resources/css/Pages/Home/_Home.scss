@@ -1,6 +1,44 @@
 #HomePage {
+    #HeaderImage {
+            height:80vh;
+        .header-image {
+
+        }
+    }
+
+    .home-image-grid {
+        #Widget {
+            overflow: hidden;
+        }
+        @media screen and (min-width: 1200px) {
+            .img-home {
+                max-width: unset;
+                height:500px !important;
+                width:auto !important;
+            }
+        }
+
+    }
 
 
 
+    .item {
+        .item-image {
+
+        }
+        @media screen and (min-width: 780px) {
+            .item-text {
+                min-height:300px;
+            }
+        }
+
+        .item-link {
+            a {
+                font-weight: bold;
+                color: $gold;
+            }
+
+        }
+    }
 
 }

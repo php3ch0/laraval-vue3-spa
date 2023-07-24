@@ -1,67 +1,53 @@
 #DesktopNav {
     position: fixed;
     left:0;
+    right:0;
     top:0;
     z-index: 999;
-    width:105px;
-    height:100vh;
-    background-color: $blue;
-    border-right:1px solid #000;
+    width:100%;
+    background-color: rgba($green,0.8);
+    border-bottom:4px solid $gold-light;
     overflow: hidden;
-    transition: width 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+
+    &.solid {
+        background-color: rgba($green,1);
+    }
 
     .logo-wrap,{
        justify-content: center;
-    }
-
-    .hamburger {
-        .hamburger-inner {
-            background-color: #FFF;
-            &:before,&:after {
-                background-color: #FFF;
-            }
+        img {
+            height:80px;
         }
     }
 
-    .menu {
-        width:280px;
-        opacity: 0;
-        transition: all 0.4s ease-in-out;
+    h1 {
+        color: $gold-light;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 3px;
+        font-size: 1.4em;
     }
 
-    .divider {
-        padding-bottom:15px;
-        margin-bottom:15px;
-        border-bottom:1px solid $blue-light;
-    }
-
-
-
-    &.active {
-        width:280px;
-        .menu {
-            width:250px;
-            opacity: 1;
-        }
-    }
 
     nav.menu {
+        margin-left:auto;
         ul {
             margin: 0;
             padding: 0;
+            display: flex;
             li {
                 background-color: none;
+
                 a  {
-                    display: block;
                     transition: color 0.4s ease-in-out;
                     padding: 8px 14px;
-                    font-size: 19px;
-                    font-weight: 300;
-                    color: $blue-light;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: $gold-light;
                     &:active, &:focus,  &:hover {
-                        padding: 8px 14px;
-                        font-size: 19px;
-                        color: #FFF;
+                        color: #000;
                     }
 
 

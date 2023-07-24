@@ -1,7 +1,7 @@
 <template>
     <div id="CookiesPage">
       <teleport to="head">
-        <title>The Picnic Hut | Cookie Policy</title>
+        <title>The Whichcote Arms Osbournby | Cookie Policy</title>
         <meta name="description" content="Information about cookies and how we use the information stored about your visit" />
       </teleport>
 

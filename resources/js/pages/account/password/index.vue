@@ -2,9 +2,11 @@
   <form ref="passwordUpdateForm" @submit.prevent="updatePassword" class="space-y-6">
 
     <teleport to="head">
-      <title>Portside Film and Media Recruitment | Account</title>
+      <title>Whichcote Arms | Account</title>
       <meta name="description" content="Manage Your Account" />
     </teleport>
+
+    <h3>Change Password</h3>
 
     <div>
       <label class="block font-medium text-sm text-gray-500" for="current_password">

@@ -18,7 +18,7 @@ class Widgets extends Model
     protected $appends =['html','image_url','alt'];
 
     public function getHtmlAttribute() {
-        if($this->type=='TEXT') {
+        if($this->type=='TEXT' || $this->type=='VIDEO') {
             return $this->data;
         }
         return null;

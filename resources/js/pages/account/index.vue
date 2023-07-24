@@ -1,7 +1,7 @@
 <template>
-  <div id="AccountPage">
+  <div id="AccountPage" class="page-pad">
 
-    <HeaderImage title="Account" imageurl="/storage/images/headers/account.jpg" />
+    <HeaderImageSmall title="Account" />
 
   <div class="mt-4 mb-4 pt-4 pb-4">
       <div class="container mx-auto">
@@ -24,9 +24,9 @@
 
 <script>
 import AccountMenu from "./components/AccountMenu";
-import HeaderImage from "../../components/HeaderImage";
+
 export default {
   name: "AccountPage",
-  components: {HeaderImage, AccountMenu}
+  components: {AccountMenu}
 }
 </script>

@@ -1,5 +1,5 @@
 .btn {
-    background-color: $blue-dark;
+    background-color: $green;
     padding: 10px 25px;
     color:#FFF;
     transition: background-color 0.4s ease-in-out;
@@ -10,7 +10,7 @@
     font-size: 22px;
     font-weight: bold;
     &:hover {
-        background-color: $blue-light !important;
+        background-color: $black !important;
         color: #FFF;
         cursor: pointer;
     }

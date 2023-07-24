@@ -3,7 +3,7 @@
     position: relative;
     z-index: 8;
     padding:10px;
-    background-color: #FFF;
+    background-color: $green;
     .logo {
         max-height: 75px;
         max-width: 100%;
@@ -13,7 +13,7 @@
     }
 
     .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
-        background-color: $blue;
+        background-color: $gold;
         border-radius: unset;
     }
     .hamburger-inner:before {
@@ -34,26 +34,26 @@
 
         &.nav-open {
             max-height: 1500px;
-            padding-top: 15px;
-            border-top:1px solid $blue-light;
+            padding-top: 0;
+            border-top:1px solid $gold;
             margin-top:15px;
         }
         ul.navbar {
             margin:0px;
             padding:0px;
             display: block;
-            background-color: $blue;
+            background-color: $green;
             li {
                 display: block;
                 a {
                     display: block;
                     width:100%;
                     padding: 12px;
-                    color: $white;
+                    color: $gold;
                     font-size: 1.2em;
-                    border-bottom:1px solid $blue-light;
+                    border-bottom:1px solid $gold;
                     &:hover {
-                        background-color: $blue-light;
+                        background-color: $green;
                         color: $white;
                     }
                 }

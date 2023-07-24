@@ -90,6 +90,7 @@ export default {
           axios.get('/api/widgets/'+self.$props.name).then(function(res) {
               self.widget = res.data;
               self.loading=false;
+
           }).catch(e=> {
               console.log(e.response.data);
           });
